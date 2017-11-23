@@ -45,11 +45,12 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-std=c++14" />
-			<Add directory="C:/Users/Justin/Desktop/C++/SFML/SFML-2.4.2/include" />
+			<Add directory="SFML/SFML-2.4.2/include" />
 		</Compiler>
 		<Linker>
-			<Add directory="C:/Users/Justin/Desktop/C++/SFML/SFML-2.4.2/lib" />
+			<Add directory="SFML/SFML-2.4.2/lib" />
 		</Linker>
+		<Unit filename="Object.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="openal32.dll" />
 		<Unit filename="sfgui-d.dll" />
