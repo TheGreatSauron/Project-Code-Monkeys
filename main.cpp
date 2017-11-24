@@ -11,9 +11,14 @@
 int main()
 {
     //Main game window
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Aluminum Dafaa Raiders");
 
+    //Use for creating objects
+    //e.g. objectVector.push_back(std::unique_ptr<Object> (new Enemy()));
     std::vector<std::unique_ptr<Object>> objectVector;
+
+    //Counts time between frames
+    sf::Clock frameClock;
 
     while (window.isOpen())
     {
@@ -29,7 +34,7 @@ int main()
         }
 
         //Update all objects
-        sf::Time deltaTime;
+        sf::Time deltaTime = frameClock.restart();
         for (std::unique_ptr<Object>& currentObject : objectVector)
         {
             currentObject->update(deltaTime);
