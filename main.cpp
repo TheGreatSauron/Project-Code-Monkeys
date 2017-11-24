@@ -7,6 +7,7 @@
 
 //Our includes
 #include "Object.h"
+#include "Player.h"
 
 int main()
 {

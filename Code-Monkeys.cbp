@@ -51,6 +51,9 @@
 			<Add directory="SFML/SFML-2.4.2/lib" />
 		</Linker>
 		<Unit filename="Object.h" />
+		<Unit filename="Player.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="main.cpp" />
 		<Unit filename="openal32.dll" />
 		<Unit filename="sfgui-d.dll" />
