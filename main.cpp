@@ -40,6 +40,16 @@ int main()
             currentObject->update(deltaTime);
         }
 
+        //Do garbage collection, needs to iterate
+        for (auto i = objectVector.begin(); i != objectVector.end(); i++)
+        {
+            if ((*i)->hasBeenDestroyed())
+            {
+                objectVector.erase(i);
+                i--;
+            }
+        }
+
         //Reset window
         window.clear();
 
