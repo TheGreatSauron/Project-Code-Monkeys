@@ -1,8 +1,6 @@
 #include "Object.h"
 
-Object::Object(bool willBeDrawable) : isDrawable(willBeDrawable), isDestroyed(false)
-{
-}
+Object::Object(bool willBeDrawable) : isDrawable(willBeDrawable), isDestroyed(false) {}
 
 void Object::destroy()
 {
