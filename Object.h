@@ -11,7 +11,7 @@ class Object : public sf::Drawable, public sf::Transformable
 
 public:
     //Standard constructor
-    Object(bool willBeDrawable);
+    Object(bool willBeDrawable = false);
 
     //Call to kill the object and it will get garbage collected
     void destroy();
