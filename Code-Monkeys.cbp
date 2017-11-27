@@ -54,6 +54,7 @@
 		<Unit filename="Player.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="PlayerLives.cpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="openal32.dll" />
 		<Unit filename="sfgui-d.dll" />
