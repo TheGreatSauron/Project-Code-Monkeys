@@ -1,6 +1,10 @@
 # depslib dependency file v1.0
-1511472395 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
+1511557002 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
+	<vector>
+	<memory>
+	<iostream>
 	<SFML/Graphics.hpp>
+	"Object.h"
 
 1511471982 c:\users\taylorc16\documents\github\project-code-monkeys\sfml\sfml-2.4.2\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -389,4 +393,10 @@
 	<SFML/System/String.hpp>
 	<string>
 	<vector>
+
+1511556829 c:\users\taylorc16\documents\github\project-code-monkeys\object.h
+	"SFML/graphics.hpp"
+
+1511555434 source:c:\users\taylorc16\documents\github\project-code-monkeys\object.cpp
+	"Object.h"
 

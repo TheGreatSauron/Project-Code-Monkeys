@@ -44,12 +44,14 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-std=c++11" />
 			<Add option="-std=c++14" />
 			<Add directory="SFML/SFML-2.4.2/include" />
 		</Compiler>
 		<Linker>
 			<Add directory="SFML/SFML-2.4.2/lib" />
 		</Linker>
+		<Unit filename="Object.cpp" />
 		<Unit filename="Object.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="openal32.dll" />
