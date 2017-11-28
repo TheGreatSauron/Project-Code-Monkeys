@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1511816469 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
+1511818534 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
 	<vector>
 	<memory>
 	<SFML/Graphics.hpp>
@@ -393,9 +393,16 @@
 	<string>
 	<vector>
 
-1511816497 c:\users\taylorc16\documents\github\project-code-monkeys\object.h
+1511904544 c:\users\taylorc16\documents\github\project-code-monkeys\object.h
 	"SFML/graphics.hpp"
 
-1511818060 source:c:\users\taylorc16\documents\github\project-code-monkeys\object.cpp
+1511904553 source:c:\users\taylorc16\documents\github\project-code-monkeys\object.cpp
 	"Object.h"
+
+1511904060 source:c:\users\taylorc16\documents\github\project-code-monkeys\spline.cpp
+	"Spline.h"
+
+1511904567 c:\users\taylorc16\documents\github\project-code-monkeys\spline.h
+	<queue>
+	<SFML/System.hpp>
 
