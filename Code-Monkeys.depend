@@ -1,10 +1,26 @@
 # depslib dependency file v1.0
-1511555608 source:c:\codingproject\project-code-monkeys\main.cpp
+100 `º/@²/ À/ð»/@¼/
+
+1511901490 source:c:\codingproject\project-code-monkeys\main.cpp
 	<vector>
 	<memory>
 	<SFML/Graphics.hpp>
 	"Object.h"
 	"Player.h"
+
+1511816469 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
+
+1511555434 1da19c5def5e69c293d1335c8a4affddf6c5d
+	<vector>
+	<memory>
+	<SFML/Graphics.hpp>
+	"Object.h"
+	"Object.h"
+
+1511554814 D
+	"Player.h"
+
+1511816469 
 
 1511554814 c:\codingproject\project-code-monkeys\sfml\sfml-2.4.2\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -394,10 +410,23 @@
 	<string>
 	<vector>
 
-1511554810 c:\codingproject\project-code-monkeys\object.h
+1511901490 c:\codingproject\project-code-monkeys\object.h
 	"SFML/graphics.hpp"
 
-1511818916 c:\codingproject\project-code-monkeys\player.h
+1511904712 c:\codingproject\project-code-monkeys\player.h
 	"SFML/Graphics.hpp"
 	"Object.h"
+
+1511818916 hics.hpp"
+
+1511816497 c:\users\taylorc16\documents\github\project-code-monkeys\object.h
+	"SFML/graphics.hpp"
+
+1511555434 source:c:\users\taylorc16\documents\github\project-code-monkeys\object.cpp
+
+1511901490 source:c:\codingproject\project-code-monkeys\object.cpp
+	"Object.h"
+
+1511904721 source:c:\codingproject\project-code-monkeys\playerlives.cpp
+	"Player.h"
 

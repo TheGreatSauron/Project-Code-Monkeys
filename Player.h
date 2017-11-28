@@ -5,17 +5,13 @@
 #include "Object.h"
 
 //Used to control each of the players capabilities
-class Player : public Object
+class Player : public Object //Creating the Player class deriving from the Object class
 {
-protected:
-    int lives;
-    int livesLost;
-
 public:
-    int getLives();
-
+    int manipulate_lives(int,int); //first int = amount of lives, second int = lives lost
 
 private:
+    int life;
 
 };
 
