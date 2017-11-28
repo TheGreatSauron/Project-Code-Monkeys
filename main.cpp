@@ -7,6 +7,7 @@
 
 //Our includes
 #include "Object.h"
+#include "Enemy.h"
 
 int main()
 {
