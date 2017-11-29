@@ -399,10 +399,11 @@
 1511904553 source:c:\users\taylorc16\documents\github\project-code-monkeys\object.cpp
 	"Object.h"
 
-1511904060 source:c:\users\taylorc16\documents\github\project-code-monkeys\spline.cpp
+1511991216 source:c:\users\taylorc16\documents\github\project-code-monkeys\spline.cpp
 	"Spline.h"
+	<cmath>
 
-1511904567 c:\users\taylorc16\documents\github\project-code-monkeys\spline.h
-	<queue>
+1511991227 c:\users\taylorc16\documents\github\project-code-monkeys\spline.h
+	<vector>
 	<SFML/System.hpp>
 
