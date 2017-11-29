@@ -51,6 +51,8 @@
 		<Linker>
 			<Add directory="SFML/SFML-2.4.2/lib" />
 		</Linker>
+		<Unit filename="Enemy.cpp" />
+		<Unit filename="Enemy.h" />
 		<Unit filename="Object.cpp" />
 		<Unit filename="Object.h" />
 		<Unit filename="main.cpp" />

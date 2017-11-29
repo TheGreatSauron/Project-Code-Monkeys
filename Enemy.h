@@ -13,7 +13,7 @@ protected:
 public:
     // Deals damage to current health
 	void dealDamage(int damage);
-	// Constructor
+	// Constructor declaration
 	Enemy(int in_maxHealth);
 
 };
