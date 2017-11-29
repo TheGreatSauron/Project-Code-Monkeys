@@ -1,9 +1,16 @@
 #include "Player.h"
 
-Player::manipulate_lives(int total_life, int damage)
+Player::Player(int life)
 {
-    life = total_life - damage;
-
-    return life;
+    lives = life;
 }
 
+void Player::manipulateLives(int manipulator)
+{
+    lives += manipulator;
+}
+
+void Player::update(sf::Time deltaTime)
+{
+
+}
