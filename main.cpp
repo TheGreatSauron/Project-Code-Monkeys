@@ -12,7 +12,7 @@
 int main()
 {
     //Main game window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Aluminum Dafaa Raiders");
+    sf::RenderWindow window(sf::VideoMode(1368, 700), "Aluminum Dafaa Raiders");
 
     //Use for creating objects
     //e.g. objectVector.push_back(std::unique_ptr<Object> (new Enemy()));
@@ -20,6 +20,14 @@ int main()
 
     //Counts time between frames
     sf::Clock frameClock;
+
+    sf::Texture errorTexture;
+    if (!errorTexture.loadFromFile("Error.png"))
+        {
+            return EXIT_FAILURE;
+        }
+
+    objectVector.push_back(std::unique_ptr<Object> (new Enemy(errorTexture)));
 
     while (window.isOpen())
     {

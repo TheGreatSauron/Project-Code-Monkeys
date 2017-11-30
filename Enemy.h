@@ -4,6 +4,9 @@
 
 class Enemy : public Object
 {
+private:
+   virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
 protected:
 	// Current Health
 	int health;
@@ -11,10 +14,12 @@ protected:
 	const int maxHealth;
 
 public:
+    // Constructor declaration
+	Enemy(sf::Texture& texture, int in_maxHealth = 1);
     // Deals damage to current health
 	void dealDamage(int damage);
-	// Constructor declaration
-	Enemy(int in_maxHealth);
+	virtual void update(sf::Time deltaTime) override;
+    sf::Sprite sprite;
 
 };
 
