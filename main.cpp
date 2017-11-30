@@ -31,6 +31,10 @@ int main()
             case sf::Event::Closed:
                 window.close();
                 break;
+
+            case sf::Event::KeyPressed: //possibly get rid of
+                //call Player.playerMove(int) function
+                break;
             }
         }
 

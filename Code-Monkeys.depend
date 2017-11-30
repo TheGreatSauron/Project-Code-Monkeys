@@ -1,7 +1,7 @@
 # depslib dependency file v1.0
 100 `º/@²/ À/ð»/@¼/
 
-1511901490 source:c:\codingproject\project-code-monkeys\main.cpp
+1512078137 source:c:\codingproject\project-code-monkeys\main.cpp
 	<vector>
 	<memory>
 	<SFML/Graphics.hpp>
@@ -413,8 +413,7 @@
 1511901490 c:\codingproject\project-code-monkeys\object.h
 	"SFML/graphics.hpp"
 
-1511991898 c:\codingproject\project-code-monkeys\player.h
-	"SFML/Graphics.hpp"
+1512078188 c:\codingproject\project-code-monkeys\player.h
 	"Object.h"
 
 1511818916 hics.hpp"
@@ -430,6 +429,6 @@
 1511904721 source:c:\codingproject\project-code-monkeys\playerlives.cpp
 	"Player.h"
 
-1511991888 source:c:\codingproject\project-code-monkeys\player.cpp
+1512077251 source:c:\codingproject\project-code-monkeys\player.cpp
 	"Player.h"
 
