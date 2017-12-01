@@ -46,7 +46,10 @@ int main()
         sf::Time deltaTime = frameClock.restart();
         for (std::unique_ptr<Object>& currentObject : objectVector)
         {
-            currentObject->update(deltaTime);
+            if (!currentObject->hasBeenDestroyed());
+            {
+                currentObject->update(deltaTime);
+            }
         }
 
         //Do garbage collection, needs to iterate
@@ -62,9 +65,10 @@ int main()
         //Reset window
         window.clear();
 
+        //Draw all drawable objects
         for (std::unique_ptr<Object>& currentObject : objectVector)
         {
-            if (currentObject->isDrawable)
+            if (currentObject->isDrawable && !currentObject->hasBeenDestroyed())
             {
                 window.draw(*currentObject);
             }

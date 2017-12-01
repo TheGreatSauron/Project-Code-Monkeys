@@ -1,8 +1,8 @@
 #include "Object.h"
 
-Object::Object(bool willBeDrawable) : isDrawable(willBeDrawable), isDestroyed(false)
-{
-}
+void Object::draw(sf::RenderTarget& target, sf::RenderStates states) const {}
+
+Object::Object(bool willBeDrawable) : isDrawable(willBeDrawable), isDestroyed(false) {}
 
 void Object::destroy()
 {
