@@ -6,10 +6,11 @@
 //Base class for all objects that update every frame
 class Object : public sf::Drawable, public sf::Transformable
 {
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-
     //Internal track of garbage collection
     bool isDestroyed;
+
+protected:
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 public:
     //Standard constructor
