@@ -413,7 +413,7 @@
 1511901490 c:\codingproject\project-code-monkeys\object.h
 	"SFML/graphics.hpp"
 
-1512078188 c:\codingproject\project-code-monkeys\player.h
+1512158855 c:\codingproject\project-code-monkeys\player.h
 	"Object.h"
 
 1511818916 hics.hpp"
@@ -429,6 +429,6 @@
 1511904721 source:c:\codingproject\project-code-monkeys\playerlives.cpp
 	"Player.h"
 
-1512077251 source:c:\codingproject\project-code-monkeys\player.cpp
+1512158875 source:c:\codingproject\project-code-monkeys\player.cpp
 	"Player.h"
 

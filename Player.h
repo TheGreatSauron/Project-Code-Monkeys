@@ -11,14 +11,15 @@ class Player : public Object //Creating the Player class deriving from the Objec
 {
 private:
     int lives; //Amount of lives for the player
-    int movement;
+    int xMovement; //left and right movement
+    int yMovement; //up and down movement
 
 public:
     //Player operator+(const Player&) const;
     virtual void update(sf::Time deltaTime) override; //overriding the virtual function in object.h
     bool isDrawable; //? fix
 
-    Player(int = 3); //constructor with the default lives being 3
+    Player(int = 3, int = 0, int = 0); //constructor with the default lives being 3
     void manipulateLives(int); //does the same thing as -- or ++ but can have any value inputted
 
     void operator --() //defines the operator -- to subtract one from lives
@@ -31,7 +32,6 @@ public:
         lives = lives + 1;
     }
 
-    void playerMove(int);
 };
 
 #endif // PLAYER_H_INCLUDED
