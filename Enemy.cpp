@@ -3,6 +3,7 @@
 // Constructor
 Enemy::Enemy(sf::Texture& texture, int in_maxHealth) : Object(true), maxHealth(in_maxHealth), health(in_maxHealth)
 {
+    // Loads in texture from argument
     sprite.setTexture(texture);
 }
 
@@ -18,11 +19,13 @@ void Enemy::dealDamage(int damage)
 	}
 }
 
+// What to do every frame
 void Enemy::update(sf::Time deltaTime)
 {
 
 }
 
+// Draws enemy/error
 void Enemy::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     states = getTransform();
