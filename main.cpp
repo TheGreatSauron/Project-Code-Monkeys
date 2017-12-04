@@ -8,11 +8,12 @@
 
 //Our includes
 #include "Object.h"
+#include "Enemy.h"
 
 int main()
 {
     //Main game window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Aluminum Dafaa Raiders");
+    sf::RenderWindow window(sf::VideoMode(1368, 700), "Aluminum Dafaa Raiders");
 
     //Use for creating objects
     //e.g. objectVector.push_back(std::unique_ptr<Object> (new Enemy()));
@@ -30,6 +31,12 @@ int main()
 
     //Counts time between frames, this should be the last thing created before the game starts
     sf::Clock frameClock;
+
+    sf::Texture errorTexture;
+    if (!errorTexture.loadFromFile("Error.png"))
+        {
+            return EXIT_FAILURE;
+        }
 
     while (window.isOpen())
     {
@@ -85,3 +92,27 @@ int main()
 
     return 0;
 }
+
+/*
+Base class
+Spline spline;
+
+Derived class
+spline.addNode(sf::Vector2f(100, 0));
+spline.offset(getPosition());
+
+Base class update
+float speed;
+if (speed >= spline.getRemainingDistance())
+{
+    setPosition(spline.getCurrentNode());
+    speed -= spline.getRemainingDistance();
+    if (!spline.iterate())
+    {
+        //something, movement over
+    }
+}
+sf::Vector2f direction = spline.getDirection(getPosition());
+direction *= speed;
+setPosition(getPosition() + direction);
+*/
