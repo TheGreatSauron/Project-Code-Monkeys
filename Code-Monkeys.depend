@@ -1,16 +1,20 @@
 # depslib dependency file v1.0
+100 (
+
 100 `º/@²/ À/ð»/@¼/
 
-1512078137 source:c:\codingproject\project-code-monkeys\main.cpp
+1512419878 source:c:\codingproject\project-code-monkeys\main.cpp
 	<vector>
 	<memory>
 	<SFML/Graphics.hpp>
 	"Object.h"
 	"Player.h"
 
-1511816469 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
+1511818534 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
 
 1511555434 1da19c5def5e69c293d1335c8a4affddf6c5d
+
+1512158672 1d709f411508cc557e3069245fdee9e8c76d1
 	<vector>
 	<memory>
 	<SFML/Graphics.hpp>
@@ -20,7 +24,7 @@
 1511554814 D
 	"Player.h"
 
-1511816469 
+1512158875 
 
 1511554814 c:\codingproject\project-code-monkeys\sfml\sfml-2.4.2\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -410,25 +414,43 @@
 	<string>
 	<vector>
 
-1511901490 c:\codingproject\project-code-monkeys\object.h
+1512419878 c:\codingproject\project-code-monkeys\object.h
 	"SFML/graphics.hpp"
 
-1512158855 c:\codingproject\project-code-monkeys\player.h
+1512421116 c:\codingproject\project-code-monkeys\player.h
 	"Object.h"
 
 1511818916 hics.hpp"
 
-1511816497 c:\users\taylorc16\documents\github\project-code-monkeys\object.h
+1512075991 c:\users\taylorc16\documents\github\project-code-monkeys\object.h
+	"SFML/graphics.hpp"
 	"SFML/graphics.hpp"
 
-1511555434 source:c:\users\taylorc16\documents\github\project-code-monkeys\object.cpp
+1511904553 source:c:\users\taylorc16\documents\github\project-code-monkeys\object.cpp
+	"Object.h"
 
-1511901490 source:c:\codingproject\project-code-monkeys\object.cpp
+1512419878 source:c:\codingproject\project-code-monkeys\object.cpp
 	"Object.h"
 
 1511904721 source:c:\codingproject\project-code-monkeys\playerlives.cpp
 	"Player.h"
 
-1512158875 source:c:\codingproject\project-code-monkeys\player.cpp
+1512421044 source:c:\codingproject\project-code-monkeys\player.cpp
 	"Player.h"
+
+1512158732 source:c:\users\taylorc16\documents\github\project-code-monkeys\spline.cpp
+	"Spline.h"
+	<cmath>
+
+1512158672 c:\users\taylorc16\documents\github\project-code-monkeys\spline.h
+	<vector>
+	<SFML/System.hpp>
+
+1512419878 source:c:\codingproject\project-code-monkeys\spline.cpp
+	"Spline.h"
+	<cmath>
+
+1512419878 c:\codingproject\project-code-monkeys\spline.h
+	<vector>
+	<SFML/System.hpp>
 

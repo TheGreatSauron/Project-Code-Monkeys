@@ -7,27 +7,37 @@
 //referencing this documentation: https://www.programiz.com/cpp-programming/operator-overloading
 
 //Used to control each of the players capabilities
-class Player : public Object //Creating the Player class deriving from the Object class
+class Player : public Object
 {
 private:
-    int lives; //Amount of lives for the player
-    int xMovement; //left and right movement
-    int yMovement; //up and down movement
+    //Amount  of lives for the player
+    int lives;
+    //left and right movement
+    int xMovement;
+    //up and down movement
+    int yMovement;
 
 public:
-    //Player operator+(const Player&) const;
-    virtual void update(sf::Time deltaTime) override; //overriding the virtual function in object.h
-    bool isDrawable; //? fix
+    //overriding the virtual function in object.h
+    virtual void update(sf::Time deltaTime) override;
 
-    Player(int = 3, int = 0, int = 0); //constructor with the default lives being 3
-    void manipulateLives(int); //does the same thing as -- or ++ but can have any value inputted
+    //? fix
+    bool isDrawable;
 
-    void operator --() //defines the operator -- to subtract one from lives
+    //default constructor passing in a default of lives at 3
+    Player(int = 3, int = 0, int = 0);
+
+    //adds or removes lives
+    void manipulateLives(int);
+
+    //defines the operator -- to subtract one from lives
+    void operator --()
     {
         lives = lives - 1;
     }
 
-    void operator ++() //defines the operator ++ to add one to lives
+    //defines the operator ++ to add one to lives
+    void operator ++()
     {
         lives = lives + 1;
     }

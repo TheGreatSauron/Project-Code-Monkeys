@@ -1,5 +1,9 @@
 #include "Player.h"
 
+void Player::update(sf::Time deltaTime)
+{
+}
+
 Player::Player(int life, int x, int y)
 {
     lives = life;
@@ -17,6 +21,3 @@ void Player::manipulateLives(int number)
 
 }*/
 
-void Player::update(sf::Time deltaTime)
-{
-}
