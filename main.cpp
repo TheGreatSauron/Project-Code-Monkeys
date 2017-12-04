@@ -1,6 +1,7 @@
 //Standard includes
 #include <vector>
 #include <memory>
+#include <ctime>
 
 //SFML includes
 #include <SFML/Graphics.hpp>
@@ -18,7 +19,17 @@ int main()
     //e.g. objectVector.push_back(std::unique_ptr<Object> (new Enemy()));
     std::vector<std::unique_ptr<Object>> objectVector;
 
-    //Counts time between frames
+    std::srand(std::time(NULL));
+    sf::VertexArray starMap;
+    for (unsigned n = 0; n < 100; n++)
+    {
+        float x = rand()%window.getSize().x;
+        float y = rand()%window.getSize().y;
+
+        starMap.append(sf::Vertex(sf::Vector2f(x, y), sf::Color::White));
+    }
+
+    //Counts time between frames, this should be the last thing created before the game starts
     sf::Clock frameClock;
 
     sf::Texture errorTexture;
@@ -62,6 +73,9 @@ int main()
 
         //Reset window
         window.clear();
+
+        //Draws background
+        window.draw(starMap);
 
         //Draw all drawable objects
         for (std::unique_ptr<Object>& currentObject : objectVector)

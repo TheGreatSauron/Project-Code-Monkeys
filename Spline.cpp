@@ -50,7 +50,14 @@ bool Spline::iterate()
 {
     currentNode++;
 
-    return currentNode < nodeVector.size();
+    if (currentNode >= nodeVector.size())
+    {
+        currentNode = 0;
+
+        return false;
+    }
+
+    return true;
 }
 
 sf::Vector2f Spline::getCurrentNode() const
