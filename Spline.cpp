@@ -16,10 +16,7 @@ void Spline::offset(sf::Vector2f offset)
 
 void Spline::addNode(sf::Vector2f position)
 {
-    sf::Vector2f newNode;
-    newNode = position;
-
-    nodeVector.push_back(newNode);
+    nodeVector.push_back(position);
 }
 
 sf::Vector2f Spline::getDirection(sf::Vector2f position) const
