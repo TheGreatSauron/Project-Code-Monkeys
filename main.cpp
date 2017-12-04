@@ -27,8 +27,6 @@ int main()
             return EXIT_FAILURE;
         }
 
-    objectVector.push_back(std::unique_ptr<Object> (new Enemy(errorTexture)));
-
     while (window.isOpen())
     {
         sf::Event event;
@@ -80,3 +78,27 @@ int main()
 
     return 0;
 }
+
+/*
+Base class
+Spline spline;
+
+Derived class
+spline.addNode(sf::Vector2f(100, 0));
+spline.offset(getPosition());
+
+Base class update
+float speed;
+if (speed >= spline.getRemainingDistance())
+{
+    setPosition(spline.getCurrentNode());
+    speed -= spline.getRemainingDistance();
+    if (!spline.iterate())
+    {
+        //something, movement over
+    }
+}
+sf::Vector2f direction = spline.getDirection(getPosition());
+direction *= speed;
+setPosition(getPosition() + direction);
+*/

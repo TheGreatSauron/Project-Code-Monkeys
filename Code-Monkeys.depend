@@ -399,10 +399,10 @@
 1511555434 source:c:\users\taylorc16\documents\github\project-code-monkeys\object.cpp
 	"Object.h"
 
-1511903648 source:d:\c++\projects\c++ game\project-code-monkeys\object.cpp
+1512159612 source:d:\c++\projects\c++ game\project-code-monkeys\object.cpp
 	"Object.h"
 
-1512157912 d:\c++\projects\c++ game\project-code-monkeys\object.h
+1512159614 d:\c++\projects\c++ game\project-code-monkeys\object.h
 	"SFML/graphics.hpp"
 
 1511903710 d:\c++\projects\c++ game\project-code-monkeys\sfml\sfml-2.4.2\include\sfml\graphics.hpp
@@ -793,16 +793,26 @@
 	<string>
 	<vector>
 
-1512157914 source:d:\c++\projects\c++ game\project-code-monkeys\main.cpp
+1512421282 source:d:\c++\projects\c++ game\project-code-monkeys\main.cpp
 	<vector>
 	<memory>
 	<SFML/Graphics.hpp>
 	"Object.h"
 	"Enemy.h"
 
-1512158134 d:\c++\projects\c++ game\project-code-monkeys\enemy.h
+1512421282 d:\c++\projects\c++ game\project-code-monkeys\enemy.h
 	"Object.h"
+	"Spline.h"
 
-1512157912 source:d:\c++\projects\c++ game\project-code-monkeys\enemy.cpp
+1512423264 source:d:\c++\projects\c++ game\project-code-monkeys\enemy.cpp
 	"Enemy.h"
+	"Spline.h"
+
+1512422330 source:d:\c++\projects\c++ game\project-code-monkeys\spline.cpp
+	"Spline.h"
+	<cmath>
+
+1512159612 d:\c++\projects\c++ game\project-code-monkeys\spline.h
+	<vector>
+	<SFML/System.hpp>
 
