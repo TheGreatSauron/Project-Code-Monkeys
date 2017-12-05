@@ -12,20 +12,13 @@ class Player : public Object
 private:
     //Amount  of lives for the player
     int lives;
-    //left and right movement
-    int xMovement;
-    //up and down movement
-    int yMovement;
 
 public:
+    //default constructor passing in a default of lives at 3
+    Player(sf::Vector2f Position, sf::Texture texture, int = 3);
+
     //overriding the virtual function in object.h
     virtual void update(sf::Time deltaTime) override;
-
-    //? fix
-    bool isDrawable;
-
-    //default constructor passing in a default of lives at 3
-    Player(int = 3, int = 0, int = 0);
 
     //adds or removes lives
     void manipulateLives(int);
@@ -41,6 +34,8 @@ public:
     {
         lives = lives + 1;
     }
+
+    sf::Sprite sprite;
 
 };
 

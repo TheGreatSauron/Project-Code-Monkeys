@@ -19,7 +19,7 @@ public:
     //Call to kill the object and it will get garbage collected
     void destroy();
 
-    //Returns wether the object is waiting for garbage collection
+    //Returns whether the object is waiting for garbage collection
     bool hasBeenDestroyed() const;
 
     //Is called every frame
