@@ -29,14 +29,14 @@ int main()
         starMap.append(sf::Vertex(sf::Vector2f(x, y), sf::Color::White));
     }
 
-    //Counts time between frames, this should be the last thing created before the game starts
-    sf::Clock frameClock;
-
     sf::Texture errorTexture;
     if (!errorTexture.loadFromFile("Error.png"))
-        {
-            return EXIT_FAILURE;
-        }
+    {
+        return EXIT_FAILURE;
+    }
+
+    //Counts time between frames, this should be the last thing created before the game starts
+    sf::Clock frameClock;
 
     while (window.isOpen())
     {
