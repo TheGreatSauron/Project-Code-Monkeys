@@ -10,10 +10,11 @@ maxHealth(in_maxHealth), health(in_maxHealth), speed(in_speed)
     // Loads in texture from argument
     sprite.setTexture(texture);
 
-    // Add nodes go in constructor
-    // spline.addNode(sf::Vector2f(100, 0));
-    // spline.addNode(sf::Vector2f(0, 100));
-    // spline.offset(getPosition());
+    //Add nodes go in constructor
+    //THESE ARE TEST NODES AND ALL NEW ENEMEYS WILL FOLLOW THIS PATH
+    spline.addNode(sf::Vector2f(100, 0));
+    spline.addNode(sf::Vector2f(1336, 668));
+    spline.offset(getPosition());
 }
 
 // Deal damage function

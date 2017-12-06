@@ -21,6 +21,7 @@ int main()
     //e.g. objectVector.push_back(std::unique_ptr<Object> (new Enemy()));
     std::vector<std::unique_ptr<Object>> objectVector;
 
+
     //Make stars!!!
     std::srand(std::time(NULL));
     sf::VertexArray starMap;
@@ -42,6 +43,9 @@ int main()
         {
             return EXIT_FAILURE;
         }
+    //test enemy
+     objectVector.push_back(std::unique_ptr<Object> (new Enemy(sf::Vector2f(0,0), errorTexture, 100, 50)));
+
 
     sf::Font Arial;
     if (!Arial.loadFromFile("resources/font/arial.ttf"))
