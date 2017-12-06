@@ -9,6 +9,7 @@
 //Our includes
 #include "Object.h"
 #include "Enemy.h"
+#include "Framerate.h"
 
 int main()
 {
@@ -19,7 +20,7 @@ int main()
     //e.g. objectVector.push_back(std::unique_ptr<Object> (new Enemy()));
     std::vector<std::unique_ptr<Object>> objectVector;
 
-    //Create background
+    //Make stars!!!
     std::srand(std::time(NULL));
     sf::VertexArray starMap;
     for (unsigned n = 0; n < 200; n++)
@@ -30,14 +31,23 @@ int main()
         starMap.append(sf::Vertex(sf::Vector2f(x, y), sf::Color::White));
     }
 
+    //Counts time between frames, this should be the last thing created before the game starts
+    //Taylor's shitty clock
+    sf::Clock deltaClock;
+    //Justin's framerate clock
+    sf::Clock frameClock;
+
     sf::Texture errorTexture;
-    if (!errorTexture.loadFromFile("Error.png"))
+    if (!errorTexture.loadFromFile("resources/photos/Error.png"))
+        {
+            return EXIT_FAILURE;
+        }
+
+    sf::Font Arial;
+    if (!Arial.loadFromFile("resources/font/arial.ttf"))
     {
         return EXIT_FAILURE;
     }
-
-    //Counts time between frames, this should be the last thing created before the game starts
-    sf::Clock frameClock;
 
     while (window.isOpen())
     {
@@ -53,7 +63,7 @@ int main()
         }
 
         //Update all objects
-        sf::Time deltaTime = frameClock.restart();
+        sf::Time deltaTime = deltaClock.restart();
         for (std::unique_ptr<Object>& currentObject : objectVector)
         {
             if (!currentObject->hasBeenDestroyed());
@@ -86,34 +96,17 @@ int main()
                 window.draw(*currentObject);
             }
         }
+        //framerate
+        window.draw(Frame(frameClock, Arial));
+        frameClock.restart();
 
         //Update window
         window.display();
+
+
     }
 
-    return EXIT_SUCCESS;
+    return 8008;
 }
 
-/*
-Base class
-Spline spline;
 
-Derived class
-spline.addNode(sf::Vector2f(100, 0));
-spline.offset(getPosition());
-
-Base class update
-float speed;
-if (speed >= spline.getRemainingDistance())
-{
-    setPosition(spline.getCurrentNode());
-    speed -= spline.getRemainingDistance();
-    if (!spline.iterate())
-    {
-        //something, movement over
-    }
-}
-sf::Vector2f direction = spline.getDirection(getPosition());
-direction *= speed;
-setPosition(getPosition() + direction);
-*/
