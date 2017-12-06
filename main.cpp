@@ -42,6 +42,9 @@ int main()
             return EXIT_FAILURE;
         }
 
+    //Objects
+    Player player(/*playerTexture*/); //Player
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -52,12 +55,15 @@ int main()
             case sf::Event::Closed:
                 window.close();
                 break;
-
-            case sf::Event::KeyPressed: //possibly get rid of
-                //call Player.playerMove(int) function
-                break;
             }
         }
+
+        //Player Movement
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)); //Move up
+            //player.moveUp();
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down));
+            //player.movedown();
+
 
         //Update all objects
         sf::Time deltaTime = frameClock.restart();
@@ -85,15 +91,12 @@ int main()
         //Draws background
         window.draw(starMap);
 
-        sf::Vector2i localPosition;
-
         //Draw all drawable objects
         for (std::unique_ptr<Object>& currentObject : objectVector)
         {
             if (currentObject->isDrawable && !currentObject->hasBeenDestroyed())
             {
                 window.draw(*currentObject);
-                localPosition = sf::Mouse::getPosition(window);
             }
         }
 

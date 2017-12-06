@@ -4,7 +4,10 @@
 //#include "SFML/Graphics.hpp"
 #include "Object.h"
 
-//referencing this documentation: https://www.programiz.com/cpp-programming/operator-overloading
+//referencing this documentation:
+//https://www.programiz.com/cpp-programming/operator-overloading
+//https://en.sfml-dev.org/forums/index.php?topic=13358.0
+//https://en.sfml-dev.org/forums/index.php?topic=646.0
 
 //Used to control each of the players capabilities
 class Player : public Object
@@ -15,7 +18,7 @@ private:
 
 public:
     //default constructor passing in a default of lives at 3
-    Player(sf::Vector2f Position, sf::Texture texture, int = 3);
+    Player(int = 3);
 
     //overriding the virtual function in object.h
     virtual void update(sf::Time deltaTime) override;
@@ -23,17 +26,17 @@ public:
     //adds or removes lives
     void manipulateLives(int);
 
-    //defines the operator -- to subtract one from lives
-    void operator --()
-    {
-        lives = lives - 1;
-    }
+    //Overloading the operator ++ and -- to add and subtract lives respectively
+    void operator ++() { lives = lives + 1; }
+    void operator --() { lives = lives - 1; }
 
-    //defines the operator ++ to add one to lives
-    void operator ++()
-    {
-        lives = lives + 1;
-    }
+
+    //Player movement
+    void Moveup();
+    void moveDown();
+    void moveLeft();
+    void moveRight();
+    void setSpeed();
 
     sf::Sprite sprite;
 
