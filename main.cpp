@@ -38,7 +38,7 @@ int main()
     sf::Clock frameClock;
 
     sf::Texture errorTexture;
-    if (!errorTexture.loadFromFile("Error.png"))
+    if (!errorTexture.loadFromFile("resources/photos/Error.png"))
         {
             return EXIT_FAILURE;
         }
