@@ -32,16 +32,16 @@ int main()
     }
 
     //Counts time between frames, this should be the last thing created before the game starts
-    //Taylor's shitty clock
+    //Update clock
     sf::Clock deltaClock;
-    //Justin's framerate clock
+    //Framerate clock
     sf::Clock frameClock;
 
     sf::Texture errorTexture;
     if (!errorTexture.loadFromFile("resources/photos/Error.png"))
-        {
-            return EXIT_FAILURE;
-        }
+    {
+        return EXIT_FAILURE;
+    }
 
     sf::Font Arial;
     if (!Arial.loadFromFile("resources/font/arial.ttf"))
@@ -106,7 +106,7 @@ int main()
 
     }
 
-    return 8008;
+    return EXIT_SUCCESS;
 }
 
 
