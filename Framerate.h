@@ -8,7 +8,7 @@
 
 sf::Text Frame (sf::Clock cock, sf::Font font) {
 
-    sf::Text frameCount(to_string((1 / cock.restart().asSeconds()) * 60), font);
+    sf::Text frameCount(to_string((1 / cock.restart().asSeconds()) / 60), font);
     return frameCount;
 }
 

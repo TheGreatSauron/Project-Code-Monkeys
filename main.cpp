@@ -32,7 +32,9 @@ int main()
     }
 
     //Counts time between frames, this should be the last thing created before the game starts
+    //Taylor's shitty clock
     sf::Clock deltaClock;
+    //Justin's framerate clock
     sf::Clock frameClock;
 
     sf::Texture errorTexture;
@@ -94,9 +96,10 @@ int main()
                 window.draw(*currentObject);
             }
         }
-
+        //framerate
         window.draw(Frame(frameClock, Arial));
         frameClock.restart();
+
         //Update window
         window.display();
 
