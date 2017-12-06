@@ -13,15 +13,16 @@
 int main()
 {
     //Main game window
-    sf::RenderWindow window(sf::VideoMode(1368, 700), "Aluminum Dafaa Raiders");
+    sf::RenderWindow window(sf::VideoMode(1000, 600), "Aluminum Dafaa Raiders");
 
     //Use for creating objects
     //e.g. objectVector.push_back(std::unique_ptr<Object> (new Enemy()));
     std::vector<std::unique_ptr<Object>> objectVector;
 
+    //Create background
     std::srand(std::time(NULL));
     sf::VertexArray starMap;
-    for (unsigned n = 0; n < 100; n++)
+    for (unsigned n = 0; n < 200; n++)
     {
         float x = rand()%window.getSize().x;
         float y = rand()%window.getSize().y;
@@ -90,7 +91,7 @@ int main()
         window.display();
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 /*
