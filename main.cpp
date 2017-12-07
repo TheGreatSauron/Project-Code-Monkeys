@@ -102,8 +102,6 @@ int main()
 
         //Update window
         window.display();
-
-
     }
 
     return EXIT_SUCCESS;
