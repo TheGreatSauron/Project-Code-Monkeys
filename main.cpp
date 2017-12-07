@@ -15,7 +15,7 @@
 int main()
 {
     //Main game window
-    sf::RenderWindow window(sf::VideoMode(1368, 700), "Aluminum Dafaa Raiders");
+    sf::RenderWindow window(sf::VideoMode(1000, 600), "Aluminum Dafaa Raiders");
 
     //Use for creating objects
     //e.g. objectVector.push_back(std::unique_ptr<Object> (new Enemy()));
@@ -25,7 +25,7 @@ int main()
     //Make stars!!!
     std::srand(std::time(NULL));
     sf::VertexArray starMap;
-    for (unsigned n = 0; n < 100; n++)
+    for (unsigned n = 0; n < 200; n++)
     {
         float x = rand()%window.getSize().x;
         float y = rand()%window.getSize().y;
@@ -34,8 +34,9 @@ int main()
     }
 
     //Taylor's shitty clock
+    //Update clock
     sf::Clock deltaClock;
-    //Justin's framerate clock
+    //Framerate clock
     sf::Clock frameClock;
 
     sf::Texture errorTexture;
@@ -46,6 +47,9 @@ int main()
     //test enemy
      objectVector.push_back(std::unique_ptr<Object> (new Enemy(sf::Vector2f(0,0), errorTexture, 100, 50)));
 
+    {
+        return EXIT_FAILURE;
+    }
 
     sf::Font Arial;
     if (!Arial.loadFromFile("resources/font/arial.ttf"))

@@ -33,6 +33,9 @@ public:
 
     //Gets the location of the current Node
     sf::Vector2f getCurrentNode() const;
+
+    //Flip the spline horizontally to mirror it's original path
+    void flipHorizontally();
 };
 
 #endif // SPLINE_H_INCLUDED
