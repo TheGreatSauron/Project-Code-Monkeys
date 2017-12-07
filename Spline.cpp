@@ -8,9 +8,9 @@ Spline::Spline() : currentNode(0)
 
 void Spline::offset(sf::Vector2f offset)
 {
-    for (sf::Vector2f& currentNode : nodeVector)
+    for (sf::Vector2f& node : nodeVector)
     {
-        currentNode += offset;
+        node += offset;
     }
 }
 
@@ -63,4 +63,14 @@ bool Spline::iterate()
 sf::Vector2f Spline::getCurrentNode() const
 {
     return nodeVector[currentNode];
+}
+
+void Spline::flipHorizontally()
+{
+    float axis = nodeVector[0].x;
+    for (sf::Vector2f& node : nodeVector)
+    {
+        float distance = node.x - axis;
+        node.x -= 2 * distance;
+    }
 }

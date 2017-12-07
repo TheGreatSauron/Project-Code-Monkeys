@@ -16,9 +16,34 @@ private:
     //Amount  of lives for the player
     int lives;
 
+    //declaring the sprite
+    sf::Sprite sprite;
+
+    //declaring the direction of the speed
+    sf::Vector2i direction;
+
+    enum direction {Up, Down, Left, Right};
+
+    float speed;
+
 public:
-    //default constructor passing in a default of lives at 3
+    //constructor
     Player(int = 3);
+    //overloaded constructor
+    Player(int,sf::Texture&);
+    //destructor
+    ~Player();
+
+    //Player movement
+    void moveUp();
+    void moveDown();
+    void moveLeft();
+    void moveRight();
+    void setSpeed(float);
+
+    //access function
+    sf::Sprite getSprite() const;
+
 
     //overriding the virtual function in object.h
     virtual void update(sf::Time deltaTime) override;
@@ -29,16 +54,6 @@ public:
     //Overloading the operator ++ and -- to add and subtract lives respectively
     void operator ++() { lives = lives + 1; }
     void operator --() { lives = lives - 1; }
-
-
-    //Player movement
-    void Moveup();
-    void moveDown();
-    void moveLeft();
-    void moveRight();
-    void setSpeed();
-
-    sf::Sprite sprite;
 
 };
 

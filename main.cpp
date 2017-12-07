@@ -12,20 +12,25 @@
 #include "Player.h"
 //=======
 #include "Enemy.h"
+//<<<<<<< HEAD
 //>>>>>>> 59e99038ff55868f4829d185fdc017da5dd42ada
+//=======
+#include "Framerate.h"
+//>>>>>>> ac667b488d5aa758e690ee5353e5d52434c38e0c
 
 int main()
 {
     //Main game window
-    sf::RenderWindow window(sf::VideoMode(1368, 700), "Aluminum Dafaa Raiders");
+    sf::RenderWindow window(sf::VideoMode(1000, 600), "Aluminum Dafaa Raiders");
 
     //Use for creating objects
     //e.g. objectVector.push_back(std::unique_ptr<Object> (new Enemy()));
     std::vector<std::unique_ptr<Object>> objectVector;
 
+    //Make stars!!!
     std::srand(std::time(NULL));
     sf::VertexArray starMap;
-    for (unsigned n = 0; n < 100; n++)
+    for (unsigned n = 0; n < 200; n++)
     {
         float x = rand()%window.getSize().x;
         float y = rand()%window.getSize().y;
@@ -34,13 +39,22 @@ int main()
     }
 
     //Counts time between frames, this should be the last thing created before the game starts
+    //Update clock
+    sf::Clock deltaClock;
+    //Framerate clock
     sf::Clock frameClock;
 
     sf::Texture errorTexture;
-    if (!errorTexture.loadFromFile("Error.png"))
-        {
-            return EXIT_FAILURE;
-        }
+    if (!errorTexture.loadFromFile("resources/photos/Error.png"))
+    {
+        return EXIT_FAILURE;
+    }
+
+    sf::Font Arial;
+    if (!Arial.loadFromFile("resources/font/arial.ttf"))
+    {
+        return EXIT_FAILURE;
+    }
 
     //Objects
     Player player(/*playerTexture*/); //Player
@@ -62,11 +76,15 @@ int main()
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)); //Move up
             //player.moveUp();
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down));
-            //player.movedown();
+            //player.moveDown();
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left));
+            //player.moveLeft();
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right));
+            //player.moveRight();
 
 
         //Update all objects
-        sf::Time deltaTime = frameClock.restart();
+        sf::Time deltaTime = deltaClock.restart();
         for (std::unique_ptr<Object>& currentObject : objectVector)
         {
             if (!currentObject->hasBeenDestroyed());
@@ -99,34 +117,17 @@ int main()
                 window.draw(*currentObject);
             }
         }
+        //framerate
+        window.draw(Frame(frameClock, Arial));
+        frameClock.restart();
 
         //Update window
         window.display();
+
+
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
-/*
-Base class
-Spline spline;
 
-Derived class
-spline.addNode(sf::Vector2f(100, 0));
-spline.offset(getPosition());
-
-Base class update
-float speed;
-if (speed >= spline.getRemainingDistance())
-{
-    setPosition(spline.getCurrentNode());
-    speed -= spline.getRemainingDistance();
-    if (!spline.iterate())
-    {
-        //something, movement over
-    }
-}
-sf::Vector2f direction = spline.getDirection(getPosition());
-direction *= speed;
-setPosition(getPosition() + direction);
-*/

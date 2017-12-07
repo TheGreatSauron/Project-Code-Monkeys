@@ -1,41 +1,14 @@
 # depslib dependency file v1.0
-100 ,
-
-100 (
-
-100 `º/@²/ À/ð»/@¼/
-
-1512596653 source:c:\codingproject\project-code-monkeys\main.cpp
-	<vector>
-	<memory>
-	<ctime>
-	<SFML/Graphics.hpp>
-	"Object.h"
-	"Player.h"
+1512506314 source:c:\codingproject\project-code-monkeys\enemy.cpp
 	"Enemy.h"
-
-1512420624 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
-
-1511555434 1da19c5def5e69c293d1335c8a4affddf6c5d
-
-1512158672 1d709f411508cc557e3069245fdee9e8c76d1
-
-1512420911 99038ff55868f4829d185fdc017da5dd42ada
-	<vector>
-	<memory>
-	<ctime>
-	<SFML/Graphics.hpp>
-	"Object.h"
-	"Object.h"
-	"SFML/graphics.hpp"
-	"SFML/graphics.hpp"
 	"Spline.h"
-	<cmath>
 
-1512159374 D
-	"Player.h"
+1512506314 c:\codingproject\project-code-monkeys\enemy.h
+	"Object.h"
+	"Spline.h"
 
-1512158875 
+1512506314 c:\codingproject\project-code-monkeys\object.h
+	"SFML/graphics.hpp"
 
 1511554814 c:\codingproject\project-code-monkeys\sfml\sfml-2.4.2\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -425,47 +398,39 @@
 	<string>
 	<vector>
 
-1512506314 c:\codingproject\project-code-monkeys\object.h
-	"SFML/graphics.hpp"
-
-1512596621 c:\codingproject\project-code-monkeys\player.h
-	"Object.h"
-
-1511818916 hics.hpp"
-
-1512159374 c:\users\taylorc16\documents\github\project-code-monkeys\object.h
-
-1512159374 source:c:\users\taylorc16\documents\github\project-code-monkeys\object.cpp
-	"Object.h"
+1512679131 c:\codingproject\project-code-monkeys\spline.h
+	<vector>
+	<SFML/System.hpp>
 
 1512419878 source:c:\codingproject\project-code-monkeys\object.cpp
 	"Object.h"
 
-1511904721 source:c:\codingproject\project-code-monkeys\playerlives.cpp
-	"Player.h"
-
-1512595059 source:c:\codingproject\project-code-monkeys\player.cpp
-	"Player.h"
-
-1512420911 source:c:\users\taylorc16\documents\github\project-code-monkeys\spline.cpp
-
-1512159374 c:\users\taylorc16\documents\github\project-code-monkeys\spline.h
-	<vector>
-	<SFML/System.hpp>
-
-1512506314 source:c:\codingproject\project-code-monkeys\spline.cpp
+1512679131 source:c:\codingproject\project-code-monkeys\spline.cpp
 	"Spline.h"
 	<cmath>
 
-1512419878 c:\codingproject\project-code-monkeys\spline.h
+1512681561 source:c:\codingproject\project-code-monkeys\main.cpp
 	<vector>
-	<SFML/System.hpp>
-
-1512506314 source:c:\codingproject\project-code-monkeys\enemy.cpp
-	"Enemy.h"
-	"Spline.h"
-
-1512506314 c:\codingproject\project-code-monkeys\enemy.h
+	<memory>
+	<ctime>
+	<SFML/Graphics.hpp>
 	"Object.h"
-	"Spline.h"
+	"Player.h"
+	"Enemy.h"
+	"Framerate.h"
+
+1512682930 c:\codingproject\project-code-monkeys\player.h
+	"Object.h"
+
+1512679131 c:\codingproject\project-code-monkeys\framerate.h
+	<string>
+	<SFML/Graphics.hpp>
+	"to_string.h"
+
+1512679131 c:\codingproject\project-code-monkeys\to_string.h
+	<sstream>
+	<string>
+
+1512682930 source:c:\codingproject\project-code-monkeys\player.cpp
+	"Player.h"
 
