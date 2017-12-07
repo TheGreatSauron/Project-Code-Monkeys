@@ -13,6 +13,7 @@ protected:
 	int health;
 	// Max Health, should not change
 	const int maxHealth;
+	// Enemy speed
 	float speed;
 
 public:
@@ -20,8 +21,11 @@ public:
 	Enemy(sf::Vector2f postition, sf::Texture& texture, int in_maxHealth = 1, float in_speed = 1);
     // Deals damage to current health
 	void dealDamage(int damage);
+	// What occurs every frame
 	virtual void update(sf::Time deltaTime) override;
+    // Declares sprite
     sf::Sprite sprite;
+    // Spline class
     Spline spline;
 
 };
