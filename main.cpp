@@ -34,7 +34,6 @@ int main()
     }
 
     //Taylor's shitty clock
-    //Update clock
     sf::Clock deltaClock;
     //Framerate clock
     sf::Clock frameClock;
@@ -47,15 +46,13 @@ int main()
     //test enemy
      objectVector.push_back(std::unique_ptr<Object> (new Enemy(sf::Vector2f(0,0), errorTexture, 100, 50)));
 
-    {
-        return EXIT_FAILURE;
-    }
 
     sf::Font Arial;
     if (!Arial.loadFromFile("resources/font/arial.ttf"))
     {
         return EXIT_FAILURE;
     }
+
 
     while (window.isOpen())
     {
