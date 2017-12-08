@@ -4,11 +4,11 @@
 
 #include <string>
 #include <SFML/Graphics.hpp>
-#include "to_string.h"
+#include "Game.h"
 
-sf::Text Frame (sf::Clock cock, sf::Font font) {
-
-    sf::Text frameCount(to_string((1 / cock.restart().asSeconds()) / 60), font);
+sf::Text Frame (sf::Clock cock, sf::Font font)
+{
+    sf::Text frameCount(Game::to_string((1 / cock.restart().asSeconds()) / 60), font);
     return frameCount;
 }
 

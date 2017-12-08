@@ -1,15 +1,19 @@
 #include "Game.h"
-#include <sstream>
-#include <string>
 
-template <typename T>
-std::string Game::to_string(T value)
+void Game::spawn(Object* object)
 {
-    //create an output string stream
-    std::ostringstream os ;
-    //throw the value into the string stream
-    os << value ;
-    //convert the string stream into a string and return
-    return os.str() ;
+    objectVector->push_back(std::unique_ptr<Object> (object));
 }
 
+void Game::setObjectVector(std::vector<std::unique_ptr<Object>>* newObjectVector)
+{
+    objectVector.reset(newObjectVector);
+}
+
+void Game::setWindow(sf::RenderWindow* newWindow)
+{
+    window.reset(newWindow);
+}
+
+std::unique_ptr<sf::RenderWindow> Game::window;
+std::unique_ptr<std::vector<std::unique_ptr<Object>>> Game::objectVector;

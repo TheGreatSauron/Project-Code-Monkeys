@@ -5,19 +5,37 @@
 #include <memory>
 #include <vector>
 #include <string>
+#include <sstream>
 #include "Object.h"
 
-class Game
+struct Game
 {
     static std::unique_ptr<sf::RenderWindow> window;
     static std::unique_ptr<std::vector<std::unique_ptr<Object>>> objectVector;
 
-public:
     //enable the "to_string" function of std:: as code-blocks has bugs with it not working correctly
     template <typename T>
-    std::string to_string(T value);
+    static std::string to_string(T value);
 
-    spawn(Object* object);
+    //Create new dynamic object
+    static void spawn(Object* object);
+
+    //Sets a new objectVector
+    static void setObjectVector(std::vector<std::unique_ptr<Object>>* newObjectVector);
+
+    //Sets a new game window
+    static void setWindow(sf::RenderWindow* newWindow);
 };
+
+template <typename T>
+std::string Game::to_string(T value)
+{
+    //create an output string stream
+    std::ostringstream os ;
+    //throw the value into the string stream
+    os << value ;
+    //convert the string stream into a string and return
+    return os.str();
+}
 
 #endif // GAME_H_INCLUDED

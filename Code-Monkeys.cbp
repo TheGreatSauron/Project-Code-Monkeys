@@ -48,7 +48,6 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-std=c++11" />
-			<Add option="-std=c++11" />
 			<Add directory="SFML/SFML-2.4.2/include" />
 		</Compiler>
 		<Linker>
@@ -59,6 +58,8 @@
 		<Unit filename="Framerate.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="Game.cpp" />
+		<Unit filename="Game.h" />
 		<Unit filename="Object.cpp" />
 		<Unit filename="Object.h" />
 		<Unit filename="Spline.cpp" />
@@ -77,9 +78,6 @@
 		<Unit filename="sfml-system-d-2.dll" />
 		<Unit filename="sfml-window-2.dll" />
 		<Unit filename="sfml-window-d-2.dll" />
-		<Unit filename="to_string.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />

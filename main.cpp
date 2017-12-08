@@ -10,23 +10,24 @@
 #include "Object.h"
 #include "Enemy.h"
 #include "Framerate.h"
+#include "Game.h"
 
 int main()
 {
     //Main game window
-    sf::RenderWindow window(sf::VideoMode(1000, 600), "Aluminum Dafaa Raiders");
+    Game::setWindow(new sf::RenderWindow(sf::VideoMode(1000, 600), "Aluminum Dafaa Raiders"));
 
     //Use for creating objects
     //e.g. objectVector.push_back(std::unique_ptr<Object> (new Enemy()));
-    std::vector<std::unique_ptr<Object>> objectVector;
+    Game::setObjectVector(new std::vector<std::unique_ptr<Object>>);
 
     //Make stars!!!
     std::srand(std::time(NULL));
     sf::VertexArray starMap;
     for (unsigned n = 0; n < 200; n++)
     {
-        float x = rand()%window.getSize().x;
-        float y = rand()%window.getSize().y;
+        float x = rand()%Game::window->getSize().x;
+        float y = rand()%Game::window->getSize().y;
 
         starMap.append(sf::Vertex(sf::Vector2f(x, y), sf::Color::White));
     }
@@ -49,22 +50,22 @@ int main()
         return EXIT_FAILURE;
     }
 
-    while (window.isOpen())
+    while (Game::window->isOpen())
     {
         sf::Event event;
-        while (window.pollEvent(event))
+        while (Game::window->pollEvent(event))
         {
             switch (event.type)
             {
             case sf::Event::Closed:
-                window.close();
+                Game::window->close();
                 break;
             }
         }
 
         //Update all objects
         sf::Time deltaTime = deltaClock.restart();
-        for (std::unique_ptr<Object>& currentObject : objectVector)
+        for (std::unique_ptr<Object>& currentObject : *Game::objectVector)
         {
             if (!currentObject->hasBeenDestroyed());
             {
@@ -73,35 +74,35 @@ int main()
         }
 
         //Do garbage collection, needs to iterate
-        for (auto i = objectVector.begin(); i != objectVector.end(); i++)
+        for (auto i = Game::objectVector->begin(); i != Game::objectVector->end(); i++)
         {
             if ((*i)->hasBeenDestroyed())
             {
-                objectVector.erase(i);
+                Game::objectVector->erase(i);
                 i--;
             }
         }
 
         //Reset window
-        window.clear();
+        Game::window->clear();
 
         //Draws background
-        window.draw(starMap);
+        Game::window->draw(starMap);
 
         //Draw all drawable objects
-        for (std::unique_ptr<Object>& currentObject : objectVector)
+        for (std::unique_ptr<Object>& currentObject : *Game::objectVector)
         {
             if (currentObject->isDrawable && !currentObject->hasBeenDestroyed())
             {
-                window.draw(*currentObject);
+                Game::window->draw(*currentObject);
             }
         }
         //framerate
-        window.draw(Frame(frameClock, Arial));
+        Game::window->draw(Frame(frameClock, Arial));
         frameClock.restart();
 
         //Update window
-        window.display();
+        Game::window->display();
     }
 
     return EXIT_SUCCESS;
