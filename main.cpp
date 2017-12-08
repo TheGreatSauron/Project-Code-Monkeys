@@ -12,6 +12,17 @@
 #include "Framerate.h"
 #include "to_string.h"
 
+void renderWindow (sf::RenderWindow* window, objVector) {
+
+while (window->isOpen())
+    {
+        // draw...
+
+        // end the current frame
+        window->display();
+    }
+
+}
 int main()
 {
     //Main game window
@@ -25,7 +36,7 @@ int main()
     //Make stars!!!
     std::srand(std::time(NULL));
     sf::VertexArray starMap;
-    for (unsigned n = 0; n < 200; n++)
+    for (unsigned n = 0; n < 300; n++)
     {
         float x = rand()%window.getSize().x;
         float y = rand()%window.getSize().y;
