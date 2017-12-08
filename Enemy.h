@@ -11,14 +11,12 @@ private:
 protected:
 	// Current Health
 	int health;
-	// Max Health, should not change
-	const int maxHealth;
 	// Enemy speed
 	float speed;
 
 public:
     // Constructor declaration
-	Enemy(sf::Vector2f postition, sf::Texture& texture, int in_maxHealth = 1, float in_speed = 1);
+	Enemy(sf::Vector2f postition, sf::Texture& texture, sf::Texture& laser);
     // Deals damage to current health
 	void dealDamage(int damage);
 	// What occurs every frame
@@ -27,6 +25,7 @@ public:
     sf::Sprite sprite;
     // Spline class
     Spline spline;
+    virtual void shootLaser();
 
 };
 

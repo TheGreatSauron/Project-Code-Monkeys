@@ -2,9 +2,11 @@
 #include "Spline.h"
 
 // Constructor
-Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, int in_maxHealth, float in_speed) : Object(true),
-maxHealth(in_maxHealth), health(in_maxHealth), speed(in_speed)
+Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : Object(true)
+
 {
+    speed = 50;
+    health = 50;
     setPosition(position);
 
     // Loads in texture from argument
@@ -14,6 +16,11 @@ maxHealth(in_maxHealth), health(in_maxHealth), speed(in_speed)
     // spline.addNode(sf::Vector2f(100, 0));
     // spline.addNode(sf::Vector2f(0, 100));
     // spline.offset(getPosition());
+}
+
+void Enemy::shootLaser()
+{
+
 }
 
 // Deal damage function
@@ -39,10 +46,15 @@ void Enemy::update(sf::Time deltaTime)
     {
         movement -= spline.getRemainingDistance(getPosition()) * deltaTime.asSeconds();
         setPosition(spline.getCurrentNode());
-        //If this is the last node, destroy the object
+        // If this is the last node, destroy the object
         if (!spline.iterate())
         {
             destroy();
+        }
+        else
+        {
+            // Shoot laser here
+
         }
     }
 

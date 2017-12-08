@@ -39,9 +39,15 @@ int main()
 
     sf::Texture errorTexture;
     if (!errorTexture.loadFromFile("resources/photos/Error.png"))
-        {
-            return EXIT_FAILURE;
-        }
+    {
+        return EXIT_FAILURE;
+    }
+
+    sf::Texture laser;
+    if (!laser.loadFromFile("resources/photos/laser.png"))
+    {
+        return EXIT_FAILURE;
+    }
 
     sf::Font Arial;
     if (!Arial.loadFromFile("resources/font/arial.ttf"))
@@ -98,7 +104,6 @@ int main()
         }
         //framerate
         window.draw(Frame(frameClock, Arial));
-        frameClock.restart();
 
         //Update window
         window.display();
