@@ -28,9 +28,7 @@ private:
 
 public:
     //constructor
-    Player(int = 3);
-    //overloaded constructor
-    Player(int,sf::Texture&);
+    Player(sf::Vector2f position, sf::Texture&, int = 3);
     //destructor
     ~Player();
 

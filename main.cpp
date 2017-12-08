@@ -8,24 +8,21 @@
 
 //Our includes
 #include "Object.h"
-//<<<<<<< HEAD
 #include "Player.h"
-//=======
 #include "Enemy.h"
-//<<<<<<< HEAD
-//>>>>>>> 59e99038ff55868f4829d185fdc017da5dd42ada
-//=======
 #include "Framerate.h"
-//>>>>>>> ac667b488d5aa758e690ee5353e5d52434c38e0c
+
+#include "to_string.h"
 
 int main()
 {
     //Main game window
-    sf::RenderWindow window(sf::VideoMode(1000, 600), "Aluminum Dafaa Raiders");
+    sf::RenderWindow window(sf::VideoMode(1368, 600), "Aluminum Dafaa Raiders");
 
     //Use for creating objects
     //e.g. objectVector.push_back(std::unique_ptr<Object> (new Enemy()));
     std::vector<std::unique_ptr<Object>> objectVector;
+
 
     //Make stars!!!
     std::srand(std::time(NULL));
@@ -38,14 +35,20 @@ int main()
         starMap.append(sf::Vertex(sf::Vector2f(x, y), sf::Color::White));
     }
 
-    //Counts time between frames, this should be the last thing created before the game starts
-    //Update clock
+    //Taylor's shitty clock
     sf::Clock deltaClock;
     //Framerate clock
     sf::Clock frameClock;
 
+    //Textures
     sf::Texture errorTexture;
     if (!errorTexture.loadFromFile("resources/photos/Error.png"))
+        {
+            return EXIT_FAILURE;
+        }
+
+    sf::Texture playerTexture;
+    if(!playerTexture.loadFromFile("resources/photos/Error.png"))
     {
         return EXIT_FAILURE;
     }
@@ -57,7 +60,10 @@ int main()
     }
 
     //Objects
-    Player player(/*playerTexture*/); //Player
+    //test enemy
+    objectVector.push_back(std::unique_ptr<Object> (new Enemy(sf::Vector2f(0,0), errorTexture, 100, 50)));
+    //test player
+    objectVector.push_back(std::unique_ptr<Object> (new Player(sf::Vector2f(0,0), errorTexture, 3)));
 
     while (window.isOpen())
     {
@@ -117,9 +123,9 @@ int main()
                 window.draw(*currentObject);
             }
         }
+
         //framerate
         window.draw(Frame(frameClock, Arial));
-        frameClock.restart();
 
         //Update window
         window.display();
@@ -127,7 +133,7 @@ int main()
 
     }
 
-    return EXIT_SUCCESS;
+    return 8008;
 }
 
 

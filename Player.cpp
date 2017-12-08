@@ -1,13 +1,7 @@
 #include "Player.h"
 
 //constructor
-Player::Player(int life)
-{
-    //determines the value of lives
-    lives = life;
-}
-
-Player::Player(int life, sf::Texture& texture)
+Player::Player(sf::Vector2f position, sf::Texture& texture, int life)
 {
     //setting the value of lives
     lives = life;
@@ -20,9 +14,9 @@ Player::Player(int life, sf::Texture& texture)
     //set the default direction
     sf::Vector2i direction(1, Down);
 }
-
 Player::~Player()
 {
+
 }
 
 //update function

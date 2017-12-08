@@ -27,7 +27,7 @@ public:
     float getRemainingDistance(sf::Vector2f position) const;
 
     //Iterates to the next node
-    //returns true if there is a node to travle to next
+    //returns true if there is a node to travel to next
     //returns false if you have reached the end of the spline
     bool iterate();
 

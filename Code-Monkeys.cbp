@@ -9,9 +9,8 @@
 			<Target title="Debug">
 				<Option output="bin/Debug/Code-Monkeys" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
-				<Option type="1" />
+				<Option type="0" />
 				<Option compiler="gcc" />
-				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-std=c++11" />
 					<Add option="-g" />
@@ -47,7 +46,6 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add option="-std=c++11" />
 			<Add option="-std=c++11" />
 			<Add directory="SFML/SFML-2.4.2/include" />
 		</Compiler>
