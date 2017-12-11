@@ -24,7 +24,7 @@ void renderWindow () {
 
 	//load resources
 	if (!stuff.load()) {
-		std::cout << "load error in: renderWindow" << std::endl;
+		std::cout << "resource load error in: renderWindow" << std::endl;
 	}
 
     //Make stars!!!
@@ -98,10 +98,13 @@ int main()
     //test enemy
 	Game::objectVector->push_back(std::unique_ptr<Object> (new Enemy(sf::Vector2f(0,0), stuff.errorTexture, 100, 50)));
 
+    //sets openGL context to not wait and listen to this thread so we can render in another
 	Game::window->setActive(false);
 
+    //launches rendering thread with sf::thread and the window is automatically set to active in the new window
 	sf::Thread thread(renderWindow);
     thread.launch();
+
 
     while (Game::window->isOpen()) {
         sf::Event event;
@@ -115,8 +118,9 @@ int main()
         }
     }
 
-    system("pause");
-    return 0;
+//pause so devs can see any errors or couts in console window before it closes
+system("pause");
+return 8008;
 }
 
 
