@@ -15,7 +15,7 @@
 
 int main() {
     //Main game window
-    sf::RenderWindow window(sf::VideoMode(1368, 600), "Aluminum Dafaa Raiders");
+    sf::RenderWindow window(sf::VideoMode(1368, 700), "Aluminum Dafaa Raiders");
 
 void renderWindow () {
 	//Framerate clock
@@ -79,9 +79,6 @@ void renderWindow () {
 
 		//Update window
 		Game::window->display();
-
-
-
 	}
 }
 
@@ -104,10 +101,13 @@ int main() {
     //test enemy
 	Game::objectVector->push_back(std::unique_ptr<Object> (new Enemy(sf::Vector2f(0,0), stuff.errorTexture, 100, 50)));
 
+    //sets openGL context to not wait and listen to this thread so we can render in another
 	Game::window->setActive(false);
 
+    //launches rendering thread with sf::thread and the window is automatically set to active in the new window
 	sf::Thread thread(renderWindow);
     thread.launch();
+
 
     while (Game::window->isOpen()) {
         sf::Event event;
@@ -121,7 +121,7 @@ int main() {
         }
 
     }
-
+//pause so devs can see any errors or couts in console window before it closes
 system("pause");
 return 8008;
 }
