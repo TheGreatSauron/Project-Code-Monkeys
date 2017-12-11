@@ -13,6 +13,9 @@
 #include "Game.h"
 #include "Resources.h"
 
+int main() {
+    //Main game window
+    sf::RenderWindow window(sf::VideoMode(1368, 600), "Aluminum Dafaa Raiders");
 
 void renderWindow () {
 	//Framerate clock
