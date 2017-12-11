@@ -10,108 +10,120 @@
 #include "Object.h"
 #include "Enemy.h"
 #include "Framerate.h"
-#include "to_string.h"
+#include "Game.h"
+#include "Resources.h"
 
-int main()
-{
+int main() {
     //Main game window
     sf::RenderWindow window(sf::VideoMode(1368, 600), "Aluminum Dafaa Raiders");
 
-    //Use for creating objects
-    //e.g. objectVector.push_back(std::unique_ptr<Object> (new Enemy()));
-    std::vector<std::unique_ptr<Object>> objectVector;
+void renderWindow () {
+	//Framerate clock
+    sf::Clock frameClock;
+	//Taylor's shitty clock
+    sf::Clock deltaClock;
 
+	//add resources object
+	Resources stuff;
+
+	//load resources
+	if (!stuff.load()) {
+		std::cout << "load error in: renderWindow" << std::endl;
+	}
 
     //Make stars!!!
     std::srand(std::time(NULL));
     sf::VertexArray starMap;
-    for (unsigned n = 0; n < 200; n++)
-    {
-        float x = rand()%window.getSize().x;
-        float y = rand()%window.getSize().y;
+
+    for (unsigned n = 0; n < 300; n++){
+        float x = rand()%Game::window->getSize().x;
+        float y = rand()%Game::window->getSize().y;
 
         starMap.append(sf::Vertex(sf::Vector2f(x, y), sf::Color::White));
     }
 
-    //Taylor's shitty clock
-    sf::Clock deltaClock;
-    //Framerate clock
-    sf::Clock frameClock;
+	while (Game::window->isOpen()) {
+		//Update all objects
+		sf::Time deltaTime = deltaClock.restart();
+		for (std::unique_ptr<Object>& currentObject : *Game::objectVector) {
+			if (!currentObject->hasBeenDestroyed());
+			{
+				currentObject->update(deltaTime);
+			}
+		}
 
-    sf::Texture errorTexture;
-    if (!errorTexture.loadFromFile("resources/photos/Error.png"))
-        {
-            return EXIT_FAILURE;
-        }
+		//Do garbage collection, needs to iterate
+		for (auto i = Game::objectVector->begin(); i != Game::objectVector->end(); i++) {
+			if ((*i)->hasBeenDestroyed())
+			{
+				Game::objectVector->erase(i);
+				i--;
+			}
+		}
+
+		//Reset window
+		Game::window->clear();
+
+		//Draws background
+		Game::window->draw(starMap);
+
+		//Draw all drawable objects
+		for (std::unique_ptr<Object>& currentObject : *Game::objectVector) {
+			if (currentObject->isDrawable && !currentObject->hasBeenDestroyed()) {
+				Game::window->draw(*currentObject);
+			}
+		}
+
+		//Frame-rate
+		Game::window->draw(Frame(frameClock, stuff.Arial));
+
+		//Update window
+		Game::window->display();
+
+
+
+	}
+}
+
+int main() {
+    //Main game window
+    Game::setWindow(new sf::RenderWindow(sf::VideoMode(1368, 700), "Aluminum Dafaa Raiders"));
+
+    //Use for creating objects
+    //e.g. objectVector.push_back(std::unique_ptr<Object> (new Enemy()));
+    Game::setObjectVector(new std::vector<std::unique_ptr<Object>>);
+
+    //create resource object
+	Resources stuff;
+
+	//load resources
+	if (!stuff.load()) {
+		return EXIT_FAILURE;
+	}
+
     //test enemy
-     objectVector.push_back(std::unique_ptr<Object> (new Enemy(sf::Vector2f(0,0), errorTexture, 100, 50)));
+	Game::objectVector->push_back(std::unique_ptr<Object> (new Enemy(sf::Vector2f(0,0), stuff.errorTexture, 100, 50)));
 
+	Game::window->setActive(false);
 
-    sf::Font Arial;
-    if (!Arial.loadFromFile("resources/font/arial.ttf"))
-    {
-        return EXIT_FAILURE;
-    }
+	sf::Thread thread(renderWindow);
+    thread.launch();
 
-
-    while (window.isOpen())
-    {
+    while (Game::window->isOpen()) {
         sf::Event event;
-        while (window.pollEvent(event))
-        {
+        while (Game::window->pollEvent(event)) {
             switch (event.type)
             {
             case sf::Event::Closed:
-                window.close();
+                Game::window->close();
                 break;
             }
         }
 
-        //Update all objects
-        sf::Time deltaTime = deltaClock.restart();
-        for (std::unique_ptr<Object>& currentObject : objectVector)
-        {
-            if (!currentObject->hasBeenDestroyed());
-            {
-                currentObject->update(deltaTime);
-            }
-        }
-
-        //Do garbage collection, needs to iterate
-        for (auto i = objectVector.begin(); i != objectVector.end(); i++)
-        {
-            if ((*i)->hasBeenDestroyed())
-            {
-                objectVector.erase(i);
-                i--;
-            }
-        }
-
-        //Reset window
-        window.clear();
-
-        //Draws background
-        window.draw(starMap);
-
-        //Draw all drawable objects
-        for (std::unique_ptr<Object>& currentObject : objectVector)
-        {
-            if (currentObject->isDrawable && !currentObject->hasBeenDestroyed())
-            {
-                window.draw(*currentObject);
-            }
-        }
-
-        //framerate
-        window.draw(Frame(frameClock, Arial));
-
-        //Update window
-        window.display();
-
-
     }
 
-    return 8008;
+system("pause");
+return 8008;
 }
 
 
