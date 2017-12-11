@@ -13,10 +13,11 @@ Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : 
     sprite.setTexture(texture);
     laserSprite.setTexture(laser);
 
-    // Add nodes go in constructor
-    // spline.addNode(sf::Vector2f(100, 0));
-    // spline.addNode(sf::Vector2f(0, 100));
-    // spline.offset(getPosition());
+    //Add nodes go in constructor
+    //THESE ARE TEST NODES AND ALL NEW ENEMEYS WILL FOLLOW THIS PATH
+    spline.addNode(sf::Vector2f(100, 0));
+    spline.addNode(sf::Vector2f(1336, 668));
+    spline.offset(getPosition());
 }
 
 void Enemy::shootLaser()

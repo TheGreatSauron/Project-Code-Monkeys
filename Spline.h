@@ -27,12 +27,15 @@ public:
     float getRemainingDistance(sf::Vector2f position) const;
 
     //Iterates to the next node
-    //returns true if there is a node to travle to next
+    //returns true if there is a node to travel to next
     //returns false if you have reached the end of the spline
     bool iterate();
 
     //Gets the location of the current Node
     sf::Vector2f getCurrentNode() const;
+
+    //Flip the spline horizontally to mirror it's original path
+    void flipHorizontally();
 };
 
 #endif // SPLINE_H_INCLUDED

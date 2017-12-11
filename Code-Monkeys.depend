@@ -1,10 +1,25 @@
 # depslib dependency file v1.0
-1512420624 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
+42743104 <<<<<<< HEAD
+
+1512766089 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
+
+1512595029 ron
 	<vector>
 	<memory>
 	<ctime>
 	<SFML/Graphics.hpp>
 	"Object.h"
+	<string>
+	<vector>
+
+1512682365 D
+	"Enemy.h"
+	"Framerate.h"
+	"Game.h"
+	"Object.h"
+	"Enemy.h"
+	"Framerate.h"
+	"to_string.h"
 
 1511471982 c:\users\taylorc16\documents\github\project-code-monkeys\sfml\sfml-2.4.2\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -408,7 +423,7 @@
 	<vector>
 	<SFML/System.hpp>
 
-1512512513 source:c:\users\justin\documents\project-code-monkeys\enemy.cpp
+1512790130 source:c:\users\justin\documents\project-code-monkeys\enemy.cpp
 	"Enemy.h"
 	"Spline.h"
 
@@ -416,7 +431,7 @@
 	"Object.h"
 	"Spline.h"
 
-1512512513 c:\users\justin\documents\project-code-monkeys\object.h
+1512941411 c:\users\justin\documents\project-code-monkeys\object.h
 	"SFML/graphics.hpp"
 
 1512512515 c:\users\justin\documents\project-code-monkeys\sfml\sfml-2.4.2\include\sfml\graphics.hpp
@@ -807,11 +822,15 @@
 	<string>
 	<vector>
 
-1512512516 c:\users\justin\documents\project-code-monkeys\spline.h
+1486736398 em/String.hpp>
+
+1512683229 c:\users\taylorc16\documents\github\project-code-monkeys\framerate.h
+
+1512790130 c:\users\justin\documents\project-code-monkeys\spline.h
 	<vector>
 	<SFML/System.hpp>
 
-1512537679 source:c:\users\justin\documents\project-code-monkeys\main.cpp
+1512945618 source:c:\users\justin\documents\project-code-monkeys\main.cpp
 	<vector>
 	<memory>
 	<ctime>
@@ -819,32 +838,61 @@
 	"Object.h"
 	"Enemy.h"
 	"Framerate.h"
+	"Game.h"
+	"Resources.h"
 
 1512512513 source:c:\users\justin\documents\project-code-monkeys\object.cpp
 	"Object.h"
 
-1512512516 source:c:\users\justin\documents\project-code-monkeys\spline.cpp
+1512789751 source:c:\users\justin\documents\project-code-monkeys\spline.cpp
 	"Spline.h"
 	<cmath>
 
-1512537755 c:\users\justin\documents\project-code-monkeys\framerate.h
-	<string>
-	<SFML/Graphics.hpp>
-	"to_string.h"
+1512945608 c:\users\justin\documents\project-code-monkeys\framerate.h
+	"game.h"
+	<iostream>
 
-1512512516 c:\users\justin\documents\project-code-monkeys\to_string.h
+1512595029 .h"
+	"Game.h"
+
+1512509338 c:\users\justin\documents\project-code-monkeys\to_string.h
 	<sstream>
 	<string>
 
-1512763516 source:d:\c++\projects\c++ game\project-code-monkeys\enemy.cpp
+1512766191 source:c:\users\taylorc16\documents\github\project-code-monkeys\game.cpp
+	"Game.h"
+
+1512766159 c:\users\taylorc16\documents\github\project-code-monkeys\game.h
+	<SFML/graphics.hpp>
+	<memory>
+	<vector>
+	<string>
+	<sstream>
+	"Object.h"
+
+1512790869 source:c:\users\justin\documents\project-code-monkeys\game.cpp
+	"Game.h"
+
+1512941411 c:\users\justin\documents\project-code-monkeys\game.h
+	<SFML/graphics.hpp>
+	<memory>
+	<vector>
+	<string>
+	<sstream>
+	"Object.h"
+
+1512942491 c:\users\justin\documents\project-code-monkeys\resources.h
+	<iostream>
+
+1513026384 source:d:\c++\projects\c++ game\project-code-monkeys\enemy.cpp
 	"Enemy.h"
 	"Spline.h"
 
-1512763516 d:\c++\projects\c++ game\project-code-monkeys\enemy.h
+1512763598 d:\c++\projects\c++ game\project-code-monkeys\enemy.h
 	"Object.h"
 	"Spline.h"
 
-1512423662 d:\c++\projects\c++ game\project-code-monkeys\object.h
+1513026370 d:\c++\projects\c++ game\project-code-monkeys\object.h
 	"SFML/graphics.hpp"
 
 1511903710 d:\c++\projects\c++ game\project-code-monkeys\sfml\sfml-2.4.2\include\sfml\graphics.hpp
@@ -1235,14 +1283,14 @@
 	<string>
 	<vector>
 
-1512679870 d:\c++\projects\c++ game\project-code-monkeys\spline.h
+1513026372 d:\c++\projects\c++ game\project-code-monkeys\spline.h
 	<vector>
 	<SFML/System.hpp>
 
 1512159612 source:d:\c++\projects\c++ game\project-code-monkeys\object.cpp
 	"Object.h"
 
-1512679870 source:d:\c++\projects\c++ game\project-code-monkeys\spline.cpp
+1513026370 source:d:\c++\projects\c++ game\project-code-monkeys\spline.cpp
 	"Spline.h"
 	<cmath>
 
@@ -1263,4 +1311,15 @@
 1512594140 d:\c++\projects\c++ game\project-code-monkeys\to_string.h
 	<sstream>
 	<string>
+
+1513026370 source:d:\c++\projects\c++ game\project-code-monkeys\game.cpp
+	"Game.h"
+
+1513026370 d:\c++\projects\c++ game\project-code-monkeys\game.h
+	<SFML/graphics.hpp>
+	<memory>
+	<vector>
+	<string>
+	<sstream>
+	"Object.h"
 
