@@ -31,7 +31,8 @@ void renderWindow () {
     std::srand(std::time(NULL));
     sf::VertexArray starMap;
 
-    for (unsigned n = 0; n < 300; n++){
+    for (unsigned n = 0; n < 300; n++)
+    {
         float x = rand()%Game::window->getSize().x;
         float y = rand()%Game::window->getSize().y;
 
@@ -107,7 +108,8 @@ int main()
 	sf::Thread thread(renderWindow);
     thread.launch();
 
-    while (Game::window->isOpen()) {
+    while (Game::window->isOpen())
+    {
         sf::Event event;
         while (Game::window->pollEvent(event))
         {
