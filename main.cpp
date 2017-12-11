@@ -13,10 +13,6 @@
 #include "Game.h"
 #include "Resources.h"
 
-int main() {
-    //Main game window
-    sf::RenderWindow window(sf::VideoMode(1368, 600), "Aluminum Dafaa Raiders");
-
 void renderWindow () {
 	//Framerate clock
     sf::Clock frameClock;
@@ -79,13 +75,11 @@ void renderWindow () {
 
 		//Update window
 		Game::window->display();
-
-
-
 	}
 }
 
-int main() {
+int main()
+{
     //Main game window
     Game::setWindow(new sf::RenderWindow(sf::VideoMode(1368, 700), "Aluminum Dafaa Raiders"));
 
@@ -119,11 +113,10 @@ int main() {
                 break;
             }
         }
-
     }
 
-system("pause");
-return 8008;
+    system("pause");
+    return 8008;
 }
 
 
