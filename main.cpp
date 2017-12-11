@@ -28,7 +28,7 @@ void renderWindow () {
 
 	//load resources
 	if (!stuff.load()) {
-		std::cout << "load error in: renderWindow" << std::endl;
+		std::cout << "resource load error in: renderWindow" << std::endl;
 	}
 
     //Make stars!!!
