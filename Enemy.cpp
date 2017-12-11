@@ -11,6 +11,7 @@ Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : 
 
     // Loads in texture from argument
     sprite.setTexture(texture);
+    laserSprite.setTexture(laser);
 
     // Add nodes go in constructor
     // spline.addNode(sf::Vector2f(100, 0));
@@ -28,6 +29,7 @@ void Enemy::dealDamage(int damage)
 {
     // Deals damage to current health
 	health -= damage;
+
 	// Destroys object if health falls to 0
 	if (health <= 0)
 	{
@@ -46,6 +48,7 @@ void Enemy::update(sf::Time deltaTime)
     {
         movement -= spline.getRemainingDistance(getPosition()) * deltaTime.asSeconds();
         setPosition(spline.getCurrentNode());
+
         // If this is the last node, destroy the object
         if (!spline.iterate())
         {
