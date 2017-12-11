@@ -16,7 +16,7 @@
 void renderWindow () {
 	//Framerate clock
     sf::Clock frameClock;
-	//Taylor's shitty clock
+	//Taylor's clock
     sf::Clock deltaClock;
 
 	//add resources object
@@ -41,7 +41,8 @@ void renderWindow () {
 	while (Game::window->isOpen()) {
 		//Update all objects
 		sf::Time deltaTime = deltaClock.restart();
-		for (std::unique_ptr<Object>& currentObject : *Game::objectVector) {
+		for (std::unique_ptr<Object>& currentObject : *Game::objectVector)
+        {
 			if (!currentObject->hasBeenDestroyed());
 			{
 				currentObject->update(deltaTime);
@@ -49,7 +50,8 @@ void renderWindow () {
 		}
 
 		//Do garbage collection, needs to iterate
-		for (auto i = Game::objectVector->begin(); i != Game::objectVector->end(); i++) {
+		for (auto i = Game::objectVector->begin(); i != Game::objectVector->end(); i++)
+        {
 			if ((*i)->hasBeenDestroyed())
 			{
 				Game::objectVector->erase(i);
@@ -64,8 +66,10 @@ void renderWindow () {
 		Game::window->draw(starMap);
 
 		//Draw all drawable objects
-		for (std::unique_ptr<Object>& currentObject : *Game::objectVector) {
-			if (currentObject->isDrawable && !currentObject->hasBeenDestroyed()) {
+		for (std::unique_ptr<Object>& currentObject : *Game::objectVector)
+        {
+			if (currentObject->isDrawable && !currentObject->hasBeenDestroyed())
+            {
 				Game::window->draw(*currentObject);
 			}
 		}
@@ -96,7 +100,7 @@ int main()
 	}
 
     //test enemy
-	Game::objectVector->push_back(std::unique_ptr<Object> (new Enemy(sf::Vector2f(0,0), stuff.errorTexture, 100, 50)));
+	Game::spawn(new Enemy(sf::Vector2f(0,0), stuff.errorTexture, 100, 50));
 
 	Game::window->setActive(false);
 
@@ -105,7 +109,8 @@ int main()
 
     while (Game::window->isOpen()) {
         sf::Event event;
-        while (Game::window->pollEvent(event)) {
+        while (Game::window->pollEvent(event))
+        {
             switch (event.type)
             {
             case sf::Event::Closed:
@@ -118,5 +123,3 @@ int main()
     system("pause");
     return 0;
 }
-
-
