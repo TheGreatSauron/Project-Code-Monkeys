@@ -12,7 +12,7 @@
 #include "Enemy.h"
 #include "Framerate.h"
 
-#include "to_string.h"
+//#include "Games::to_string.h"
 
 int main()
 {
@@ -62,6 +62,7 @@ int main()
     //Objects
     //test enemy
     objectVector.push_back(std::unique_ptr<Object> (new Enemy(sf::Vector2f(0,0), errorTexture, 100, 50)));
+
     //test player
     objectVector.push_back(std::unique_ptr<Object> (new Player(sf::Vector2f(0,0), errorTexture, 3)));
 
@@ -78,9 +79,11 @@ int main()
             }
         }
 
+        Player player(sf::Vector2f(0,0),errorTexture, 3);
+
         //Player Movement
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)); //Move up
-            //player.moveUp();
+            player.moveUp();
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down));
             //player.moveDown();
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left));
