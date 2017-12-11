@@ -28,16 +28,16 @@ private:
 
 public:
     //constructor
-    Player(sf::Vector2f position, sf::Texture&, int = 3);
+    Player(sf::Vector2f position, sf::Texture&, int tempLife = 3);
     //destructor
-    ~Player();
+    virtual ~Player();
 
     //Player movement
     void moveUp();
     void moveDown();
     void moveLeft();
     void moveRight();
-    void setSpeed(float);
+    void setSpeed(float tempSpeed);
 
     //access function
     sf::Sprite getSprite() const;
@@ -47,7 +47,7 @@ public:
     virtual void update(sf::Time deltaTime) override;
 
     //adds or removes lives
-    void manipulateLives(int);
+    void manipulateLives(int lives);
 
     //Overloading the operator ++ and -- to add and subtract lives respectively
     void operator ++() { lives = lives + 1; }
