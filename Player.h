@@ -8,6 +8,7 @@
 //https://www.programiz.com/cpp-programming/operator-overloading
 //https://en.sfml-dev.org/forums/index.php?topic=13358.0
 //https://en.sfml-dev.org/forums/index.php?topic=646.0
+//http://www.cplusplus.com/forum/beginner/140541/
 
 //Used to control each of the players capabilities
 class Player : public Object
@@ -22,9 +23,11 @@ private:
     //declaring the direction of the speed
     sf::Vector2i direction;
 
-    enum direction {Up, Down, Left, Right};
+    enum direction {Down, Left, Right, Up};
 
     float speed;
+
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 public:
     //constructor
@@ -42,7 +45,6 @@ public:
     //access function
     sf::Sprite getSprite() const;
 
-
     //overriding the virtual function in object.h
     virtual void update(sf::Time deltaTime) override;
 
@@ -52,6 +54,7 @@ public:
     //Overloading the operator ++ and -- to add and subtract lives respectively
     void operator ++() { lives = lives + 1; }
     void operator --() { lives = lives - 1; }
+
 
 };
 

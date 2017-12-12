@@ -47,12 +47,6 @@ int main()
             return EXIT_FAILURE;
         }
 
-    sf::Texture playerTexture;
-    if(!playerTexture.loadFromFile("resources/photos/Error.png"))
-    {
-        return EXIT_FAILURE;
-    }
-
     sf::Font Arial;
     if (!Arial.loadFromFile("resources/font/arial.ttf"))
     {
@@ -64,7 +58,9 @@ int main()
     objectVector.push_back(std::unique_ptr<Object> (new Enemy(sf::Vector2f(0,0), errorTexture, 100, 50)));
 
     //test player
-    objectVector.push_back(std::unique_ptr<Object> (new Player(sf::Vector2f(0,0), errorTexture, 3)));
+    objectVector.push_back(std::unique_ptr<Object> (new Player(sf::Vector2f(600 - 32,350 - 32), errorTexture, 3)));
+
+    Player player(sf::Vector2f(600,350),errorTexture, 3);
 
     while (window.isOpen())
     {
@@ -79,17 +75,16 @@ int main()
             }
         }
 
-        Player player(sf::Vector2f(0,0),errorTexture, 3);
 
         //Player Movement
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)); //Move up
             player.moveUp();
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down));
-            //player.moveDown();
+            player.moveDown();
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left));
-            //player.moveLeft();
+            player.moveLeft();
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right));
-            //player.moveRight();
+            player.moveRight();
 
 
         //Update all objects
@@ -117,6 +112,8 @@ int main()
 
         //Draws background
         window.draw(starMap);
+
+        window.draw(player.getSprite());
 
         //Draw all drawable objects
         for (std::unique_ptr<Object>& currentObject : objectVector)

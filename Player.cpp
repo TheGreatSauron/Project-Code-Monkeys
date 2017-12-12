@@ -9,12 +9,13 @@ Player::Player(sf::Vector2f position, sf::Texture& texture, int life)
     //set the spite texture
     sprite.setTexture(texture);
     //set the spite position
-    sprite.setPosition(0,0);
+    sprite.setPosition(position);
     //set the sprite scale
     sprite.setScale(1.5f,1.5f);
     //set the default direction
-    sf::Vector2i direction(1, Down);
+    sf::Vector2i direction(0, Down);
 }
+
 Player::~Player()
 {
 
@@ -41,7 +42,7 @@ void Player::moveUp()
 {
     direction.y = Up;
 
-    sprite.move(0.00f, -speed);
+    sprite.move(speed, -1);
 
 }
 
