@@ -62,6 +62,7 @@
 		<Unit filename="Game.h" />
 		<Unit filename="Object.cpp" />
 		<Unit filename="Object.h" />
+		<Unit filename="Resources.h" />
 		<Unit filename="Spline.cpp" />
 		<Unit filename="Spline.h" />
 		<Unit filename="StarMap.cpp" />
