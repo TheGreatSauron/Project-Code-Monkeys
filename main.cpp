@@ -25,7 +25,7 @@ void renderWindow () {
 
 	//load resources
 	if (!stuff.load()) {
-		std::cout << "load error in: renderWindow" << std::endl;
+		std::cout << "resource load error in: renderWindow" << std::endl;
 	}
 
 	StarMap starMap;
@@ -96,8 +96,10 @@ int main()
 		return EXIT_FAILURE;
 	}*/
 
+    //sets openGL context to not wait and listen to this thread so we can render in another
 	Game::window->setActive(false);
 
+    //launches rendering thread with sf::thread and the window is automatically set to active in the new window
 	sf::Thread thread(renderWindow);
     thread.launch();
 
@@ -115,6 +117,7 @@ int main()
         }
     }
 
+    //pause so devs can see any errors or couts in console window before it closes
     system("pause");
     return 0;
 }

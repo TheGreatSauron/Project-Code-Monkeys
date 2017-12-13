@@ -3,7 +3,6 @@
 #include <iostream>
 
 class Resources{
-
 public:
 	//font
 	sf::Font Arial;
