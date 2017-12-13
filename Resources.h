@@ -12,13 +12,13 @@ public:
 	//loads all textures when called, if one fails it returns false, if not then true
 	bool load() {
 		//load arial
-		if (!Arial.loadFromFile("resources/font/arial.ttf")) {
+		if (!Arial.loadFromFile("resource/font/arial.ttf")) {
 			std::cout << "arial";
 			return false;
 		}
 
 		//load Texture
-		if (!errorTexture.loadFromFile("resources/photos/Error.png")) {
+		if (!errorTexture.loadFromFile("resource/photos/Error.png")) {
 			std::cout << "errorTxt";
 			return false;
 		}
