@@ -23,7 +23,7 @@ public:
     bool hasBeenDestroyed() const;
 
     //Is called every frame
-    virtual void update(sf::Time deltaTime) = 0;
+    virtual void update(sf::Time deltaTime) =0;
 
     //Used to determine if this class is meant to be drawn
     //Should be defined at costruction

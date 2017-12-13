@@ -1,7 +1,7 @@
 //Standard includes
 #include <vector>
 #include <memory>
-#include <ctime>
+#include <iostream>
 
 //SFML includes
 #include <SFML/Graphics.hpp>
@@ -12,6 +12,7 @@
 #include "Framerate.h"
 #include "Game.h"
 #include "Resources.h"
+#include "StarMap.h"
 
 void renderWindow () {
 	//Framerate clock
@@ -27,21 +28,15 @@ void renderWindow () {
 		std::cout << "load error in: renderWindow" << std::endl;
 	}
 
-    //Make stars!!!
-    std::srand(std::time(NULL));
-    sf::VertexArray starMap;
+	StarMap starMap;
 
-    for (unsigned n = 0; n < 300; n++)
+	while (Game::window->isOpen())
     {
-        float x = rand()%Game::window->getSize().x;
-        float y = rand()%Game::window->getSize().y;
-
-        starMap.append(sf::Vertex(sf::Vector2f(x, y), sf::Color::White));
-    }
-
-	while (Game::window->isOpen()) {
 		//Update all objects
 		sf::Time deltaTime = deltaClock.restart();
+
+		starMap.update(deltaTime);
+
 		for (std::unique_ptr<Object>& currentObject : *Game::objectVector)
         {
 			if (!currentObject->hasBeenDestroyed());
@@ -63,7 +58,7 @@ void renderWindow () {
 		//Reset window
 		Game::window->clear();
 
-		//Draws background
+		//Draw StarMap
 		Game::window->draw(starMap);
 
 		//Draw all drawable objects
@@ -88,20 +83,18 @@ int main()
     //Main game window
     Game::setWindow(new sf::RenderWindow(sf::VideoMode(1368, 700), "Aluminum Dafaa Raiders"));
 
-    //Use for creating objects
-    //e.g. objectVector.push_back(std::unique_ptr<Object> (new Enemy()));
+    //Used for dynamic objects
     Game::setObjectVector(new std::vector<std::unique_ptr<Object>>);
 
+
+    /* Not needed, loaded twice
     //create resource object
 	Resources stuff;
 
 	//load resources
 	if (!stuff.load()) {
 		return EXIT_FAILURE;
-	}
-
-    //test enemy
-	Game::spawn(new Enemy(sf::Vector2f(0,0), stuff.errorTexture, 100, 50));
+	}*/
 
 	Game::window->setActive(false);
 
