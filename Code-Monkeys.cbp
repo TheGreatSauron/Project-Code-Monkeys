@@ -64,6 +64,8 @@
 		<Unit filename="Object.h" />
 		<Unit filename="Spline.cpp" />
 		<Unit filename="Spline.h" />
+		<Unit filename="StarMap.cpp" />
+		<Unit filename="StarMap.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="openal32.dll" />
 		<Unit filename="sfgui-d.dll" />

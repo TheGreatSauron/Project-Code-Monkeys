@@ -1,7 +1,7 @@
 //Standard includes
 #include <vector>
 #include <memory>
-#include <ctime>
+#include <iostream>
 
 //SFML includes
 #include <SFML/Graphics.hpp>
@@ -12,11 +12,12 @@
 #include "Framerate.h"
 #include "Game.h"
 #include "Resources.h"
+#include "StarMap.h"
 
 void renderWindow () {
 	//Framerate clock
     sf::Clock frameClock;
-	//Taylor's shitty clock
+	//Taylor's clock
     sf::Clock deltaClock;
 
 	//add resources object
@@ -27,21 +28,17 @@ void renderWindow () {
 		std::cout << "resource load error in: renderWindow" << std::endl;
 	}
 
-    //Make stars!!!
-    std::srand(std::time(NULL));
-    sf::VertexArray starMap;
+	StarMap starMap;
 
-    for (unsigned n = 0; n < 300; n++){
-        float x = rand()%Game::window->getSize().x;
-        float y = rand()%Game::window->getSize().y;
-
-        starMap.append(sf::Vertex(sf::Vector2f(x, y), sf::Color::White));
-    }
-
-	while (Game::window->isOpen()) {
+	while (Game::window->isOpen())
+    {
 		//Update all objects
 		sf::Time deltaTime = deltaClock.restart();
-		for (std::unique_ptr<Object>& currentObject : *Game::objectVector) {
+
+		starMap.update(deltaTime);
+
+		for (std::unique_ptr<Object>& currentObject : *Game::objectVector)
+        {
 			if (!currentObject->hasBeenDestroyed());
 			{
 				currentObject->update(deltaTime);
@@ -49,7 +46,8 @@ void renderWindow () {
 		}
 
 		//Do garbage collection, needs to iterate
-		for (auto i = Game::objectVector->begin(); i != Game::objectVector->end(); i++) {
+		for (auto i = Game::objectVector->begin(); i != Game::objectVector->end(); i++)
+        {
 			if ((*i)->hasBeenDestroyed())
 			{
 				Game::objectVector->erase(i);
@@ -60,12 +58,14 @@ void renderWindow () {
 		//Reset window
 		Game::window->clear();
 
-		//Draws background
+		//Draw StarMap
 		Game::window->draw(starMap);
 
 		//Draw all drawable objects
-		for (std::unique_ptr<Object>& currentObject : *Game::objectVector) {
-			if (currentObject->isDrawable && !currentObject->hasBeenDestroyed()) {
+		for (std::unique_ptr<Object>& currentObject : *Game::objectVector)
+        {
+			if (currentObject->isDrawable && !currentObject->hasBeenDestroyed())
+            {
 				Game::window->draw(*currentObject);
 			}
 		}
@@ -83,20 +83,18 @@ int main()
     //Main game window
     Game::setWindow(new sf::RenderWindow(sf::VideoMode(1368, 700), "Aluminum Dafaa Raiders"));
 
-    //Use for creating objects
-    //e.g. objectVector.push_back(std::unique_ptr<Object> (new Enemy()));
+    //Used for dynamic objects
     Game::setObjectVector(new std::vector<std::unique_ptr<Object>>);
 
+
+    /* Not needed, loaded twice
     //create resource object
 	Resources stuff;
 
 	//load resources
 	if (!stuff.load()) {
 		return EXIT_FAILURE;
-	}
-
-    //test enemy
-	Game::objectVector->push_back(std::unique_ptr<Object> (new Enemy(sf::Vector2f(0,0), stuff.errorTexture, 100, 50)));
+	}*/
 
     //sets openGL context to not wait and listen to this thread so we can render in another
 	Game::window->setActive(false);
@@ -105,10 +103,11 @@ int main()
 	sf::Thread thread(renderWindow);
     thread.launch();
 
-
-    while (Game::window->isOpen()) {
+    while (Game::window->isOpen())
+    {
         sf::Event event;
-        while (Game::window->pollEvent(event)) {
+        while (Game::window->pollEvent(event))
+        {
             switch (event.type)
             {
             case sf::Event::Closed:
@@ -118,9 +117,7 @@ int main()
         }
     }
 
-//pause so devs can see any errors or couts in console window before it closes
-system("pause");
-return 8008;
+    //pause so devs can see any errors or couts in console window before it closes
+    system("pause");
+    return 0;
 }
-
-
