@@ -14,6 +14,9 @@
 class Player : public Object
 {
 private:
+
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
     //Amount  of lives for the player
     int lives;
 
@@ -27,33 +30,38 @@ private:
 
     float speed;
 
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-
 public:
     //constructor
     Player(sf::Vector2f position, sf::Texture&, int tempLife = 3);
     //destructor
     virtual ~Player();
 
+    void update(sf::Time deltaTime) const;
+
     //Player movement
-    void moveUp();
+    void moveUp(sf::Time& deltaTime);
     void moveDown();
     void moveLeft();
     void moveRight();
-    void setSpeed(float tempSpeed);
-
-    //access function
-    sf::Sprite getSprite() const;
 
     //overriding the virtual function in object.h
     virtual void update(sf::Time deltaTime) override;
 
+    void movement(sf::Time& deltaTime, int directionValue);
+
     //adds or removes lives
-    void manipulateLives(int lives);
+    void changeLives(int lives);
 
     //Overloading the operator ++ and -- to add and subtract lives respectively
     void operator ++() { lives = lives + 1; }
-    void operator --() { lives = lives - 1; }
+    void operator --()
+    {
+        lives = lives - 1;
+        if(lives <= 0)
+        {
+            //end game
+        }
+    }
 
 
 };

@@ -21,28 +21,49 @@ Player::~Player()
 
 }
 
+void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const
+{
+    states = getTransform();
+    target.draw(sprite,states);
+}
+
 //update function
 void Player::update(sf::Time deltaTime)
 {
 }
 
-//
-void Player::manipulateLives(int number)
+void Player::movement(sf::Time& deltaTime, int directionValue)
 {
-    lives = lives + number; //sets the number of lives to be the passed in value to the function
+    //speed *= deltaTime.asSeconds();
+    switch (directionValue)
+    {
+        case 0: direction.y = Up;
+                sprite.move(speed, 0.00f);
+                std::cout << "Up\n";
+                break;
+        case 1: direction.y = Down;
+                sprite.move(speed, 0.0f);
+    }
+
 }
 
-sf::Sprite Player::getSprite() const
+//
+void Player::changeLives(int number)
 {
-    return sprite;
+    lives = lives + number; //sets the number of lives to be the passed in value to the function
+
+    if(lives <= 0)
+    {
+        //end game, close window or display a restart screen
+    }
 }
 
 //Moves the player up function
-void Player::moveUp()
+void Player::moveUp(sf::Time& deltaTime)
 {
     direction.y = Up;
 
-    sprite.move(speed, -1);
+    sprite.move(speed, 0.00f);
 
 }
 
@@ -65,9 +86,4 @@ void Player::moveLeft()
     direction.y = Left;
 
     sprite.move(-speed, 0.00f);
-}
-
-void Player::setSpeed(float tempSpeed)
-{
-    speed = tempSpeed;
 }
