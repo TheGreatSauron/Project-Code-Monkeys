@@ -1,7 +1,7 @@
 //Standard includes
 #include <vector>
 #include <memory>
-#include <ctime>
+#include <iostream>
 
 //SFML includes
 #include <SFML/Graphics.hpp>
@@ -11,80 +11,123 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "Framerate.h"
+#include "Game.h"
+#include "Resources.h"
+#include "StarMap.h"
 
-//#include "Games::to_string.h"
+void renderWindow () {
+	//Framerate clock
+    sf::Clock frameClock;
+	//Taylor's clock
+    sf::Clock deltaClock;
 
-//remove
-#include <iostream>
+	//add resources object
+	Resources stuff;
+
+	//load resources
+	if (!stuff.load()) {
+		std::cout << "resource load error in: renderWindow" << std::endl;
+	}
+
+
+
+	Player player(600,300,errorTexture,3);
+
+	float speedX = 0.00f; //declares an X and Y value for movement
+    float speedY = 0.00f;
+
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) //Move up
+    {
+        speedX = 0.00f;
+        speedY = -1.00f;
+        player.movement(deltaTime,speedX,speedY);
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+    {
+        speedX = 0.00f;
+        speedY = 1.00f;
+        player.movement(deltaTime,speedX,speedY);
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+    {
+        speedX = -1.00f;
+        speedY = 0.00f;
+        player.movement(deltaTime,speedX,speedY);
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    {
+        speedX = 1.00f;
+        speedY = 0.00f;
+        player.movement(deltaTime,speedX,speedY);
+    }
+
+	Game::spawn(new StarMap());
+
+	while (Game::window->isOpen())
+    {
+		//Update all objects
+		sf::Time deltaTime = deltaClock.restart();
+
+		for (std::unique_ptr<Object>& currentObject : *Game::objectVector)
+        {
+			if (!currentObject->hasBeenDestroyed());
+			{
+				currentObject->update(deltaTime);
+			}
+		}
+
+		//Do garbage collection, needs to iterate
+		for (auto i = Game::objectVector->begin(); i != Game::objectVector->end(); i++)
+        {
+			if ((*i)->hasBeenDestroyed())
+			{
+				Game::objectVector->erase(i);
+				i--;
+			}
+		}
+
+		//Reset window
+		Game::window->clear();
+
+		//Draw all drawable objects
+		for (std::unique_ptr<Object>& currentObject : *Game::objectVector)
+        {
+			if (currentObject->isDrawable && !currentObject->hasBeenDestroyed())
+            {
+				Game::window->draw(*currentObject);
+			}
+		}
+
+		//Frame-rate
+    Game::window->draw(Frame(frameClock, stuff.Arial));
+    }
+}
 
 int main()
 {
     //Main game window
-    sf::RenderWindow window(sf::VideoMode(1368, 600), "Aluminum Dafaa Raiders");
+    Game::setWindow(new sf::RenderWindow(sf::VideoMode(1368, 700), "Aluminum Dafaa Raiders"));
 
-    //Use for creating objects
-    //e.g. objectVector.push_back(std::unique_ptr<Object> (new Enemy()));
-    std::vector<std::unique_ptr<Object>> objectVector;
+    //Used for dynamic objects
+    Game::setObjectVector(new std::vector<std::unique_ptr<Object>>);
 
+    //sets openGL context to not wait and listen to this thread so we can render in another
+	Game::window->setActive(false);
 
-    //Make stars!!!
-    std::srand(std::time(NULL));
-    sf::VertexArray starMap;
-    for (unsigned n = 0; n < 200; n++)
-    {
-        float x = rand()%window.getSize().x;
-        float y = rand()%window.getSize().y;
+    //launches rendering thread with sf::thread and the window is automatically set to active in the new window
+	sf::Thread thread(renderWindow);
+    thread.launch();
 
-        starMap.append(sf::Vertex(sf::Vector2f(x, y), sf::Color::White));
-    }
-
-    //Taylor's shitty clock
-    sf::Clock deltaClock;
-    //Framerate clock
-    sf::Clock frameClock;
-
-    //Textures
-    sf::Texture errorTexture;
-    if (!errorTexture.loadFromFile("resources/photos/Error.png"))
-        {
-            return EXIT_FAILURE;
-        }
-
-    sf::Font Arial;
-    if (!Arial.loadFromFile("resources/font/arial.ttf"))
-    {
-        return EXIT_FAILURE;
-    }
-
-    //Objects
-    //test enemy
-    objectVector.push_back(std::unique_ptr<Object> (new Enemy(sf::Vector2f(0,0), errorTexture, 100, 50)));
-
-    //objectVector.push_back(std::unique_ptr<Object> (new Player(sf::Vector2f(600,350), errorTexture, 3)));
-
-    Player player(sf::Vector2f(600,350),errorTexture, 3);
-
-    while (window.isOpen())
+    while (Game::window->isOpen())
     {
         sf::Event event;
-        while (window.pollEvent(event))
+        while (Game::window->pollEvent(event))
         {
             switch (event.type)
             {
             case sf::Event::Closed:
-                window.close();
+                Game::window->close();
                 break;
-            }
-        }
-
-
-        //Update all objects
-        sf::Time deltaTime = deltaClock.restart();
-        for (std::unique_ptr<Object>& currentObject : objectVector)
-        {
-            if (!currentObject->hasBeenDestroyed());
-            {
-                currentObject->update(deltaTime);
             }
         }
 
@@ -116,44 +159,9 @@ int main()
             speedY = 0.00f;
             player.movement(deltaTime,speedX,speedY);
         }
-
-        //Do garbage collection, needs to iterate
-        for (auto i = objectVector.begin(); i != objectVector.end(); i++)
-        {
-            if ((*i)->hasBeenDestroyed())
-            {
-                objectVector.erase(i);
-                i--;
-            }
-        }
-
-        //Reset window
-        window.clear();
-
-        //Draws background
-        window.draw(starMap);
-
-        window.draw(player);
-
-        //Draw all drawable objects
-        for (std::unique_ptr<Object>& currentObject : objectVector)
-        {
-            if (currentObject->isDrawable && !currentObject->hasBeenDestroyed())
-            {
-                window.draw(*currentObject);
-            }
-        }
-
-        //framerate
-        window.draw(Frame(frameClock, Arial));
-
-        //Update window
-        window.display();
-
-
     }
 
-    return 8008;
+    //pause so devs can see any errors or couts in console window before it closes
+    system("pause");
+    return 0;
 }
-
-

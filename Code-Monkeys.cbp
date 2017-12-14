@@ -58,14 +58,22 @@
 		<Unit filename="Framerate.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="Game.cpp" />
+		<Unit filename="Game.h" />
 		<Unit filename="Object.cpp" />
 		<Unit filename="Object.h" />
+<<<<<<< HEAD
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+=======
+		<Unit filename="Resources.h" />
+>>>>>>> 5efba14228a6797006b73ba9d260be27b5db3c35
 		<Unit filename="Spline.cpp" />
 		<Unit filename="Spline.h" />
+		<Unit filename="StarMap.cpp" />
+		<Unit filename="StarMap.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="openal32.dll" />
 		<Unit filename="sfgui-d.dll" />
@@ -80,9 +88,6 @@
 		<Unit filename="sfml-system-d-2.dll" />
 		<Unit filename="sfml-window-2.dll" />
 		<Unit filename="sfml-window-d-2.dll" />
-		<Unit filename="to_string.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />
