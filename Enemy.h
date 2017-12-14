@@ -30,7 +30,7 @@ public:
 
     // Declares sprites
     sf::Sprite sprite;
-    sf::Sprite laserSprite;
+    sf::Texture laserTexture;
 
     // Spline class
     Spline spline;

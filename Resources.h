@@ -9,7 +9,8 @@ public:
 	sf::Font Arial;
 	//errorTexture
 	sf::Texture errorTexture;
-
+    //laser
+    sf::Texture laser;
 	//loads all textures when called, if one fails it returns false, if not then true
 	bool load() {
 		//load arial
@@ -23,6 +24,13 @@ public:
 			std::cout << "errorTxt";
 			return false;
 		}
+
+		//load laser
+		if (!laser.loadFromFile("resources/photos/laser.png"))
+        {
+            std::cout << "laserTxt";
+            return false;
+        }
 		return true;
 	}
 

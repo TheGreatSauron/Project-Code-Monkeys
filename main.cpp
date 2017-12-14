@@ -37,6 +37,8 @@ void renderWindow () {
 
         starMap.append(sf::Vertex(sf::Vector2f(x, y), sf::Color::White));
     }
+    Game::spawn(new Enemy(sf::Vector2f(0,0), stuff.errorTexture, stuff.laser));
+
 
 	while (Game::window->isOpen()) {
 		//Update all objects

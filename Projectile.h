@@ -1,0 +1,18 @@
+#ifndef PROJECTILE_H_INCLUDED
+#define PROJECTILE_H_INCLUDED
+
+#include <SFML/graphics.hpp>
+#include "Object.h"
+
+class Projectile : public Object
+{
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+    sf::Sprite sprite;
+    sf::Vector2f velocity;
+public:
+    virtual void update(sf::Time deltaTime) override;
+    Projectile(sf::Texture& texture, sf::Vector2f projectileVelocity);
+
+};
+
+#endif // PROJECTILE_H_INCLUDED
