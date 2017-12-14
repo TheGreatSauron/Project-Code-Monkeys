@@ -12,6 +12,7 @@ struct Game
 {
     static std::unique_ptr<sf::RenderWindow> window;
     static std::unique_ptr<std::vector<std::unique_ptr<Object>>> objectVector;
+    static int score;
 
     //enable the "to_string" function of std:: as code-blocks has bugs with it not working correctly
     template <typename T>
