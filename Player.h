@@ -28,8 +28,6 @@ private:
 
     enum direction {Down, Left, Right, Up};
 
-    float speed;
-
 public:
     //constructor
     Player(sf::Vector2f position, sf::Texture&, int tempLife = 3);
@@ -37,12 +35,6 @@ public:
     virtual ~Player();
 
     void update(sf::Time deltaTime) const;
-
-    //Player movement
-    void moveUp(sf::Time& deltaTime);
-    void moveDown();
-    void moveLeft();
-    void moveRight();
 
     //overriding the virtual function in object.h
     virtual void update(sf::Time deltaTime) override;

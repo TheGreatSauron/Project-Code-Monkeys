@@ -38,25 +38,6 @@ void Player::movement(sf::Time& deltaTime, float speedX, float speedY)
     speedY += deltaTime.asSeconds();
 
     sprite.move(speedX,speedY);
-
-    /*switch (directionValue)
-    {
-        case 0: direction.y = Up;
-                sprite.move(speedX, speedY);
-                std::cout << "Up\n";
-                break;
-        case 1: direction.y = Down;
-                sprite.move(speedX, speedY);
-                break;
-        case 2: direction.y = Left;
-                sprite.move(-speedX, speedY);
-                break;
-        case 3: direction.y = Right;
-                sprite.move(speedX, speedY);
-                break;
-        default: break;
-    }*/
-
 }
 
 //
@@ -68,34 +49,4 @@ void Player::changeLives(int number)
     {
         //end game, close window or display a restart screen
     }
-}
-
-//Moves the player up function
-void Player::moveUp(sf::Time& deltaTime)
-{
-    direction.y = Up;
-
-    sprite.move(speed, 0.00f);
-
-}
-
-void Player::moveDown()
-{
-    direction.y = Down;
-
-    sprite.move(0.00f, speed);
-}
-
-void Player::moveRight()
-{
-    direction.y = Right;
-
-    sprite.move(speed, 0.00f);
-}
-
-void Player::moveLeft()
-{
-    direction.y = Left;
-
-    sprite.move(-speed, 0.00f);
 }
