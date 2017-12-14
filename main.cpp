@@ -28,14 +28,12 @@ void renderWindow () {
 		std::cout << "resource load error in: renderWindow" << std::endl;
 	}
 
-	StarMap starMap;
+	Game::spawn(new StarMap());
 
 	while (Game::window->isOpen())
     {
 		//Update all objects
 		sf::Time deltaTime = deltaClock.restart();
-
-		starMap.update(deltaTime);
 
 		for (std::unique_ptr<Object>& currentObject : *Game::objectVector)
         {
@@ -57,9 +55,6 @@ void renderWindow () {
 
 		//Reset window
 		Game::window->clear();
-
-		//Draw StarMap
-		Game::window->draw(starMap);
 
 		//Draw all drawable objects
 		for (std::unique_ptr<Object>& currentObject : *Game::objectVector)

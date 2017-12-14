@@ -7,7 +7,7 @@ void StarMap::draw(sf::RenderTarget& target, sf::RenderStates states) const
     target.draw(stars);
 }
 
-StarMap::StarMap() : speed(10)
+StarMap::StarMap() : Object(true), speed(10)
 {
     std::srand(std::time(NULL));
     for (unsigned n = 0; n < 300; n++)
