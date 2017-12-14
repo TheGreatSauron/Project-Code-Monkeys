@@ -47,7 +47,7 @@ public:
     //overriding the virtual function in object.h
     virtual void update(sf::Time deltaTime) override;
 
-    void movement(sf::Time& deltaTime, int directionValue);
+    void movement(sf::Time& deltaTime, float speedX, float speedY);
 
     //adds or removes lives
     void changeLives(int lives);

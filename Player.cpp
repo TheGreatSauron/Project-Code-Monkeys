@@ -32,18 +32,30 @@ void Player::update(sf::Time deltaTime)
 {
 }
 
-void Player::movement(sf::Time& deltaTime, int directionValue)
+void Player::movement(sf::Time& deltaTime, float speedX, float speedY)
 {
-    //speed *= deltaTime.asSeconds();
-    switch (directionValue)
+    speedX += deltaTime.asSeconds();
+    speedY += deltaTime.asSeconds();
+
+    sprite.move(speedX,speedY);
+
+    /*switch (directionValue)
     {
         case 0: direction.y = Up;
-                sprite.move(speed, 0.00f);
+                sprite.move(speedX, speedY);
                 std::cout << "Up\n";
                 break;
         case 1: direction.y = Down;
-                sprite.move(speed, 0.0f);
-    }
+                sprite.move(speedX, speedY);
+                break;
+        case 2: direction.y = Left;
+                sprite.move(-speedX, speedY);
+                break;
+        case 3: direction.y = Right;
+                sprite.move(speedX, speedY);
+                break;
+        default: break;
+    }*/
 
 }
 

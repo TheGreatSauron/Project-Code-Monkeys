@@ -60,7 +60,6 @@ int main()
     //test enemy
     objectVector.push_back(std::unique_ptr<Object> (new Enemy(sf::Vector2f(0,0), errorTexture, 100, 50)));
 
-    //test player
     //objectVector.push_back(std::unique_ptr<Object> (new Player(sf::Vector2f(600,350), errorTexture, 3)));
 
     Player player(sf::Vector2f(600,350),errorTexture, 3);
@@ -90,15 +89,33 @@ int main()
         }
 
         //Player Movement
+        float speedX = 0.00f; //declares an X and Y value for movement
+        float speedY = 0.00f;
+
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) //Move up
-            player.moveUp(deltaTime);
-            //player.movement(deltaTime,0);
+        {
+            speedX = 0.00f;
+            speedY = -1.00f;
+            player.movement(deltaTime,speedX,speedY);
+        }
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-            player.movement(deltaTime,1);
+        {
+            speedX = 0.00f;
+            speedY = 1.00f;
+            player.movement(deltaTime,speedX,speedY);
+        }
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-            player.movement(deltaTime,2);
+        {
+            speedX = -1.00f;
+            speedY = 0.00f;
+            player.movement(deltaTime,speedX,speedY);
+        }
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-            player.movement(deltaTime,3);
+        {
+            speedX = 1.00f;
+            speedY = 0.00f;
+            player.movement(deltaTime,speedX,speedY);
+        }
 
         //Do garbage collection, needs to iterate
         for (auto i = objectVector.begin(); i != objectVector.end(); i++)
