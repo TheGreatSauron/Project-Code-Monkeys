@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1513286432 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
+1513287874 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
 	<vector>
 	<memory>
 	<iostream>
@@ -10,6 +10,7 @@
 	"Game.h"
 	"Resources.h"
 	"StarMap.h"
+	"ScoreDisplay.h"
 
 1511471982 c:\users\taylorc16\documents\github\project-code-monkeys\sfml\sfml-2.4.2\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -860,7 +861,7 @@
 	<sstream>
 	<string>
 
-1513285887 source:c:\users\taylorc16\documents\github\project-code-monkeys\game.cpp
+1513287896 source:c:\users\taylorc16\documents\github\project-code-monkeys\game.cpp
 	"Game.h"
 
 1513285887 c:\users\taylorc16\documents\github\project-code-monkeys\game.h
@@ -886,4 +887,12 @@
 	"Object.h"
 
 1513200188 
+
+1513287858 source:c:\users\taylorc16\documents\github\project-code-monkeys\scoredisplay.cpp
+	"ScoreDisplay.h"
+	"Game.h"
+
+1513287458 c:\users\taylorc16\documents\github\project-code-monkeys\scoredisplay.h
+	<SFML/graphics.hpp>
+	"Object.h"
 

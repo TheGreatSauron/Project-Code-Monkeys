@@ -13,6 +13,7 @@
 #include "Game.h"
 #include "Resources.h"
 #include "StarMap.h"
+#include "ScoreDisplay.h"
 
 void renderWindow () {
 	//Framerate clock
@@ -29,6 +30,8 @@ void renderWindow () {
 	}
 
 	Game::spawn(new StarMap());
+
+	Game::spawn(new ScoreDisplay(stuff.Arial, sf::Vector2f(Game::window->getSize().x, 0)));
 
 	while (Game::window->isOpen())
     {
