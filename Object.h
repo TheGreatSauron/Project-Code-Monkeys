@@ -27,7 +27,7 @@ public:
 
     //Used to determine if this class is meant to be drawn
     //Should be defined at costruction
-    //Is not const and can change for deleted things
+    //Is not const and can change
     bool isDrawable;
 };
 

@@ -4,8 +4,7 @@
 #include "Projectile.h"
 
 // Constructor
-Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : Object(true)
-
+Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : Object(true), laserTexture(laser)
 {
     speed = 50;
     health = 50;
@@ -13,18 +12,17 @@ Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : 
 
     // Loads in texture from argument
     sprite.setTexture(texture);
-    laserTexture = laser;
 
     //Add nodes go in constructor
     //THESE ARE TEST NODES AND ALL NEW ENEMEYS WILL FOLLOW THIS PATH
     spline.addNode(sf::Vector2f(100, 0));
-    spline.addNode(sf::Vector2f(1336, 668));
+    spline.addNode(sf::Vector2f(100, 100));
     spline.offset(getPosition());
 }
 
 void Enemy::shootLaser()
 {
-    Game::spawn(new Projectile(laserTexture, sf::Vector2f(0, 100)));
+    Game::spawn(new Projectile(laserTexture, getPosition(), sf::Vector2f(0, 100)));
 }
 
 // Deal damage function
@@ -59,15 +57,14 @@ void Enemy::update(sf::Time deltaTime)
         }
         else
         {
-            // Shoot laser here
-            Game::spawn(new Projectile(laserTexture, sf::Vector2f(0, 0)));
+            shootLaser();
         }
     }
 
     //Move remaining distance
     sf::Vector2f direction = spline.getDirection(getPosition());
     direction *= movement * deltaTime.asSeconds();
-    setPosition(getPosition() + direction);
+    move(direction);
 }
 
 // Draws enemy/error

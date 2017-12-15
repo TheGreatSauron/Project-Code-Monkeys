@@ -17,6 +17,9 @@ protected:
 	// Enemy speed
 	float speed;
 
+	// Shoots a laser
+	virtual void shootLaser();
+
 public:
 
     // Constructor declaration
@@ -30,11 +33,10 @@ public:
 
     // Declares sprites
     sf::Sprite sprite;
-    sf::Texture laserTexture;
+    sf::Texture& laserTexture;
 
     // Spline class
     Spline spline;
-    virtual void shootLaser();
 
 };
 

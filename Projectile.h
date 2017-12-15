@@ -4,14 +4,15 @@
 #include <SFML/graphics.hpp>
 #include "Object.h"
 
+//template <class Collider>
 class Projectile : public Object
 {
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
     sf::Sprite sprite;
     sf::Vector2f velocity;
 public:
     virtual void update(sf::Time deltaTime) override;
-    Projectile(sf::Texture& texture, sf::Vector2f projectileVelocity);
+    Projectile(sf::Texture& texture, sf::Vector2f position, sf::Vector2f projectileVelocity);
 
 };
 
