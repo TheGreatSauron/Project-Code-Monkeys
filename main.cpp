@@ -29,37 +29,14 @@ void renderWindow () {
 		std::cout << "resource load error in: renderWindow" << std::endl;
 	}
 
-
-
-	Player player(600,300,errorTexture,3);
-
-	float speedX = 0.00f; //declares an X and Y value for movement
-    float speedY = 0.00f;
-
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) //Move up
+    sf::Texture errorTexture;
+    if(!errorTexture.loadFromFile("resource/photos/Error.png"))
     {
-        speedX = 0.00f;
-        speedY = -1.00f;
-        player.movement(deltaTime,speedX,speedY);
+        std::cout << "texture load error in: renderWindow" << std::endl;
     }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-    {
-        speedX = 0.00f;
-        speedY = 1.00f;
-        player.movement(deltaTime,speedX,speedY);
-    }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-    {
-        speedX = -1.00f;
-        speedY = 0.00f;
-        player.movement(deltaTime,speedX,speedY);
-    }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-    {
-        speedX = 1.00f;
-        speedY = 0.00f;
-        player.movement(deltaTime,speedX,speedY);
-    }
+
+	//Creating the player
+	Player player(sf::Vector2f(600,300),errorTexture,3);
 
 	Game::spawn(new StarMap());
 
@@ -98,9 +75,51 @@ void renderWindow () {
 			}
 		}
 
+		//Declaring X and Y values for the speed of player
+		float speedX = 0.00f;
+        float speedY = 0.00f;
+
+        //Moves the player up with W or the up arrow
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        {
+            //sets the offset based on the speed
+            speedX = 0.00f;
+            speedY = -1.00f;
+            player.movement(deltaTime,speedX,speedY);
+        }
+        //Moves the player down with S or the down arrow
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+        {
+            speedX = 0.00f;
+            speedY = 1.00f;
+            player.movement(deltaTime,speedX,speedY);
+        }
+        //Moves the player left with A or the left arrow
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        {
+            speedX = -1.00f;
+            speedY = 0.00f;
+            player.movement(deltaTime,speedX,speedY);
+        }
+        //Moves the player right with D or the right arrow
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+        {
+            speedX = 1.00f;
+            speedY = 0.00f;
+            player.movement(deltaTime,speedX,speedY);
+        }
+
 		//Frame-rate
+
+    //Drawing the player object
+    Game::window->draw(player);
+    //Drawing the framerate clock
     Game::window->draw(Frame(frameClock, stuff.Arial));
+    //displaying the window
+    Game::window->display();
+
     }
+
 }
 
 int main()
@@ -129,35 +148,6 @@ int main()
                 Game::window->close();
                 break;
             }
-        }
-
-        //Player Movement
-        float speedX = 0.00f; //declares an X and Y value for movement
-        float speedY = 0.00f;
-
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) //Move up
-        {
-            speedX = 0.00f;
-            speedY = -1.00f;
-            player.movement(deltaTime,speedX,speedY);
-        }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-        {
-            speedX = 0.00f;
-            speedY = 1.00f;
-            player.movement(deltaTime,speedX,speedY);
-        }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-        {
-            speedX = -1.00f;
-            speedY = 0.00f;
-            player.movement(deltaTime,speedX,speedY);
-        }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-        {
-            speedX = 1.00f;
-            speedY = 0.00f;
-            player.movement(deltaTime,speedX,speedY);
         }
     }
 

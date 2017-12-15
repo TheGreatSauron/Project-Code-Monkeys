@@ -1,13 +1,11 @@
 # depslib dependency file v1.0
-100  
+1513200188 
 
 100 ÌËÌÍÍÎÎÍÎÐÐÑÑÐÑÒÒÓÓÒÓÔÔÕÕÔÕÖÖ××Ö×ØØÙÙØÙÚÚÛÛÚÛÜÜÝÝÜÝÞÞßßÞßààááàáââããâãääååäåææççæçèèééèéêêëëêëììííìíîîïïîïððññðñòòóóòóôôõõôõöö÷÷ö÷øøùùøù
 
 1513199649 source:c:\codingproject\project-code-monkeys\enemy.cpp
 	"Enemy.h"
 	"Spline.h"
-
-1513200188 
 
 1513286432 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
 
@@ -445,16 +443,18 @@
 	"Spline.h"
 	<cmath>
 
-1513285619 source:c:\codingproject\project-code-monkeys\main.cpp
+1513370379 source:c:\codingproject\project-code-monkeys\main.cpp
 	<vector>
 	<memory>
-	<ctime>
+	<iostream>
 	<SFML/Graphics.hpp>
 	"Object.h"
 	"Player.h"
 	"Enemy.h"
 	"Framerate.h"
-	<iostream>
+	"Game.h"
+	"Resources.h"
+	"StarMap.h"
 
 1512507796 source:c:\users\taylorc16\documents\github\project-code-monkeys\spline.cpp
 	"Spline.h"
@@ -466,13 +466,15 @@
 
 1512596312 source:c:\users\justin\documents\project-code-monkeys\enemy.cpp
 
-1513286189 c:\codingproject\project-code-monkeys\player.h
+1513370379 c:\codingproject\project-code-monkeys\player.h
 	"Object.h"
 
 1512507419 c:\users\justin\documents\project-code-monkeys\enemy.h
 
-1513198278 c:\codingproject\project-code-monkeys\framerate.h
-	"to_string.h"
+1513287053 c:\codingproject\project-code-monkeys\framerate.h
+	<string>
+	<SFML/Graphics.hpp>
+	"Game.h"
 
 1513024996 c:\users\justin\documents\project-code-monkeys\object.h
 	"SFML/graphics.hpp"
@@ -913,7 +915,7 @@
 
 1512509338 c:\users\justin\documents\project-code-monkeys\to_string.h
 
-1513286208 source:c:\codingproject\project-code-monkeys\player.cpp
+1513370408 source:c:\codingproject\project-code-monkeys\player.cpp
 	"Player.h"
 	<iostream>
 
@@ -963,4 +965,7 @@
 1513287053 c:\codingproject\project-code-monkeys\starmap.h
 	<SFML/graphics.hpp>
 	"Object.h"
+
+1513287053 c:\codingproject\project-code-monkeys\resources.h
+	<iostream>
 

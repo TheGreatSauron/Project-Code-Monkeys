@@ -15,6 +15,7 @@ class Player : public Object
 {
 private:
 
+    //Declaring the draw function
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
     //Amount  of lives for the player
@@ -26,6 +27,7 @@ private:
     //declaring the direction of the speed
     sf::Vector2i direction;
 
+    //declaring direction values
     enum direction {Down, Left, Right, Up};
 
 public:
@@ -39,6 +41,7 @@ public:
     //overriding the virtual function in object.h
     virtual void update(sf::Time deltaTime) override;
 
+    //Player movement
     void movement(sf::Time& deltaTime, float speedX, float speedY);
 
     //adds or removes lives

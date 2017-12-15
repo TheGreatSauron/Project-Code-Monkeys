@@ -16,11 +16,12 @@ Player::Player(sf::Vector2f position, sf::Texture& texture, int life)
     sf::Vector2i direction(0, Down);
 }
 
+//destructor
 Player::~Player()
 {
-
 }
 
+//draws the player
 void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     states = getTransform();
@@ -32,19 +33,24 @@ void Player::update(sf::Time deltaTime)
 {
 }
 
+//moves the player
 void Player::movement(sf::Time& deltaTime, float speedX, float speedY)
 {
+    //adding X and Y to deltaTime as a value of seconds
     speedX += deltaTime.asSeconds();
     speedY += deltaTime.asSeconds();
 
+    //moves the player bases on the offset of the passed in X and Y value
     sprite.move(speedX,speedY);
 }
 
-//
-void Player::changeLives(int number)
+//changes the players amount of lives
+void Player::changeLives(int tempLife)
 {
-    lives = lives + number; //sets the number of lives to be the passed in value to the function
+    //sets the number of lives to be equal to itself + the passed in number
+    lives = lives + tempLife; //sets the number of lives to be the passed in value to the function
 
+    //determines if the player has less than or 0 lives to then end the game
     if(lives <= 0)
     {
         //end game, close window or display a restart screen
