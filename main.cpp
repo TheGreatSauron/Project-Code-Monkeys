@@ -43,10 +43,19 @@ void renderWindow () {
 	while (Game::window->isOpen()) {
 		//Update all objects
 		sf::Time deltaTime = deltaClock.restart();
-		for (unsigned n = 0; n < Game::objectVector->size(); n++) {
+		for (unsigned n = 0; n < Game::objectVector->size(); n++)
+        {
 			if (!(*Game::objectVector)[n]->hasBeenDestroyed());
 			{
 				(*Game::objectVector)[n]->update(deltaTime);
+			}
+		}
+
+		for (unsigned n = 0; n < Game::objectVector->size(); n++)
+		{
+			if (!(*Game::objectVector)[n]->hasBeenDestroyed());
+			{
+
 			}
 		}
 
