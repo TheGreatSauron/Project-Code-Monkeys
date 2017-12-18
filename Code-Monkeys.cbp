@@ -62,14 +62,11 @@
 		<Unit filename="Game.h" />
 		<Unit filename="Object.cpp" />
 		<Unit filename="Object.h" />
-<<<<<<< HEAD
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-=======
 		<Unit filename="Resources.h" />
->>>>>>> 5efba14228a6797006b73ba9d260be27b5db3c35
 		<Unit filename="Spline.cpp" />
 		<Unit filename="Spline.h" />
 		<Unit filename="StarMap.cpp" />
