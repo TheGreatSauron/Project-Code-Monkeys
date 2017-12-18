@@ -9,10 +9,10 @@ class ScoreDisplay : public Object
     //Actual drawn figure
     sf::Text text;
 
+    //Origin is in the top right corner
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 public:
-    //Constructor
     ScoreDisplay(sf::Font& font, sf::Vector2f position);
 
     void update(sf::Time deltaTime);
