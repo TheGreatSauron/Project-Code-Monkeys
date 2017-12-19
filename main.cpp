@@ -37,12 +37,19 @@ void renderWindow () {
     {
 		//Update all objects
 		sf::Time deltaTime = deltaClock.restart();
-
-		for (std::unique_ptr<Object>& currentObject : *Game::objectVector)
+		for (unsigned n = 0; n < Game::objectVector->size(); n++)
         {
-			if (!currentObject->hasBeenDestroyed());
+			if (!(*Game::objectVector)[n]->hasBeenDestroyed());
 			{
-				currentObject->update(deltaTime);
+				(*Game::objectVector)[n]->update(deltaTime);
+			}
+		}
+
+		for (unsigned n = 0; n < Game::objectVector->size(); n++)
+		{
+			if (!(*Game::objectVector)[n]->hasBeenDestroyed());
+			{
+
 			}
 		}
 
@@ -55,6 +62,7 @@ void renderWindow () {
 				i--;
 			}
 		}
+
 
 		//Reset window
 		Game::window->clear();
@@ -92,6 +100,7 @@ int main()
 	//load resources
 	if (!stuff.load()) {
 		return EXIT_FAILURE;
+<<<<<<< HEAD
 	}*/
 
     //sets openGL context to not wait and listen to this thread so we can render in another

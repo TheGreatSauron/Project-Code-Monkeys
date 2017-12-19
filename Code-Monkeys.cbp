@@ -62,9 +62,15 @@
 		<Unit filename="Game.h" />
 		<Unit filename="Object.cpp" />
 		<Unit filename="Object.h" />
+<<<<<<< HEAD
 		<Unit filename="Resources.h" />
 		<Unit filename="ScoreDisplay.cpp" />
 		<Unit filename="ScoreDisplay.h" />
+=======
+		<Unit filename="Projectile.cpp" />
+		<Unit filename="Projectile.h" />
+		<Unit filename="Resources.h" />
+>>>>>>> Evyn
 		<Unit filename="Spline.cpp" />
 		<Unit filename="Spline.h" />
 		<Unit filename="StarMap.cpp" />
