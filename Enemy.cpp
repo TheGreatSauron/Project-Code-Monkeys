@@ -11,7 +11,8 @@ Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : 
     setPosition(position);
 
     // Loads in texture from argument
-    sprite.setTexture(texture);
+    //sprite.setTexture(texture);
+    sprite.setTextureRect(sf::IntRect(10, 10, 32, 32));
 
     //Add nodes go in constructor
     //THESE ARE TEST NODES AND ALL NEW ENEMEYS WILL FOLLOW THIS PATH

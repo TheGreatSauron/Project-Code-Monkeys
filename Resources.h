@@ -11,6 +11,8 @@ public:
 	sf::Texture errorTexture;
     //laser
     sf::Texture laser;
+    //enemy ships
+    sf::Texture enemyShips;
 	//loads all textures when called, if one fails it returns false, if not then true
 	bool load() {
 		//load arial
@@ -27,6 +29,13 @@ public:
 
 		//load laser
 		if (!laser.loadFromFile("resources/photos/laser.png"))
+        {
+            std::cout << "laserTxt";
+            return false;
+        }
+
+        //load Enemy ships
+		if (!enemyShips.loadFromFile("resources/photos/enemySpaceShips.png"))
         {
             std::cout << "laserTxt";
             return false;
