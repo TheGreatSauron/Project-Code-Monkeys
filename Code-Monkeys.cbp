@@ -62,11 +62,14 @@
 		<Unit filename="Game.h" />
 		<Unit filename="Object.cpp" />
 		<Unit filename="Object.h" />
-		<Unit filename="Projectile.cpp" />
+		<Unit filename="Player.cpp" />
+		<Unit filename="Player.h" />
 		<Unit filename="Projectile.h" />
 		<Unit filename="Resources.h" />
 		<Unit filename="Spline.cpp" />
 		<Unit filename="Spline.h" />
+		<Unit filename="StarMap.cpp" />
+		<Unit filename="StarMap.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="openal32.dll" />
 		<Unit filename="sfgui-d.dll" />

@@ -39,29 +39,15 @@ void renderWindow () {
 	//Creating the player
 	Player player(sf::Vector2f(600,300),errorTexture,3);
 
-<<<<<<< HEAD
-        starMap.append(sf::Vertex(sf::Vector2f(x, y), sf::Color::White));
-    }
-    Game::spawn(new Enemy(sf::Vector2f(0,0), stuff.enemyShips, stuff.laser));
-
-=======
 	Game::spawn(new StarMap());
->>>>>>> master
 
 	while (Game::window->isOpen())
     {
 		//Update all objects
 		sf::Time deltaTime = deltaClock.restart();
-<<<<<<< HEAD
 		for (unsigned n = 0; n < Game::objectVector->size(); n++)
         {
 			if (!(*Game::objectVector)[n]->hasBeenDestroyed());
-=======
-
-		for (std::unique_ptr<Object>& currentObject : *Game::objectVector)
-        {
-			if (!currentObject->hasBeenDestroyed());
->>>>>>> master
 			{
 				(*Game::objectVector)[n]->update(deltaTime);
 			}
@@ -132,11 +118,6 @@ void renderWindow () {
             player.movement(deltaTime,speedX,speedY);
         }
 
-		//Frame-rate
-
-<<<<<<< HEAD
-	}
-=======
     //Drawing the player object
     Game::window->draw(player);
     //Drawing the framerate clock
@@ -145,8 +126,6 @@ void renderWindow () {
     Game::window->display();
 
     }
-
->>>>>>> master
 }
 
 int main()
@@ -157,18 +136,7 @@ int main()
     //Used for dynamic objects
     Game::setObjectVector(new std::vector<std::unique_ptr<Object>>);
 
-<<<<<<< HEAD
-    //create resource object
-	Resources stuff;
-
-	//load resources
-	if (!stuff.load()) {
-		return EXIT_FAILURE;
-	}
-
-=======
     //sets openGL context to not wait and listen to this thread so we can render in another
->>>>>>> master
 	Game::window->setActive(false);
 
     //launches rendering thread with sf::thread and the window is automatically set to active in the new window

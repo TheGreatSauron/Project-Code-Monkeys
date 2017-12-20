@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1513804508 source:d:\c++\projects\c++ game\project-code-monkeys\enemy.cpp
+1513804566 source:d:\c++\projects\c++ game\project-code-monkeys\enemy.cpp
 	"Enemy.h"
 	"Game.h"
 	"Spline.h"
@@ -9,7 +9,7 @@
 	"Object.h"
 	"Spline.h"
 
-1513630958 d:\c++\projects\c++ game\project-code-monkeys\object.h
+1513805004 d:\c++\projects\c++ game\project-code-monkeys\object.h
 	"SFML/graphics.hpp"
 
 1511903710 d:\c++\projects\c++ game\project-code-monkeys\sfml\sfml-2.4.2\include\sfml\graphics.hpp
@@ -404,7 +404,7 @@
 	<vector>
 	<SFML/System.hpp>
 
-1513026370 d:\c++\projects\c++ game\project-code-monkeys\game.h
+1513804986 d:\c++\projects\c++ game\project-code-monkeys\game.h
 	<SFML/graphics.hpp>
 	<memory>
 	<vector>
@@ -416,7 +416,7 @@
 	<SFML/graphics.hpp>
 	"Object.h"
 
-1513368004 source:d:\c++\projects\c++ game\project-code-monkeys\game.cpp
+1513804986 source:d:\c++\projects\c++ game\project-code-monkeys\game.cpp
 	"Game.h"
 
 1513631186 source:d:\c++\projects\c++ game\project-code-monkeys\object.cpp
@@ -429,22 +429,40 @@
 	"Spline.h"
 	<cmath>
 
-1513717412 source:d:\c++\projects\c++ game\project-code-monkeys\main.cpp
+1513805828 source:d:\c++\projects\c++ game\project-code-monkeys\main.cpp
 	<vector>
 	<memory>
-	<ctime>
+	<iostream>
 	<SFML/Graphics.hpp>
 	"Object.h"
+	"Player.h"
 	"Enemy.h"
 	"Framerate.h"
 	"Game.h"
 	"Resources.h"
+	"StarMap.h"
 
-1513026566 d:\c++\projects\c++ game\project-code-monkeys\framerate.h
-	"game.h"
+1513805298 d:\c++\projects\c++ game\project-code-monkeys\framerate.h
 	<string>
 	<SFML/Graphics.hpp>
+	"Game.h"
 
-1513804424 d:\c++\projects\c++ game\project-code-monkeys\resources.h
+1513805002 d:\c++\projects\c++ game\project-code-monkeys\resources.h
 	<iostream>
+
+1513804986 d:\c++\projects\c++ game\project-code-monkeys\player.h
+	"Object.h"
+
+1513804986 d:\c++\projects\c++ game\project-code-monkeys\starmap.h
+	<SFML/graphics.hpp>
+	"Object.h"
+
+1513804986 source:d:\c++\projects\c++ game\project-code-monkeys\player.cpp
+	"Player.h"
+	<iostream>
+
+1513804986 source:d:\c++\projects\c++ game\project-code-monkeys\starmap.cpp
+	"StarMap.h"
+	<ctime>
+	"Game.h"
 
