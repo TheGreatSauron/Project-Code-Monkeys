@@ -35,9 +35,14 @@ public:
         }
 
         //load Enemy ships
-		if (!enemyShips.loadFromFile("resources/photos/enemySpaceShips.png"))
+        //(7, 4, 37, 40) First Ship
+        //(51, 1, 66, 98) Second Ship
+        //(126, 2, 152, 46) Third Ship
+        //(289, 5, 59, 29) Fourth Ship
+        //(354, 6, 41, 28) Fifth Ship
+		if (!enemyShips.loadFromFile("resources/photos/Enemies.png"))
         {
-            std::cout << "laserTxt";
+            std::cout << "Enemies";
             return false;
         }
 		return true;
