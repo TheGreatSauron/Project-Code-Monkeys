@@ -33,6 +33,10 @@ void renderWindow () {
 
 	Game::spawn(new ScoreDisplay(stuff.Arial, sf::Vector2f(Game::window->getSize().x, 0)));
 
+	Game::spawn(new Enemy(sf::Vector2f(0, 200), stuff.errorTexture, stuff.laser));
+
+	Game::spawn(new Collision(sf::Vector2f(700, 0)));
+
 	while (Game::window->isOpen())
     {
 		//Update all objects
@@ -47,9 +51,22 @@ void renderWindow () {
 
 		for (unsigned n = 0; n < Game::objectVector->size(); n++)
 		{
-			if (!(*Game::objectVector)[n]->hasBeenDestroyed());
+			if (!(*Game::objectVector)[n]->hasBeenDestroyed() && (*Game::objectVector)[n]->isCollidable)
 			{
-
+			    for (unsigned i = n+1; i < Game::objectVector->size(); i++)
+                {
+                    if (!(*Game::objectVector)[i]->hasBeenDestroyed() && (*Game::objectVector)[i]->isCollidable)
+                    {
+                        if ((*Game::objectVector)[n]->isColliding((*Game::objectVector)[i]))
+                        {
+                            std::cout << "Collision!\n";
+                        }
+                        else if ((*Game::objectVector)[i]->isColliding((*Game::objectVector)[n]))
+                        {
+                            std::cout << "Collision\n";
+                        }
+                    }
+                }
 			}
 		}
 

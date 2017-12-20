@@ -1,7 +1,8 @@
 #ifndef OBJECT_H_INCLUDED
 #define OBJECT_H_INCLUDED
 
-#include "SFML/graphics.hpp"
+#include <SFML/graphics.hpp>
+#include <memory>
 
 //Base class for all objects that update every frame
 class Object : public sf::Drawable, public sf::Transformable
@@ -25,9 +26,11 @@ public:
     //Is called every frame
     virtual void update(sf::Time deltaTime) =0;
 
-    //Gets the hitbox of collidable objects
-    //Returns sf::FloatRect(0, 0, 0, 0) by default
+    //Gets the hitbox of the object
     virtual sf::FloatRect getGlobalBounds() const;
+
+    //Checks if an object will collide with another
+    virtual bool isColliding(std::unique_ptr<Object>& collidingObject);
 
     //Used to determine if this class is meant to be drawn
     //Should be defined at costruction

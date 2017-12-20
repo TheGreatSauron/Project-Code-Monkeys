@@ -19,3 +19,8 @@ sf::FloatRect Object::getGlobalBounds() const
 {
     return sf::FloatRect(0, 0, 0, 0);
 }
+
+bool Object::isColliding(std::unique_ptr<Object>& collidingObject)
+{
+    return false;
+}

@@ -3,6 +3,33 @@
 #include "Object.h"
 #include "Spline.h"
 
+class Collision : public Object
+{
+    sf::RectangleShape rectangle;
+public:
+    Collision(sf::Vector2f position) : Object(true, true), rectangle(sf::Vector2f(100, 100))
+    {
+        setPosition(position);
+
+        rectangle.setFillColor(sf::Color::Red);
+    }
+    void update(sf::Time deltaTime)
+    {
+    }
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const override
+    {
+        states = getTransform();
+        target.draw(rectangle, states);
+    }
+    sf::FloatRect getGlobalBounds() const
+    {
+        sf::FloatRect hitbox(rectangle.getLocalBounds());
+        hitbox.left = getPosition().x;
+        hitbox.top = getPosition().y;
+        return hitbox;
+    }
+};
+
 class Enemy : public Object
 {
 private:

@@ -2,6 +2,7 @@
 #define PROJECTILE_H_INCLUDED
 
 #include <SFML/graphics.hpp>
+#include <typeinfo>
 #include "Object.h"
 
 template <class Collider>
@@ -14,6 +15,7 @@ public:
     Projectile(sf::Texture& texture, sf::Vector2f position, sf::Vector2f projectileVelocity);
     virtual void update(sf::Time deltaTime) override;
     virtual sf::FloatRect getGlobalBounds() const override;
+    virtual bool isColliding(std::unique_ptr<Object>& collidingObject) override;
 };
 
 template<class Collider>
@@ -46,6 +48,20 @@ sf::FloatRect Projectile<Collider>::getGlobalBounds() const
     hitbox.left = getPosition().x;
     hitbox.top = getPosition().y;
     return hitbox;
+}
+
+template<class Collider>
+bool Projectile<Collider>::isColliding(std::unique_ptr<Object>& collidingObject)
+{
+    if (typeid(*collidingObject) == typeid(Collider))
+    {
+        if (getGlobalBounds().intersects(collidingObject->getGlobalBounds()))
+        {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 #endif // PROJECTILE_H_INCLUDED
