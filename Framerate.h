@@ -1,9 +1,9 @@
 #ifndef FRAMERATE_H_INCLUDED
 #define FRAMERATE_H_INCLUDED
 
-#include "game.h"
 #include <string>
 #include <SFML/Graphics.hpp>
+#include "Game.h"
 
 sf::Text Frame (sf::Clock& cock, sf::Font font)
 {

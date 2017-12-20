@@ -23,7 +23,7 @@ public:
     bool hasBeenDestroyed() const;
 
     //Is called every frame
-    virtual void update(sf::Time deltaTime) = 0;
+    virtual void update(sf::Time deltaTime) =0;
 
     //Gets the hitbox of collidable objects
     //Returns sf::FloatRect(0, 0, 0, 0) by default
