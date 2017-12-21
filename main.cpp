@@ -14,6 +14,39 @@
 #include "Game.h"
 #include "Resources.h"
 #include "StarMap.h"
+void movement () {
+    Game::PspeedX = 0.f;
+    Game::PspeedY = 0.f;
+
+ //Moves the player up with W or the up arrow
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+            {
+            //sets the offset based on the speed
+                Game::PspeedX += 0.00f;
+                Game::PspeedY += -1.00f;
+            }
+            //Moves the player down with S or the down arrow
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+            {
+                Game::PspeedX += 0.00f;
+                Game::PspeedY += 1.00f;
+
+            }
+            //Moves the player left with A or the left arrow
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+            {
+                Game::PspeedX += -1.00f;
+                Game::PspeedY += 0.00f;
+
+            }
+            //Moves the player right with D or the right arrow
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+            {
+                Game::PspeedX += 1.00f;
+                Game::PspeedY += 0.00f;
+            }
+}
+
 
 void renderWindow () {
 	//Framerate clock
@@ -24,19 +57,14 @@ void renderWindow () {
 	//add resources object
 	Resources stuff;
 
+
 	//load resources
 	if (!stuff.load()) {
 		std::cout << "resource load error in: renderWindow" << std::endl;
 	}
 
-    sf::Texture errorTexture;
-    if(!errorTexture.loadFromFile("resource/photos/Error.png"))
-    {
-        std::cout << "texture load error in: renderWindow" << std::endl;
-    }
+    Game::setPlayer(new Player(sf::Vector2f(600, 300), stuff.errorTexture));
 
-	//Creating the player
-	Player player(sf::Vector2f(600,300),errorTexture,3);
 
 	Game::spawn(new StarMap());
 
@@ -63,6 +91,7 @@ void renderWindow () {
 			}
 		}
 
+
 		//Reset window
 		Game::window->clear();
 
@@ -75,44 +104,11 @@ void renderWindow () {
 			}
 		}
 
-		//Declaring X and Y values for the speed of player
-		float speedX = 0.00f;
-        float speedY = 0.00f;
-
-        //Moves the player up with W or the up arrow
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-        {
-            //sets the offset based on the speed
-            speedX = 0.00f;
-            speedY = -1.00f;
-            player.movement(deltaTime,speedX,speedY);
-        }
-        //Moves the player down with S or the down arrow
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-        {
-            speedX = 0.00f;
-            speedY = 1.00f;
-            player.movement(deltaTime,speedX,speedY);
-        }
-        //Moves the player left with A or the left arrow
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-        {
-            speedX = -1.00f;
-            speedY = 0.00f;
-            player.movement(deltaTime,speedX,speedY);
-        }
-        //Moves the player right with D or the right arrow
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-        {
-            speedX = 1.00f;
-            speedY = 0.00f;
-            player.movement(deltaTime,speedX,speedY);
-        }
-
-		//Frame-rate
+    movement();
+    Game::player->update(deltaTime);
 
     //Drawing the player object
-    Game::window->draw(player);
+    Game::window->draw(*Game::player);
     //Drawing the framerate clock
     Game::window->draw(Frame(frameClock, stuff.Arial));
     //displaying the window
@@ -136,14 +132,14 @@ int main()
     //launches rendering thread with sf::thread and the window is automatically set to active in the new window
 	sf::Thread thread(renderWindow);
     thread.launch();
-
     while (Game::window->isOpen())
-    {
+        {
         sf::Event event;
         while (Game::window->pollEvent(event))
         {
             switch (event.type)
             {
+            //case sf::Event
             case sf::Event::Closed:
                 Game::window->close();
                 break;

@@ -476,7 +476,7 @@
 	<SFML/Graphics.hpp>
 	"Game.h"
 
-1513024996 c:\users\justin\documents\project-code-monkeys\object.h
+1513889251 c:\users\justin\documents\project-code-monkeys\object.h
 	"SFML/graphics.hpp"
 
 1486736397 c:\users\justin\documents\project-code-monkeys\sfml\sfml-2.4.2\include\sfml\graphics.hpp
@@ -875,16 +875,18 @@
 	<vector>
 	<SFML/System.hpp>
 
-1513024996 source:c:\users\justin\documents\project-code-monkeys\main.cpp
+1513892145 source:c:\users\justin\documents\project-code-monkeys\main.cpp
 	<vector>
 	<memory>
-	<ctime>
+	<iostream>
 	<SFML/Graphics.hpp>
 	"Object.h"
+	"Player.h"
 	"Enemy.h"
 	"Framerate.h"
 	"Game.h"
 	"Resources.h"
+	"StarMap.h"
 
 1512507419 source:c:\users\justin\documents\project-code-monkeys\object.cpp
 	"Object.h"
@@ -893,8 +895,10 @@
 	"Spline.h"
 	<cmath>
 
-1513024996 c:\users\justin\documents\project-code-monkeys\framerate.h
-	"game.h"
+1513630328 c:\users\justin\documents\project-code-monkeys\framerate.h
+	<string>
+	<SFML/Graphics.hpp>
+	"Game.h"
 
 1512595029 .h"
 
@@ -967,5 +971,37 @@
 	"Object.h"
 
 1513287053 c:\codingproject\project-code-monkeys\resources.h
+	<iostream>
+
+1513717590 source:c:\users\justin\documents\project-code-monkeys\game.cpp
+	"Game.h"
+
+1513803360 c:\users\justin\documents\project-code-monkeys\game.h
+	<SFML/graphics.hpp>
+	<memory>
+	<vector>
+	<string>
+	<sstream>
+	"Object.h"
+	"Player.h"
+
+1513630328 source:c:\users\justin\documents\project-code-monkeys\starmap.cpp
+	"StarMap.h"
+	<ctime>
+	"Game.h"
+
+1513630328 c:\users\justin\documents\project-code-monkeys\starmap.h
+	<SFML/graphics.hpp>
+	"Object.h"
+
+1513889629 c:\users\justin\documents\project-code-monkeys\player.h
+	"Object.h"
+
+1513630328 c:\users\justin\documents\project-code-monkeys\resources.h
+	<iostream>
+
+1513891258 source:c:\users\justin\documents\project-code-monkeys\player.cpp
+	"Player.h"
+	"Game.h"
 	<iostream>
 

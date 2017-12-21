@@ -16,7 +16,7 @@ class Player : public Object
 private:
 
     //Declaring the draw function
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
     //Amount  of lives for the player
     int lives;
@@ -36,13 +36,11 @@ public:
     //destructor
     virtual ~Player();
 
-    void update(sf::Time deltaTime) const;
-
     //overriding the virtual function in object.h
     virtual void update(sf::Time deltaTime) override;
 
     //Player movement
-    void movement(sf::Time& deltaTime, float speedX, float speedY);
+    void movement(float speedX, float speedY);
 
     //adds or removes lives
     void changeLives(int lives);
