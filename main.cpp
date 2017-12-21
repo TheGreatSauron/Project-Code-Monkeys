@@ -40,6 +40,7 @@ void renderWindow () {
 	Player player(sf::Vector2f(600,300),errorTexture,3);
 
 	Game::spawn(new StarMap());
+	Game::spawn(new Enemy(sf::Vector2f(0,0), stuff.enemyShips, stuff.laser));
 
 	while (Game::window->isOpen())
     {
