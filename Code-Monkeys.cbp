@@ -62,6 +62,7 @@
 		<Unit filename="Game.h" />
 		<Unit filename="Object.cpp" />
 		<Unit filename="Object.h" />
+		<Unit filename="Projectile.cpp" />
 		<Unit filename="Projectile.h" />
 		<Unit filename="Resources.h" />
 		<Unit filename="ScoreDisplay.cpp" />

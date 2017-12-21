@@ -2,8 +2,8 @@
 
 void Object::draw(sf::RenderTarget& target, sf::RenderStates states) const {}
 
-Object::Object(bool willBeDrawable, bool willBeCollidable)
- : isDrawable(willBeDrawable), isCollidable(willBeCollidable), isDestroyed(false) {}
+Object::Object(bool willBeDrawable, const std::type_info* typeCollider)
+ : isDrawable(willBeDrawable), collider(typeCollider), isDestroyed(false) {}
 
 void Object::destroy()
 {
@@ -20,7 +20,6 @@ sf::FloatRect Object::getGlobalBounds() const
     return sf::FloatRect(0, 0, 0, 0);
 }
 
-bool Object::isColliding(std::unique_ptr<Object>& collidingObject)
+void Object::collide(std::unique_ptr<Object>& collisionObject)
 {
-    return false;
 }

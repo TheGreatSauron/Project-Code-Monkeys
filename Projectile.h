@@ -3,9 +3,32 @@
 
 #include <SFML/graphics.hpp>
 #include <typeinfo>
+#include <iostream>
 #include "Object.h"
 
-template <class Collider>
+class Collision : public Object
+{
+    sf::RectangleShape rect;
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const override
+    {
+        states = getTransform();
+        target.draw(rect, states);
+    }
+public:
+    Collision(sf::Vector2f position) : Object(true), rect(sf::Vector2f(100, 100))
+    {
+        setPosition(position);
+        rect.setFillColor(sf::Color::Red);
+    }
+    void update(sf::Time deltaTime) override
+    {
+    }
+    void collide(std::unique_ptr<Object>& collisionObject) override
+    {
+        std::cout << "Collision\n";
+    }
+};
+
 class Projectile : public Object
 {
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
@@ -15,53 +38,6 @@ public:
     Projectile(sf::Texture& texture, sf::Vector2f position, sf::Vector2f projectileVelocity);
     virtual void update(sf::Time deltaTime) override;
     virtual sf::FloatRect getGlobalBounds() const override;
-    virtual bool isColliding(std::unique_ptr<Object>& collidingObject) override;
 };
-
-template<class Collider>
-void Projectile<Collider>::draw(sf::RenderTarget& target, sf::RenderStates states) const
-{
-    states = getTransform();
-    target.draw(sprite, states);
-}
-
-template<class Collider>
-Projectile<Collider>::Projectile(sf::Texture& texture, sf::Vector2f position, sf::Vector2f projectileVelocity)
- : Object(true, true), velocity(projectileVelocity)
-{
-    sprite.setTexture(texture);
-    sprite.setScale(0.1, 0.05);
-
-    setPosition(position);
-}
-
-template<class Collider>
-void Projectile<Collider>::update(sf::Time deltaTime)
-{
-    move(velocity * deltaTime.asSeconds());
-}
-
-template<class Collider>
-sf::FloatRect Projectile<Collider>::getGlobalBounds() const
-{
-    sf::FloatRect hitbox(sprite.getLocalBounds());
-    hitbox.left = getPosition().x;
-    hitbox.top = getPosition().y;
-    return hitbox;
-}
-
-template<class Collider>
-bool Projectile<Collider>::isColliding(std::unique_ptr<Object>& collidingObject)
-{
-    if (typeid(*collidingObject) == typeid(Collider))
-    {
-        if (getGlobalBounds().intersects(collidingObject->getGlobalBounds()))
-        {
-            return true;
-        }
-    }
-
-    return false;
-}
 
 #endif // PROJECTILE_H_INCLUDED

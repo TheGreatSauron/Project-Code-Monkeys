@@ -1,7 +1,7 @@
 # depslib dependency file v1.0
 1513630017 
 
-1513720430 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
+1513892018 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
 	<vector>
 	<memory>
 	<iostream>
@@ -13,6 +13,7 @@
 	"Resources.h"
 	"StarMap.h"
 	"ScoreDisplay.h"
+	"Projectile.h"
 
 1513630958 source:d:\c++\projects\c++ game\project-code-monkeys\enemy.cpp
 
@@ -433,11 +434,12 @@
 	<string>
 	<vector>
 
-1513718530 c:\users\taylorc16\documents\github\project-code-monkeys\object.h
+1513892018 c:\users\taylorc16\documents\github\project-code-monkeys\object.h
 	<SFML/graphics.hpp>
 	<memory>
+	<typeinfo>
 
-1513718505 source:c:\users\taylorc16\documents\github\project-code-monkeys\object.cpp
+1513891882 source:c:\users\taylorc16\documents\github\project-code-monkeys\object.cpp
 	"Object.h"
 
 1512507796 source:c:\users\taylorc16\documents\github\project-code-monkeys\spline.cpp
@@ -903,14 +905,14 @@
 
 1512595029 .h"
 
-1513803168 source:c:\users\taylorc16\documents\github\project-code-monkeys\enemy.cpp
+1513891695 source:c:\users\taylorc16\documents\github\project-code-monkeys\enemy.cpp
 	"Enemy.h"
 	"Game.h"
 	"Spline.h"
 	"Projectile.h"
 	"ScoreDisplay.h"
 
-1513803157 c:\users\taylorc16\documents\github\project-code-monkeys\enemy.h
+1513805191 c:\users\taylorc16\documents\github\project-code-monkeys\enemy.h
 	"Object.h"
 	"Spline.h"
 
@@ -1348,8 +1350,12 @@
 	<string>
 	<vector>
 
-1513718771 c:\users\taylorc16\documents\github\project-code-monkeys\projectile.h
+1513892497 c:\users\taylorc16\documents\github\project-code-monkeys\projectile.h
 	<SFML/graphics.hpp>
 	<typeinfo>
+	<iostream>
 	"Object.h"
+
+1513892159 source:c:\users\taylorc16\documents\github\project-code-monkeys\projectile.cpp
+	"Projectile.h"
 

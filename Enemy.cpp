@@ -23,7 +23,7 @@ Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : 
 
 void Enemy::shootLaser()
 {
-    Game::spawn(new Projectile<Collision>(laserTexture, getPosition(), sf::Vector2f(0, -100)));
+    Game::spawn(new Projectile(laserTexture, getPosition(), sf::Vector2f(0, -100)));
 }
 
 // Deal damage function

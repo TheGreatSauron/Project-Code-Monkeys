@@ -14,6 +14,8 @@
 #include "Resources.h"
 #include "StarMap.h"
 #include "ScoreDisplay.h"
+//remove
+#include "Projectile.h"
 
 void renderWindow () {
 	//Framerate clock
@@ -35,7 +37,8 @@ void renderWindow () {
 
 	Game::spawn(new Enemy(sf::Vector2f(0, 200), stuff.errorTexture, stuff.laser));
 
-	Game::spawn(new Collision(sf::Vector2f(700, 0)));
+	//remove
+	Game::spawn(new Collision(sf::Vector2f(650, 0)));
 
 	while (Game::window->isOpen())
     {
@@ -51,20 +54,17 @@ void renderWindow () {
 
 		for (unsigned n = 0; n < Game::objectVector->size(); n++)
 		{
-			if (!(*Game::objectVector)[n]->hasBeenDestroyed() && (*Game::objectVector)[n]->isCollidable)
+			if (!(*Game::objectVector)[n]->hasBeenDestroyed() && (*Game::objectVector)[n]->collider)
 			{
 			    for (unsigned i = n+1; i < Game::objectVector->size(); i++)
                 {
-                    if (!(*Game::objectVector)[i]->hasBeenDestroyed() && (*Game::objectVector)[i]->isCollidable)
+                    if (!(*Game::objectVector)[i]->hasBeenDestroyed()
+                         && (*Game::objectVector)[n]->getGlobalBounds().intersects((*Game::objectVector)[i]->getGlobalBounds())
+                         && ((*(*Game::objectVector)[n]->collider == typeid((*Game::objectVector)[i]))
+                         || *(*Game::objectVector)[i]->collider == typeid((*Game::objectVector)[n])))
                     {
-                        if ((*Game::objectVector)[n]->isColliding((*Game::objectVector)[i]))
-                        {
-                            std::cout << "Collision!\n";
-                        }
-                        else if ((*Game::objectVector)[i]->isColliding((*Game::objectVector)[n]))
-                        {
-                            std::cout << "Collision\n";
-                        }
+                        (*Game::objectVector)[n]->collide((*Game::objectVector)[i]);
+                        (*Game::objectVector)[i]->collide((*Game::objectVector)[n]);
                     }
                 }
 			}
