@@ -1,5 +1,5 @@
 #include "Player.h"
-#include <iostream>
+#include "Game.h"
 
 //constructor
 Player::Player(sf::Vector2f position, sf::Texture& texture, int life)
@@ -22,27 +22,21 @@ Player::~Player()
 }
 
 //draws the player
-void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const
-{
+void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     states = getTransform();
     target.draw(sprite,states);
 }
 
 //update function
-void Player::update(sf::Time deltaTime)
-{
-}
-
-//moves the player
-void Player::movement(sf::Time& deltaTime, float speedX, float speedY)
-{
-    //adding X and Y to deltaTime as a value of seconds
-    speedX += deltaTime.asSeconds();
-    speedY += deltaTime.asSeconds();
-
+void Player::update(sf::Time deltaTime) {
+    if ((Game::PspeedX == 1.f || Game::PspeedX == -1.f) && (Game::PspeedY == 1.f || Game::PspeedY == -1.f)) {
+        Game::PspeedX = Game::PspeedX / 1.25;
+        Game::PspeedY = Game::PspeedY / 1.25;
+    }
     //moves the player bases on the offset of the passed in X and Y value
-    sprite.move(speedX,speedY);
+    sprite.move(Game::PspeedX, Game::PspeedY);
 }
+
 
 //changes the players amount of lives
 void Player::changeLives(int tempLife)

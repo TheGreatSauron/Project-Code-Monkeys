@@ -7,7 +7,7 @@
 	"Object.h"
 	"Spline.h"
 
-1513286318 c:\codingproject\project-code-monkeys\object.h
+1515445772 c:\codingproject\project-code-monkeys\object.h
 	"SFML/graphics.hpp"
 
 1511554814 c:\codingproject\project-code-monkeys\sfml\sfml-2.4.2\include\sfml\graphics.hpp
@@ -402,21 +402,21 @@
 	<vector>
 	<SFML/System.hpp>
 
-1513287053 source:c:\codingproject\project-code-monkeys\game.cpp
+1515445772 source:c:\codingproject\project-code-monkeys\game.cpp
 	"Game.h"
 
-1513287053 c:\codingproject\project-code-monkeys\game.h
+1515445772 c:\codingproject\project-code-monkeys\game.h
 	<SFML/graphics.hpp>
 	<memory>
 	<vector>
 	<string>
 	<sstream>
 	"Object.h"
+	"Player.h"
 
-1515445268 source:c:\codingproject\project-code-monkeys\main.cpp
+1515446067 source:c:\codingproject\project-code-monkeys\main.cpp
 	<vector>
 	<memory>
-	<iostream>
 	<SFML/Graphics.hpp>
 	"Object.h"
 	"Player.h"
@@ -426,7 +426,30 @@
 	"Resources.h"
 	"StarMap.h"
 
-1513803205 c:\codingproject\project-code-monkeys\player.h
+1513287053 D
+
+1515445773 c:\codingproject\project-code-monkeys\player.h
+	"Object.h"
+
+1513803205 
+
+1512507796 source:c:\users\taylorc16\documents\github\project-code-monkeys\spline.cpp
+	"Spline.h"
+	<cmath>
+
+1513025197 c:\users\taylorc16\documents\github\project-code-monkeys\spline.h
+	<vector>
+	<SFML/System.hpp>
+
+1515444296 source:c:\users\justin\documents\project-code-monkeys\enemy.cpp
+	"Enemy.h"
+	"Spline.h"
+
+1515444296 c:\users\justin\documents\project-code-monkeys\enemy.h
+	"Object.h"
+	"Spline.h"
+
+1515445091 f0dfe02ea5c9b955920b3a501b3c83f6f5e44
 	"Object.h"
 
 1513287053 c:\codingproject\project-code-monkeys\framerate.h
@@ -437,6 +460,39 @@
 1513892053 c:\codingproject\project-code-monkeys\resources.h
 	<iostream>
 	<SFML/Audio.hpp>
+
+1513892053 o.hpp>
+
+1515444296 c:\users\justin\documents\project-code-monkeys\object.h
+	"SFML/graphics.hpp"
+
+1486736397 c:\users\justin\documents\project-code-monkeys\sfml\sfml-2.4.2\include\sfml\graphics.hpp
+	<SFML/Window.hpp>
+	<SFML/Graphics/BlendMode.hpp>
+	<SFML/Graphics/CircleShape.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/ConvexShape.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Glyph.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Graphics/PrimitiveType.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/RectangleShape.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/RenderTexture.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/Shader.hpp>
+	<SFML/Graphics/Shape.hpp>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/Transform.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/Graphics/View.hpp>
 
 1511554814 c:\codingproject\project-code-monkeys\sfml\sfml-2.4.2\include\sfml\audio.hpp
 	<SFML/System.hpp>
@@ -544,13 +600,52 @@
 1513287053 c:\codingproject\project-code-monkeys\starmap.h
 	<SFML/graphics.hpp>
 	"Object.h"
-
-1513026362 source:c:\codingproject\project-code-monkeys\object.cpp
+	<SFML/graphics.hpp>
 	"Object.h"
 
-1513631819 source:c:\codingproject\project-code-monkeys\player.cpp
-	"Player.h"
+1513026362 source:c:\codingproject\project-code-monkeys\object.cpp
+	<SFML/Graphics.hpp>
+
+1512680570 c:\users\justin\documents\project-code-monkeys\spline.h
+	<vector>
+	<SFML/System.hpp>
+
+1515445123 source:c:\users\justin\documents\project-code-monkeys\main.cpp
+	<vector>
+	<memory>
 	<iostream>
+	<SFML/Graphics.hpp>
+	"Object.h"
+	"Player.h"
+	"Enemy.h"
+	"Framerate.h"
+	"Game.h"
+	"Resources.h"
+	"StarMap.h"
+
+1515444296 source:c:\users\justin\documents\project-code-monkeys\object.cpp
+	"Object.h"
+
+1512680569 source:c:\users\justin\documents\project-code-monkeys\spline.cpp
+	"Spline.h"
+	<cmath>
+
+1513630328 c:\users\justin\documents\project-code-monkeys\framerate.h
+	<string>
+	<SFML/Graphics.hpp>
+	"Game.h"
+
+1512595029 .h"
+
+1513025197 source:c:\users\taylorc16\documents\github\project-code-monkeys\enemy.cpp
+	"Enemy.h"
+	"Spline.h"
+
+1512423741 c:\users\taylorc16\documents\github\project-code-monkeys\enemy.h
+
+1515445772 source:c:\codingproject\project-code-monkeys\player.cpp
+	"Player.h"
+	"Game.h"
 
 1513026362 source:c:\codingproject\project-code-monkeys\spline.cpp
 	"Spline.h"
@@ -559,5 +654,36 @@
 1513287053 source:c:\codingproject\project-code-monkeys\starmap.cpp
 	"StarMap.h"
 	<ctime>
+	"Game.h"
+
+1515444520 source:c:\users\justin\documents\project-code-monkeys\game.cpp
+	"Game.h"
+
+1515444520 c:\users\justin\documents\project-code-monkeys\game.h
+	<SFML/graphics.hpp>
+	<memory>
+	<vector>
+	<string>
+	<sstream>
+	"Object.h"
+	"Player.h"
+
+1515444520 source:c:\users\justin\documents\project-code-monkeys\starmap.cpp
+	"StarMap.h"
+	<ctime>
+	"Game.h"
+
+1515444520 c:\users\justin\documents\project-code-monkeys\starmap.h
+	<SFML/graphics.hpp>
+	"Object.h"
+
+1515444520 c:\users\justin\documents\project-code-monkeys\player.h
+	"Object.h"
+
+1515444520 c:\users\justin\documents\project-code-monkeys\resources.h
+	<iostream>
+
+1515445091 source:c:\users\justin\documents\project-code-monkeys\player.cpp
+	"Player.h"
 	"Game.h"
 

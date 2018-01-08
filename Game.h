@@ -7,12 +7,15 @@
 #include <string>
 #include <sstream>
 #include "Object.h"
+#include "Player.h"
 
 struct Game
 {
     static std::unique_ptr<sf::RenderWindow> window;
     static std::unique_ptr<std::vector<std::unique_ptr<Object>>> objectVector;
+    static std::unique_ptr<Player> player;
     static int score;
+    static float PspeedX, PspeedY;
 
     //enable the "to_string" function of std:: as code-blocks has bugs with it not working correctly
     template <typename T>
@@ -26,6 +29,9 @@ struct Game
 
     //Sets a new game window
     static void setWindow(sf::RenderWindow* newWindow);
+
+    //Sets a new player
+    static void setPlayer(Player* newPlayer);
 };
 
 template <typename T>
