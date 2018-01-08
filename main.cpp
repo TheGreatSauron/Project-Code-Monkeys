@@ -1,7 +1,6 @@
 //Standard includes
 #include <vector>
 #include <memory>
-#include <iostream>
 
 //SFML includes
 #include <SFML/Graphics.hpp>
