@@ -1,7 +1,7 @@
 # depslib dependency file v1.0
 1513630017 
 
-1513892018 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
+1515447580 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
 	<vector>
 	<memory>
 	<iostream>
@@ -434,12 +434,13 @@
 	<string>
 	<vector>
 
-1513892018 c:\users\taylorc16\documents\github\project-code-monkeys\object.h
+1515447839 c:\users\taylorc16\documents\github\project-code-monkeys\object.h
 	<SFML/graphics.hpp>
 	<memory>
 	<typeinfo>
+	<string>
 
-1513891882 source:c:\users\taylorc16\documents\github\project-code-monkeys\object.cpp
+1515447665 source:c:\users\taylorc16\documents\github\project-code-monkeys\object.cpp
 	"Object.h"
 
 1512507796 source:c:\users\taylorc16\documents\github\project-code-monkeys\spline.cpp
@@ -1350,12 +1351,12 @@
 	<string>
 	<vector>
 
-1513892497 c:\users\taylorc16\documents\github\project-code-monkeys\projectile.h
+1515447909 c:\users\taylorc16\documents\github\project-code-monkeys\projectile.h
 	<SFML/graphics.hpp>
 	<typeinfo>
 	<iostream>
 	"Object.h"
 
-1513892159 source:c:\users\taylorc16\documents\github\project-code-monkeys\projectile.cpp
+1515447886 source:c:\users\taylorc16\documents\github\project-code-monkeys\projectile.cpp
 	"Projectile.h"
 

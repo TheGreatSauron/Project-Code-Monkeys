@@ -2,8 +2,8 @@
 
 void Object::draw(sf::RenderTarget& target, sf::RenderStates states) const {}
 
-Object::Object(bool willBeDrawable, const std::type_info* typeCollider)
- : isDrawable(willBeDrawable), collider(typeCollider), isDestroyed(false) {}
+Object::Object(bool willBeDrawable)
+ : isDrawable(willBeDrawable), isDestroyed(false) {}
 
 void Object::destroy()
 {

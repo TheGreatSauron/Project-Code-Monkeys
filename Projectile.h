@@ -6,6 +6,7 @@
 #include <iostream>
 #include "Object.h"
 
+//For debug only
 class Collision : public Object
 {
     sf::RectangleShape rect;
@@ -19,6 +20,8 @@ public:
     {
         setPosition(position);
         rect.setFillColor(sf::Color::Red);
+
+        collider.push_back("Test");
     }
     void update(sf::Time deltaTime) override
     {

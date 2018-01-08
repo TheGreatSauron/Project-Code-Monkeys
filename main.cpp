@@ -52,19 +52,33 @@ void renderWindow () {
 			}
 		}
 
+		//DO NOT TOUCH
+		//Very delicate and can break very easily, take care to not change without careful deliberation
 		for (unsigned n = 0; n < Game::objectVector->size(); n++)
 		{
-			if (!(*Game::objectVector)[n]->hasBeenDestroyed() && (*Game::objectVector)[n]->collider)
+			if (!(*Game::objectVector)[n]->hasBeenDestroyed())
 			{
 			    for (unsigned i = n+1; i < Game::objectVector->size(); i++)
                 {
-                    if (!(*Game::objectVector)[i]->hasBeenDestroyed()
-                         && (*Game::objectVector)[n]->getGlobalBounds().intersects((*Game::objectVector)[i]->getGlobalBounds())
-                         && ((*(*Game::objectVector)[n]->collider == typeid((*Game::objectVector)[i]))
-                         || *(*Game::objectVector)[i]->collider == typeid((*Game::objectVector)[n])))
+                    if ((!(*Game::objectVector)[i]->hasBeenDestroyed())
+                        && (*Game::objectVector)[n]->getGlobalBounds().intersects((*Game::objectVector)[i]->getGlobalBounds()))
                     {
-                        (*Game::objectVector)[n]->collide((*Game::objectVector)[i]);
-                        (*Game::objectVector)[i]->collide((*Game::objectVector)[n]);
+                        bool areColliding = false;
+                        for (unsigned a = 0; a < Game::objectVector->size(); a++)
+                        {
+                            for (unsigned b = 0; b < Game::objectVector->size(); b++)
+                            {
+                                if ((*Game::objectVector)[n]->collider[a] == (*Game::objectVector)[i]->collider[b])
+                                {
+                                    areColliding == true;
+                                }
+                            }
+                        }
+
+                        if (areColliding)
+                        {
+                            (*Game::objectVector)[n]->collide((*Game::objectVector)[i]);
+                        }
                     }
                 }
 			}

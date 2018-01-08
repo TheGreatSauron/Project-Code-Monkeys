@@ -4,6 +4,7 @@
 #include <SFML/graphics.hpp>
 #include <memory>
 #include <typeinfo>
+#include <string>
 
 //Base class for all objects that update every frame
 class Object : public sf::Drawable, public sf::Transformable
@@ -16,7 +17,7 @@ protected:
 
 public:
     //Standard constructor, use typeid to define typeCollider if it collides with something
-    Object(bool willBeDrawable = false, const std::type_info* typeCollider = nullptr);
+    Object(bool willBeDrawable = false);
 
     //Call to kill the object and it will get garbage collected
     void destroy();
@@ -39,8 +40,9 @@ public:
     //collisionObject is the other object involved in the collision
     virtual void collide(std::unique_ptr<Object>& collisionObject);
 
-    //What it collides with, set to nullptr if no collision
-    const std::type_info* collider;
+    //A group of strings dictating the collision pipelines to which the object belongs
+    //Set it in the constructor
+    std::vector<std::string> collider;
 };
 
 #endif // OBJECT_H_INCLUDED

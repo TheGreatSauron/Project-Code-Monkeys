@@ -1,6 +1,5 @@
 #include "Projectile.h"
 
-
 void Projectile::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     states = getTransform();
@@ -8,12 +7,14 @@ void Projectile::draw(sf::RenderTarget& target, sf::RenderStates states) const
 }
 
 Projectile::Projectile(sf::Texture& texture, sf::Vector2f position, sf::Vector2f projectileVelocity)
- : Object(true, &typeid(Collision)), velocity(projectileVelocity)
+ : Object(true), velocity(projectileVelocity)
 {
     sprite.setTexture(texture);
     sprite.setScale(0.1, 0.05);
 
     setPosition(position);
+
+    collider.push_back("Test");
 }
 
 void Projectile::update(sf::Time deltaTime)
