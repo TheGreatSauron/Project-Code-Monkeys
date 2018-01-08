@@ -29,14 +29,8 @@ void renderWindow () {
 		std::cout << "resource load error in: renderWindow" << std::endl;
 	}
 
-    sf::Texture errorTexture;
-    if(!errorTexture.loadFromFile("resource/photos/Error.png"))
-    {
-        std::cout << "texture load error in: renderWindow" << std::endl;
-    }
-
 	//Creating the player
-	Player player(sf::Vector2f(600,300),errorTexture,3);
+	Player player(sf::Vector2f(600,300), stuff.errorTexture,3);
 
 	Game::spawn(new StarMap());
 
@@ -136,6 +130,17 @@ int main()
     //launches rendering thread with sf::thread and the window is automatically set to active in the new window
 	sf::Thread thread(renderWindow);
     thread.launch();
+
+    Resources stuff;
+
+    //load resources
+	if (!stuff.load()) {
+		std::cout << "resource load error in: renderWindow" << std::endl;
+	}
+
+    stuff.treasure.play();
+    stuff.treasure.setPlayingOffset(sf::seconds(8.85));
+    stuff.treasure.setLoop(true);
 
     while (Game::window->isOpen())
     {

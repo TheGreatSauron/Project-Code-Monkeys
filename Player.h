@@ -36,8 +36,6 @@ public:
     //destructor
     virtual ~Player();
 
-    void update(sf::Time deltaTime) const;
-
     //overriding the virtual function in object.h
     virtual void update(sf::Time deltaTime) override;
 

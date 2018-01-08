@@ -1,6 +1,7 @@
 #ifndef RESOURCES_H_INCLUDED
 #define RESOURCES_H_INCLUDED
 #include <iostream>
+#include <SFML/Audio.hpp>
 
 class Resources{
 public:
@@ -8,6 +9,8 @@ public:
 	sf::Font Arial;
 	//errorTexture
 	sf::Texture errorTexture;
+	//music file
+	sf::Music treasure;
 
 	//loads all textures when called, if one fails it returns false, if not then true
 	bool load() {
@@ -22,7 +25,13 @@ public:
 			std::cout << "errorTxt";
 			return false;
 		}
-		return true;
+
+		if(!treasure.openFromFile("resource/music/treasure.ogg"))
+        {
+            std::cout << "treasure";
+            return false;
+        }
+        return true;
 	}
 
 private:
