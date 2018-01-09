@@ -2,8 +2,8 @@
 
 void Object::draw(sf::RenderTarget& target, sf::RenderStates states) const {}
 
-Object::Object(bool willBeDrawable)
- : isDrawable(willBeDrawable), isDestroyed(false) {}
+Object::Object(bool willBeDrawable, std::vector<std::string> collisionTags)
+ : isDrawable(willBeDrawable), isDestroyed(false), collisionChannel(collisionTags) {}
 
 void Object::destroy()
 {

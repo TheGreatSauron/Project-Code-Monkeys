@@ -6,7 +6,8 @@
 #include <iostream>
 #include "Object.h"
 
-//For debug only
+//For debug only, delete later
+/*
 class Collision : public Object
 {
     sf::RectangleShape rect;
@@ -38,6 +39,7 @@ public:
         return hitbox;
     }
 };
+*/
 
 class Projectile : public Object
 {

@@ -13,8 +13,6 @@ Projectile::Projectile(sf::Texture& texture, sf::Vector2f position, sf::Vector2f
     sprite.setScale(0.1, 0.05);
 
     setPosition(position);
-
-    collider.push_back("Test");
 }
 
 void Projectile::update(sf::Time deltaTime)

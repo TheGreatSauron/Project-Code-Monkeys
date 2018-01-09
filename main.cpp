@@ -37,9 +37,6 @@ void renderWindow () {
 
 	Game::spawn(new Enemy(sf::Vector2f(0, 200), stuff.errorTexture, stuff.laser));
 
-	//remove
-	Game::spawn(new Collision(sf::Vector2f(650, 0)));
-
 	while (Game::window->isOpen())
     {
 		//Update all objects
@@ -60,21 +57,25 @@ void renderWindow () {
 			{
 			    for (unsigned i = n+1; i < Game::objectVector->size(); i++)
                 {
+                    //Checks if both objects are alive and colliding
                     if ((!(*Game::objectVector)[i]->hasBeenDestroyed())
                         && (*Game::objectVector)[n]->getGlobalBounds().intersects((*Game::objectVector)[i]->getGlobalBounds()))
                     {
+                        //Checks for matching collision channels
                         bool areColliding = false;
-                        for (unsigned a = 0; a < (*Game::objectVector)[n]->collider.size(); a++)
+                        for (unsigned a = 0; a < (*Game::objectVector)[n]->collisionChannel.size(); a++)
                         {
-                            for (unsigned b = 0; b < (*Game::objectVector)[i]->collider.size(); b++)
+                            for (unsigned b = 0; b < (*Game::objectVector)[i]->collisionChannel.size(); b++)
                             {
-                                if ((*Game::objectVector)[n]->collider[a] == (*Game::objectVector)[i]->collider[b])
+                                if ((*Game::objectVector)[n]->collisionChannel[a] == (*Game::objectVector)[i]->collisionChannel[b])
                                 {
                                     areColliding = true;
                                 }
                             }
                         }
 
+                        //If there are matching channels, both objects collide with one another
+                        //Effects are object specific
                         if (areColliding)
                         {
                             (*Game::objectVector)[n]->collide((*Game::objectVector)[i]);

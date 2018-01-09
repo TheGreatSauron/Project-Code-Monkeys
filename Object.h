@@ -17,7 +17,7 @@ protected:
 
 public:
     //Standard constructor, use typeid to define typeCollider if it collides with something
-    Object(bool willBeDrawable = false);
+    Object(bool willBeDrawable = false, std::vector<std::string> collisionTags = std::vector<std::string>());
 
     //Call to kill the object and it will get garbage collected
     void destroy();
@@ -42,7 +42,7 @@ public:
 
     //A group of strings dictating the collision pipelines to which the object belongs
     //Set it in the constructor
-    std::vector<std::string> collider;
+    const std::vector<std::string> collisionChannel;
 };
 
 #endif // OBJECT_H_INCLUDED
