@@ -6,22 +6,36 @@
 class Enemy : public Object
 {
 private:
+
    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 protected:
+
 	// Current Health
 	int health;
-	// Max Health, should not change
-	const int maxHealth;
+
+	// Enemy speed
 	float speed;
 
+	// Shoots a laser
+	virtual void shootLaser();
+
 public:
+
     // Constructor declaration
-	Enemy(sf::Vector2f postition, sf::Texture& texture, int in_maxHealth = 1, float in_speed = 1);
+	Enemy(sf::Vector2f postition, sf::Texture& texture, sf::Texture& laser);
+
     // Deals damage to current health
 	void dealDamage(int damage);
+
+	// What occurs every frame
 	virtual void update(sf::Time deltaTime) override;
+
+    // Declares sprites
     sf::Sprite sprite;
+    sf::Texture& laserTexture;
+
+    // Spline class
     Spline spline;
 
 };

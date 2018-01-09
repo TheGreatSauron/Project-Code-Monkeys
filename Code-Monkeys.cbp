@@ -62,11 +62,18 @@
 		<Unit filename="Game.h" />
 		<Unit filename="Object.cpp" />
 		<Unit filename="Object.h" />
+<<<<<<< HEAD
+		<Unit filename="Projectile.cpp" />
+		<Unit filename="Projectile.h" />
+=======
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+>>>>>>> master
 		<Unit filename="Resources.h" />
+		<Unit filename="ScoreDisplay.cpp" />
+		<Unit filename="ScoreDisplay.h" />
 		<Unit filename="Spline.cpp" />
 		<Unit filename="Spline.h" />
 		<Unit filename="StarMap.cpp" />
