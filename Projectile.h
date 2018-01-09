@@ -30,6 +30,13 @@ public:
     {
         std::cout << "Collision\n";
     }
+    sf::FloatRect getGlobalBounds() const override
+    {
+        sf::FloatRect hitbox = rect.getLocalBounds();
+        hitbox.top = getPosition().y;
+        hitbox.left = getPosition().x;
+        return hitbox;
+    }
 };
 
 class Projectile : public Object

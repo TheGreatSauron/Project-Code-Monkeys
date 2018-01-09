@@ -64,13 +64,13 @@ void renderWindow () {
                         && (*Game::objectVector)[n]->getGlobalBounds().intersects((*Game::objectVector)[i]->getGlobalBounds()))
                     {
                         bool areColliding = false;
-                        for (unsigned a = 0; a < Game::objectVector->size(); a++)
+                        for (unsigned a = 0; a < (*Game::objectVector)[n]->collider.size(); a++)
                         {
-                            for (unsigned b = 0; b < Game::objectVector->size(); b++)
+                            for (unsigned b = 0; b < (*Game::objectVector)[i]->collider.size(); b++)
                             {
                                 if ((*Game::objectVector)[n]->collider[a] == (*Game::objectVector)[i]->collider[b])
                                 {
-                                    areColliding == true;
+                                    areColliding = true;
                                 }
                             }
                         }
@@ -78,6 +78,7 @@ void renderWindow () {
                         if (areColliding)
                         {
                             (*Game::objectVector)[n]->collide((*Game::objectVector)[i]);
+                            (*Game::objectVector)[i]->collide((*Game::objectVector)[n]);
                         }
                     }
                 }
