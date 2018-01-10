@@ -3,6 +3,7 @@
 #include "Spline.h"
 #include "Projectile.h"
 #include "ScoreDisplay.h"
+#include "Object.h"
 
 // Constructor
 Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : Object(true), laserTexture(laser)

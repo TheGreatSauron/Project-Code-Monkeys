@@ -1,5 +1,6 @@
 #include "Player.h"
 #include <iostream>
+#include "Object.h"
 
 //constructor
 Player::Player(sf::Vector2f position, sf::Texture& texture, int life)
