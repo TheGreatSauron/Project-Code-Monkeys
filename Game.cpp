@@ -17,4 +17,4 @@ void Game::setWindow(sf::RenderWindow* newWindow)
 
 std::unique_ptr<sf::RenderWindow> Game::window;
 std::unique_ptr<std::vector<std::unique_ptr<Object>>> Game::objectVector;
-int Game::score;
+int Game::score = 0;

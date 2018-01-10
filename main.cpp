@@ -14,6 +14,7 @@
 #include "Game.h"
 #include "Resources.h"
 #include "StarMap.h"
+#include "ScoreDisplay.h"
 
 
 void renderWindow () {
@@ -40,7 +41,10 @@ void renderWindow () {
 	Player player(sf::Vector2f(600,300),errorTexture,3);
 
 	Game::spawn(new StarMap());
-	Game::spawn(new Enemy(sf::Vector2f(0,0), stuff.enemyShips, stuff.laser));
+
+	Game::spawn(new ScoreDisplay(stuff.Arial, sf::Vector2f(Game::window->getSize().x, 0)));
+
+	Game::spawn(new Enemy(sf::Vector2f(0, 200), stuff.errorTexture, stuff.laser));
 
 	while (Game::window->isOpen())
     {
@@ -54,11 +58,40 @@ void renderWindow () {
 			}
 		}
 
+		//DO NOT TOUCH
+		//Very delicate and can break very easily, take care to not change without careful deliberation
 		for (unsigned n = 0; n < Game::objectVector->size(); n++)
 		{
-			if (!(*Game::objectVector)[n]->hasBeenDestroyed());
+			if (!(*Game::objectVector)[n]->hasBeenDestroyed())
 			{
+			    for (unsigned i = n+1; i < Game::objectVector->size(); i++)
+                {
+                    //Checks if both objects are alive and colliding
+                    if ((!(*Game::objectVector)[i]->hasBeenDestroyed())
+                        && (*Game::objectVector)[n]->getGlobalBounds().intersects((*Game::objectVector)[i]->getGlobalBounds()))
+                    {
+                        //Checks for matching collision channels
+                        bool areColliding = false;
+                        for (unsigned a = 0; a < (*Game::objectVector)[n]->collisionChannel.size(); a++)
+                        {
+                            for (unsigned b = 0; b < (*Game::objectVector)[i]->collisionChannel.size(); b++)
+                            {
+                                if ((*Game::objectVector)[n]->collisionChannel[a] == (*Game::objectVector)[i]->collisionChannel[b])
+                                {
+                                    areColliding = true;
+                                }
+                            }
+                        }
 
+                        //If there are matching channels, both objects collide with one another
+                        //Effects are object specific
+                        if (areColliding)
+                        {
+                            (*Game::objectVector)[n]->collide((*Game::objectVector)[i]);
+                            (*Game::objectVector)[i]->collide((*Game::objectVector)[n]);
+                        }
+                    }
+                }
 			}
 		}
 
@@ -118,6 +151,8 @@ void renderWindow () {
             speedY = 0.00f;
             player.movement(deltaTime,speedX,speedY);
         }
+
+	//Frame-rate
 
     //Drawing the player object
     Game::window->draw(player);

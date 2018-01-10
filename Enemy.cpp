@@ -2,11 +2,12 @@
 #include "Game.h"
 #include "Spline.h"
 #include "Projectile.h"
+#include "ScoreDisplay.h"
 
 // Constructor
 Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : Object(true), laserTexture(laser)
 {
-    speed = 50;
+    speed = 100;
     health = 50;
     setPosition(position);
 
@@ -16,14 +17,14 @@ Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : 
 
     //Add nodes go in constructor
     //THESE ARE TEST NODES AND ALL NEW ENEMEYS WILL FOLLOW THIS PATH
-    spline.addNode(sf::Vector2f(100, 0));
-    spline.addNode(sf::Vector2f(100, 100));
+    spline.addNode(sf::Vector2f(700, 0));
+    spline.addNode(sf::Vector2f(700, 200));
     spline.offset(getPosition());
 }
 
 void Enemy::shootLaser()
 {
-    Game::spawn(new Projectile<Object>(laserTexture, getPosition(), sf::Vector2f(0, 100)));
+    Game::spawn(new Projectile(laserTexture, getPosition(), sf::Vector2f(0, -100)));
 }
 
 // Deal damage function
