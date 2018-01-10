@@ -189,6 +189,12 @@ int main()
             case sf::Event::Closed:
                 Game::window->close();
                 break;
+            case sf::Event::KeyPressed:
+                if (event.key.code == sf::Keyboard::Escape)
+                {
+                    Game::window->close();
+                }
+                break;
             }
         }
     }
