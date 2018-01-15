@@ -432,13 +432,14 @@
 	<vector>
 	<SFML/System.hpp>
 
-1515533955 c:\users\taylorc16\documents\github\project-code-monkeys\game.h
+1516053151 c:\users\taylorc16\documents\github\project-code-monkeys\game.h
 	<SFML/graphics.hpp>
 	<memory>
 	<vector>
 	<string>
 	<sstream>
 	"Object.h"
+	"Player.h"
 
 1515531564 c:\users\taylorc16\documents\github\project-code-monkeys\projectile.h
 	<SFML/graphics.hpp>
@@ -453,7 +454,7 @@
 1515533952 source:c:\users\taylorc16\documents\github\project-code-monkeys\game.cpp
 	"Game.h"
 
-1515620840 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
+1515620956 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
 	<vector>
 	<memory>
 	<iostream>
