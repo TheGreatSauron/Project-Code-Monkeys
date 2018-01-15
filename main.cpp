@@ -17,33 +17,31 @@ void movement () {
     Game::PspeedX = 0.f;
     Game::PspeedY = 0.f;
 
- //Moves the player up with W or the up arrow
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-            {
-            //sets the offset based on the speed
-                Game::PspeedX += 0.00f;
-                Game::PspeedY += -1.00f;
-            }
-            //Moves the player down with S or the down arrow
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-            {
-                Game::PspeedX += 0.00f;
-                Game::PspeedY += 1.00f;
-
-            }
-            //Moves the player left with A or the left arrow
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-            {
-                Game::PspeedX += -1.00f;
-                Game::PspeedY += 0.00f;
-
-            }
-            //Moves the player right with D or the right arrow
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-            {
-                Game::PspeedX += 1.00f;
-                Game::PspeedY += 0.00f;
-            }
+    //Moves the player up with W or the up arrow
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    {
+        //sets the offset based on the speed
+        Game::PspeedX += 0.00f;
+        Game::PspeedY += -1.00f;
+    }
+    //Moves the player down with S or the down arrow
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+    {
+        Game::PspeedX += 0.00f;
+        Game::PspeedY += 1.00f;
+    }
+    //Moves the player left with A or the left arrow
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+    {
+        Game::PspeedX += -1.00f;
+        Game::PspeedY += 0.00f;
+    }
+    //Moves the player right with D or the right arrow
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    {
+        Game::PspeedX += 1.00f;
+        Game::PspeedY += 0.00f;
+    }
 }
 
 
