@@ -50,6 +50,7 @@ public:
     Projectile(sf::Texture& texture, sf::Vector2f position, sf::Vector2f projectileVelocity);
     virtual void update(sf::Time deltaTime) override;
     virtual sf::FloatRect getGlobalBounds() const override;
+    virtual void collide(std::unique_ptr<Object>& collisionObject) override;
 };
 
 #endif // PROJECTILE_H_INCLUDED

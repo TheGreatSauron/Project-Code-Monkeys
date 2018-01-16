@@ -1,4 +1,5 @@
 #include "Projectile.h"
+#include <iostream>
 
 void Projectile::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
@@ -7,7 +8,7 @@ void Projectile::draw(sf::RenderTarget& target, sf::RenderStates states) const
 }
 
 Projectile::Projectile(sf::Texture& texture, sf::Vector2f position, sf::Vector2f projectileVelocity)
- : Object(true), velocity(projectileVelocity)
+ : Object(true, {"Test"}), velocity(projectileVelocity)
 {
     sprite.setTexture(texture);
     sprite.setScale(0.1, 0.05);
@@ -26,4 +27,9 @@ sf::FloatRect Projectile::getGlobalBounds() const
     hitbox.left = getPosition().x;
     hitbox.top = getPosition().y;
     return hitbox;
+}
+
+void Projectile::collide(std::unique_ptr<Object>& collisionObject)
+{
+    std::cout << "Collision Detected\n";
 }

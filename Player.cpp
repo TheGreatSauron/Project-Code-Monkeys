@@ -1,48 +1,34 @@
 #include "Player.h"
 #include "Object.h"
+#include "Game.h"
 #include <iostream>
 
 //constructor
-Player::Player(sf::Vector2f position, sf::Texture& texture, int life)
+Player::Player(sf::Vector2f position, sf::Texture& texture, int life) : Object(true, {"Test"})
 {
     //setting the value of lives
     lives = life;
+    //set the player position
+    setPosition(position);
     //set the spite texture
     sprite.setTexture(texture);
-    //set the spite position
-    sprite.setPosition(position);
     //set the sprite scale
     sprite.setScale(1.5f,1.5f);
-    //set the default direction
-    sf::Vector2i direction(0, Down);
-}
-
-//destructor
-Player::~Player()
-{
 }
 
 //draws the player
 void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     states = getTransform();
-    target.draw(sprite,states);
+    target.draw(sprite, states);
 }
 
 //update function
 void Player::update(sf::Time deltaTime)
 {
-}
-
-//moves the player
-void Player::movement(sf::Time& deltaTime, float speedX, float speedY)
-{
-    //adding X and Y to deltaTime as a value of seconds
-    speedX += deltaTime.asSeconds();
-    speedY += deltaTime.asSeconds();
-
-    //moves the player bases on the offset of the passed in X and Y value
-    sprite.move(speedX,speedY);
+    sf::Vector2f movement = Game::playerInput;
+    movement *= deltaTime.asSeconds() * 200.f;
+    move(movement);
 }
 
 //changes the players amount of lives
@@ -56,4 +42,12 @@ void Player::changeLives(int tempLife)
     {
         //end game, close window or display a restart screen
     }
+}
+
+sf::FloatRect Player::getGlobalBounds() const
+{
+    sf::FloatRect hitbox(sprite.getLocalBounds());
+    hitbox.left = getPosition().x;
+    hitbox.top = getPosition().y;
+    return hitbox;
 }
