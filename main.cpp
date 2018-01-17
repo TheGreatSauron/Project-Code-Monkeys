@@ -78,7 +78,7 @@ void renderWindow () {
         }
 
         float magnitude = std::sqrt(std::pow(Game::playerInput.x, 2) + std::pow(Game::playerInput.y, 2));
-        if (magnitude != 0)
+        if (magnitude)
         {
             Game::playerInput.x /= magnitude;
             Game::playerInput.y /= magnitude;
@@ -155,13 +155,12 @@ void renderWindow () {
 
 		//Frame-rate
 
-    //Drawing the player object
-    //Game::window->draw(player);
-    //Drawing the framerate clock
-    Game::window->draw(Frame(frameClock, stuff.Arial));
-    //displaying the window
-    Game::window->display();
-
+        //Drawing the player object
+        //Game::window->draw(player);
+        //Drawing the framerate clock
+        Game::window->draw(Frame(frameClock, stuff.Arial));
+        //displaying the window
+        Game::window->display();
     }
 
 }
@@ -194,10 +193,14 @@ int main()
             case sf::Event::KeyPressed:
                 if (event.key.code == sf::Keyboard::Escape)
                 {
-                    Game::window->close();
+                    Game::isWindowClosing = true;
                 }
                 break;
             }
+        }
+        if (Game::isWindowClosing)
+        {
+            Game::window->close();
         }
     }
 

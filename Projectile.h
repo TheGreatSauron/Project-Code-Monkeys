@@ -2,7 +2,6 @@
 #define PROJECTILE_H_INCLUDED
 
 #include <SFML/graphics.hpp>
-#include <typeinfo>
 #include <iostream>
 #include "Object.h"
 
@@ -47,7 +46,7 @@ class Projectile : public Object
     sf::Sprite sprite;
     sf::Vector2f velocity;
 public:
-    Projectile(sf::Texture& texture, sf::Vector2f position, sf::Vector2f projectileVelocity);
+    Projectile(sf::Texture& texture, sf::Vector2f position, sf::Vector2f projectileVelocity, std::vector<std::string> collisionTags);
     virtual void update(sf::Time deltaTime) override;
     virtual sf::FloatRect getGlobalBounds() const override;
     virtual void collide(std::unique_ptr<Object>& collisionObject) override;

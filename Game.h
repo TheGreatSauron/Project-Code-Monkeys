@@ -15,6 +15,7 @@ struct Game
     static std::unique_ptr<std::vector<std::unique_ptr<Object>>> objectVector;
     static int score;
     static sf::Vector2f playerInput;
+    static bool isWindowClosing;
 
     //enable the "to_string" function of std:: as code-blocks has bugs with it not working correctly
     template <typename T>

@@ -23,7 +23,7 @@
 
 100 ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿşııÎËÉ±®«¯¬©­ª§r_RD&D&|mb¤ œ¢š£Ÿ›¶³°ÊÈÆÛÙØèçæğïïôôóR5!D&D&D&D&tcUŠƒ‰…~ˆƒ|‡‚{…z„xƒ~w}u€{tzs~yr}xp|xo{wnzvlzulytk„€wæåãÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿşşşÑÏÍ¯­©®ª§¨¤ vdW{k_¥¡¤ œ¢Ÿš œ˜›–œ™”›—’™•—”–’ŒK
 
-1515620062 source:c:\users\taylorc16\documents\github\project-code-monkeys\enemy.cpp
+1516225096 source:c:\users\taylorc16\documents\github\project-code-monkeys\enemy.cpp
 	"Enemy.h"
 	"Game.h"
 	"Spline.h"
@@ -432,7 +432,7 @@
 	<vector>
 	<SFML/System.hpp>
 
-1516136378 c:\users\taylorc16\documents\github\project-code-monkeys\game.h
+1516224137 c:\users\taylorc16\documents\github\project-code-monkeys\game.h
 	<SFML/graphics.hpp>
 	<memory>
 	<vector>
@@ -441,9 +441,8 @@
 	"Object.h"
 	"Player.h"
 
-1516138918 c:\users\taylorc16\documents\github\project-code-monkeys\projectile.h
+1516224927 c:\users\taylorc16\documents\github\project-code-monkeys\projectile.h
 	<SFML/graphics.hpp>
-	<typeinfo>
 	<iostream>
 	"Object.h"
 
@@ -451,10 +450,10 @@
 	<SFML/graphics.hpp>
 	"Object.h"
 
-1516136473 source:c:\users\taylorc16\documents\github\project-code-monkeys\game.cpp
+1516224137 source:c:\users\taylorc16\documents\github\project-code-monkeys\game.cpp
 	"Game.h"
 
-1516139275 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
+1516224727 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
 	<vector>
 	<memory>
 	<iostream>
@@ -468,7 +467,7 @@
 	"StarMap.h"
 	"ScoreDisplay.h"
 
-1516139339 c:\users\taylorc16\documents\github\project-code-monkeys\player.h
+1516223632 c:\users\taylorc16\documents\github\project-code-monkeys\player.h
 	"Object.h"
 
 1513716191 c:\users\taylorc16\documents\github\project-code-monkeys\framerate.h
@@ -486,7 +485,7 @@
 1515532271 source:c:\users\taylorc16\documents\github\project-code-monkeys\object.cpp
 	"Object.h"
 
-1516139339 source:c:\users\taylorc16\documents\github\project-code-monkeys\player.cpp
+1516225464 source:c:\users\taylorc16\documents\github\project-code-monkeys\player.cpp
 	"Player.h"
 	"Object.h"
 	"Game.h"
@@ -505,7 +504,7 @@
 	<ctime>
 	"Game.h"
 
-1516139275 source:c:\users\taylorc16\documents\github\project-code-monkeys\projectile.cpp
+1516225671 source:c:\users\taylorc16\documents\github\project-code-monkeys\projectile.cpp
 	"Projectile.h"
 	<iostream>
 

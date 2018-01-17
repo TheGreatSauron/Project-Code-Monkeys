@@ -23,7 +23,7 @@ Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : 
 
 void Enemy::shootLaser()
 {
-    Game::spawn(new Projectile(laserTexture, getPosition(), sf::Vector2f(0, -100)));
+    Game::spawn(new Projectile(laserTexture, getPosition(), sf::Vector2f(0, 100), {"Player"}));
 }
 
 // Deal damage function
@@ -54,7 +54,7 @@ void Enemy::update(sf::Time deltaTime)
         // If this is the last node, destroy the object
         if (!spline.iterate())
         {
-            destroy();
+            //destroy();
         }
         else
         {

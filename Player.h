@@ -24,6 +24,9 @@ private:
     //declaring the sprite
     sf::Sprite sprite;
 
+    //Invincibility clock
+    std::unique_ptr<sf::Clock> invClock;
+
 public:
     //constructor
     Player(sf::Vector2f position, sf::Texture&, int tempLife = 3);
@@ -37,6 +40,12 @@ public:
     //Gets the hitbox of the player
     virtual sf::FloatRect getGlobalBounds() const override;
 
+    //Player dies
+    void die();
+
+    //Collide function for taking damage
+    virtual void collide(std::unique_ptr<Object>& collisionObject) override;
+
     //Overloading the operator ++ and -- to add and subtract lives respectively
     void operator ++() { lives = lives + 1; }
     void operator --()
@@ -44,7 +53,7 @@ public:
         lives = lives - 1;
         if(lives <= 0)
         {
-            //end game
+            die();
         }
     }
 
