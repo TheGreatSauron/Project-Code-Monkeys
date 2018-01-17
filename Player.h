@@ -30,8 +30,6 @@ private:
     //declaring direction values
     enum direction {Down, Left, Right, Up};
 
-    bool borderCollision;
-
 public:
     //constructor
     Player(sf::Vector2f position, sf::Texture&, int tempLife = 3);
@@ -41,7 +39,7 @@ public:
     void borderCheck();
 
     //overriding the virtual function in object.h
-    virtual void update(sf::Time deltaTime, borderCollision) override;
+    virtual void update(sf::Time deltaTime) override;
 
     //Player movement
     void movement(float speedX, float speedY);

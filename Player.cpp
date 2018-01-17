@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Game.h"
+#include <iostream>
 
 //constructor
 Player::Player(sf::Vector2f position, sf::Texture& texture, int life)
@@ -27,32 +28,30 @@ void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     target.draw(sprite,states);
 }
 
-void Player::borderCheck()
+//update function
+void Player::update(sf::Time deltaTime)
 {
+    //sets sprPosition to equal the location of the player
     sf::Vector2f sprPosition = sprite.getPosition();
     int x = sprPosition.x + 1;
     int y = sprPosition.y + 1;
 
-    if(x > 1368 || x < 0)
-        borderCollision = false;
-    else
-        borderCollision = true;
-    if(y > 700 || x < 0)
-        borderCollision = false;
-    else
-        borderCollision = true;
+    //determines if the player is off screen
+    if(x < 0)
+        Game::PspeedX += 1;
+    if(x > 1324)
+        Game::PspeedX -= 1;
+    if(y < 0)
+        Game::PspeedY += 1;
+    if(y > 652)
+        Game::PspeedY -= 1;
 
-}
-
-//update function
-void Player::update(sf::Time deltaTime, borderCollision) {
-    if(borderCollision == true)
-    {
-        if ((Game::PspeedX == 1.f || Game::PspeedX == -1.f) && (Game::PspeedY == 1.f || Game::PspeedY == -1.f)) {
-            Game::PspeedX = Game::PspeedX / 1.25;
-            Game::PspeedY = Game::PspeedY / 1.25;
-        }
+    //diagonal movement
+    if ((Game::PspeedX == 1.f || Game::PspeedX == -1.f) && (Game::PspeedY == 1.f || Game::PspeedY == -1.f)) {
+        Game::PspeedX = Game::PspeedX / 1.25;
+        Game::PspeedY = Game::PspeedY / 1.25;
     }
+
     //moves the player bases on the offset of the passed in X and Y value
     sprite.move(Game::PspeedX, Game::PspeedY);
 }

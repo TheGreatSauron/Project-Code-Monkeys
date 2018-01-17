@@ -428,7 +428,7 @@
 
 1513287053 D
 
-1516139272 c:\codingproject\project-code-monkeys\player.h
+1516225274 c:\codingproject\project-code-monkeys\player.h
 	"Object.h"
 
 1513803205 
@@ -643,9 +643,10 @@
 
 1512423741 c:\users\taylorc16\documents\github\project-code-monkeys\enemy.h
 
-1516050722 source:c:\codingproject\project-code-monkeys\player.cpp
+1516224949 source:c:\codingproject\project-code-monkeys\player.cpp
 	"Player.h"
 	"Game.h"
+	<iostream>
 
 1513026362 source:c:\codingproject\project-code-monkeys\spline.cpp
 	"Spline.h"
