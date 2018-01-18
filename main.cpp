@@ -13,7 +13,9 @@
 #include "Game.h"
 #include "Resources.h"
 #include "StarMap.h"
-void movement () {
+
+void movement ()
+{
     Game::PspeedX = 0.f;
     Game::PspeedY = 0.f;
 

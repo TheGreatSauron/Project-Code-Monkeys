@@ -36,8 +36,6 @@ public:
     //destructor
     virtual ~Player();
 
-    void borderCheck();
-
     //overriding the virtual function in object.h
     virtual void update(sf::Time deltaTime) override;
 
