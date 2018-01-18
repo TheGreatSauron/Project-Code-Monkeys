@@ -26,6 +26,39 @@ void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const
 //update function
 void Player::update(sf::Time deltaTime)
 {
+    //Declaring X and Y values for the speed of player
+    Game::playerInput.x = 0;
+    Game::playerInput.y = 0;
+
+    //Moves the player up with W or the up arrow
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    {
+        //sets the offset based on the speed
+        Game::playerInput.y += -1.00f;
+    }
+    //Moves the player down with S or the down arrow
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+    {
+        Game::playerInput.y += 1.00f;
+    }
+    //Moves the player left with A or the left arrow
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+    {
+        Game::playerInput.x += -1.00f;
+    }
+    //Moves the player right with D or the right arrow
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    {
+        Game::playerInput.x += 1.00f;
+    }
+
+    float magnitude = std::sqrt(std::pow(Game::playerInput.x, 2) + std::pow(Game::playerInput.y, 2));
+    if (magnitude)
+    {
+        Game::playerInput.x /= magnitude;
+        Game::playerInput.y /= magnitude;
+    }
+
     sf::Vector2f movement = Game::playerInput;
     movement *= deltaTime.asSeconds() * 200.f;
     move(movement);

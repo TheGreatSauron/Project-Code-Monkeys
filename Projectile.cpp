@@ -31,7 +31,5 @@ sf::FloatRect Projectile::getGlobalBounds() const
 
 void Projectile::collide(std::unique_ptr<Object>& collisionObject)
 {
-    std::cout << "Collision Detected\n";
-
     destroy();
 }

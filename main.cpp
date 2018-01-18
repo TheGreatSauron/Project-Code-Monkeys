@@ -51,39 +51,6 @@ void renderWindow () {
         //Note that the first frame will vary wildly in length
         sf::Time deltaTime = deltaClock.restart();
 
-		//Declaring X and Y values for the speed of player
-		Game::playerInput.x = 0;
-		Game::playerInput.y = 0;
-
-        //Moves the player up with W or the up arrow
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-        {
-            //sets the offset based on the speed
-            Game::playerInput.y += -1.00f;
-        }
-        //Moves the player down with S or the down arrow
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-        {
-            Game::playerInput.y += 1.00f;
-        }
-        //Moves the player left with A or the left arrow
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-        {
-            Game::playerInput.x += -1.00f;
-        }
-        //Moves the player right with D or the right arrow
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-        {
-            Game::playerInput.x += 1.00f;
-        }
-
-        float magnitude = std::sqrt(std::pow(Game::playerInput.x, 2) + std::pow(Game::playerInput.y, 2));
-        if (magnitude)
-        {
-            Game::playerInput.x /= magnitude;
-            Game::playerInput.y /= magnitude;
-        }
-
 		//Update all objects
 		for (unsigned n = 0; n < Game::objectVector->size(); n++)
         {
