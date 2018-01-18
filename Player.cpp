@@ -12,8 +12,8 @@ Player::Player(sf::Vector2f position, sf::Texture& texture, int life) : Object(t
     setPosition(position);
     //set the spite texture
     sprite.setTexture(texture);
-    //set the sprite scale
-    sprite.setScale(1.5f,1.5f);
+    //set the sprite scale down to reasonable size
+    sprite.setScale(0.1f,0.15f);
 }
 
 //draws the player
@@ -87,7 +87,7 @@ void Player::changeLives(int tempLife)
 
 sf::FloatRect Player::getGlobalBounds() const
 {
-    sf::FloatRect hitbox(sprite.getLocalBounds());
+    sf::FloatRect hitbox(sf::FloatRect(0, 0, 60.5, 90.3));
     hitbox.left = getPosition().x;
     hitbox.top = getPosition().y;
     return hitbox;

@@ -71,6 +71,8 @@
 		<Unit filename="Resources.h" />
 		<Unit filename="ScoreDisplay.cpp" />
 		<Unit filename="ScoreDisplay.h" />
+		<Unit filename="Spawner.cpp" />
+		<Unit filename="Spawner.h" />
 		<Unit filename="Spline.cpp" />
 		<Unit filename="Spline.h" />
 		<Unit filename="StarMap.cpp" />

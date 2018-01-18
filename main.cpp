@@ -16,34 +16,32 @@
 #include "StarMap.h"
 #include "ScoreDisplay.h"
 
+//Declare the used resources
+sf::Font Resources::Arial;
+sf::Texture Resources::errorTexture;
+sf::Texture Resources::laser;
+sf::Texture Resources::enemies;
+sf::Texture Resources::player;
+
 void renderWindow () {
 	//Framerate clock
     sf::Clock frameClock;
 	//Taylor's clock
     sf::Clock deltaClock;
 
-	//add resources object
-	Resources stuff;
-
 	//load resources
-	if (!stuff.load()) {
+	if (!Resources::load()) {
 		std::cout << "resource load error in: renderWindow" << std::endl;
 	}
 
-    sf::Texture errorTexture;
-    if(!errorTexture.loadFromFile("resource/photos/Error.png"))
-    {
-        std::cout << "texture load error in: renderWindow" << std::endl;
-    }
-
 	Game::spawn(new StarMap());
 
-	Game::spawn(new ScoreDisplay(stuff.Arial, sf::Vector2f(Game::window->getSize().x, 0)));
+	Game::spawn(new ScoreDisplay(Resources::Arial, sf::Vector2f(Game::window->getSize().x, 0)));
 
-	Game::spawn(new Enemy(sf::Vector2f(0, 200), stuff.errorTexture, stuff.laser));
+	Game::spawn(new Enemy(sf::Vector2f(0, 200), Resources::enemies, Resources::laser));
 
 	//Creating the player
-	Game::spawn(new Player(sf::Vector2f(600,300),stuff.errorTexture,3));
+	Game::spawn(new Player(sf::Vector2f(600,300),Resources::player,3));
 
 	while (Game::window->isOpen())
     {
@@ -125,7 +123,7 @@ void renderWindow () {
         //Drawing the player object
         //Game::window->draw(player);
         //Drawing the framerate clock
-        Game::window->draw(Frame(frameClock, stuff.Arial));
+        Game::window->draw(Frame(frameClock, Resources::Arial));
         //displaying the window
         Game::window->display();
     }
