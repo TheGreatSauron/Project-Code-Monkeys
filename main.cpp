@@ -36,19 +36,22 @@ void renderWindow () {
         std::cout << "texture load error in: renderWindow" << std::endl;
     }
 
-	//Creating the player
-	Player player(sf::Vector2f(600,300),errorTexture,3);
-
 	Game::spawn(new StarMap());
 
 	Game::spawn(new ScoreDisplay(stuff.Arial, sf::Vector2f(Game::window->getSize().x, 0)));
 
 	Game::spawn(new Enemy(sf::Vector2f(0, 200), stuff.errorTexture, stuff.laser));
 
+	//Creating the player
+	Game::spawn(new Player(sf::Vector2f(600,300),stuff.errorTexture,3));
+
 	while (Game::window->isOpen())
     {
+        //Record the time since the last start of frame
+        //Note that the first frame will vary wildly in length
+        sf::Time deltaTime = deltaClock.restart();
+
 		//Update all objects
-		sf::Time deltaTime = deltaClock.restart();
 		for (unsigned n = 0; n < Game::objectVector->size(); n++)
         {
 			if (!(*Game::objectVector)[n]->hasBeenDestroyed());
@@ -117,49 +120,14 @@ void renderWindow () {
 			}
 		}
 
-		//Declaring X and Y values for the speed of player
-		float speedX = 0.00f;
-        float speedY = 0.00f;
-
-        //Moves the player up with W or the up arrow
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-        {
-            //sets the offset based on the speed
-            speedX = 0.00f;
-            speedY = -1.00f;
-            player.movement(deltaTime,speedX,speedY);
-        }
-        //Moves the player down with S or the down arrow
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-        {
-            speedX = 0.00f;
-            speedY = 1.00f;
-            player.movement(deltaTime,speedX,speedY);
-        }
-        //Moves the player left with A or the left arrow
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-        {
-            speedX = -1.00f;
-            speedY = 0.00f;
-            player.movement(deltaTime,speedX,speedY);
-        }
-        //Moves the player right with D or the right arrow
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-        {
-            speedX = 1.00f;
-            speedY = 0.00f;
-            player.movement(deltaTime,speedX,speedY);
-        }
-
 		//Frame-rate
 
-    //Drawing the player object
-    Game::window->draw(player);
-    //Drawing the framerate clock
-    Game::window->draw(Frame(frameClock, stuff.Arial));
-    //displaying the window
-    Game::window->display();
-
+        //Drawing the player object
+        //Game::window->draw(player);
+        //Drawing the framerate clock
+        Game::window->draw(Frame(frameClock, stuff.Arial));
+        //displaying the window
+        Game::window->display();
     }
 
 }
@@ -192,10 +160,14 @@ int main()
             case sf::Event::KeyPressed:
                 if (event.key.code == sf::Keyboard::Escape)
                 {
-                    Game::window->close();
+                    Game::isWindowClosing = true;
                 }
                 break;
             }
+        }
+        if (Game::isWindowClosing)
+        {
+            Game::window->close();
         }
     }
 
