@@ -3,16 +3,24 @@
 #include "Enemy.h"
 #include "Resources.h"
 
-Spawner::Spawner(sf::Time interval) : intervalTime(interval)
+Spawner::Spawner(sf::Time interval)
 {
+    setIntervalTime(interval);
 }
 
 void Spawner::update(sf::Time deltaTime)
 {
     if (clock.getElapsedTime() >= intervalTime)
     {
-        Game::spawn(new Enemy(sf::Vector2f(0, 0), Resources::errorTexture, Resources::laser));
+        Game::spawn(new Enemy(sf::Vector2f(200, 100), Resources::enemies, Resources::laser));
 
         clock.restart();
     }
+}
+
+void Spawner::setIntervalTime(sf::Time interval)
+{
+    intervalTime = interval;
+
+    clock.restart();
 }

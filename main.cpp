@@ -15,6 +15,7 @@
 #include "Resources.h"
 #include "StarMap.h"
 #include "ScoreDisplay.h"
+#include "Spawner.h"
 
 //Declare the used resources
 sf::Font Resources::Arial;
@@ -38,7 +39,7 @@ void renderWindow () {
 
 	Game::spawn(new ScoreDisplay(Resources::Arial, sf::Vector2f(Game::window->getSize().x, 0)));
 
-	Game::spawn(new Enemy(sf::Vector2f(0, 200), Resources::enemies, Resources::laser));
+	Game::spawn(new Spawner(sf::seconds(5)));
 
 	//Creating the player
 	Game::spawn(new Player(sf::Vector2f(600,300),Resources::player,3));

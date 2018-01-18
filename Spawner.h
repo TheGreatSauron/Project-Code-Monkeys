@@ -17,6 +17,10 @@ public:
 
     //override update function from object
     virtual void update(sf::Time deltaTime) override;
+
+    //Reset interval time
+    //Note that it also resets the internal clock
+    void setIntervalTime(sf::Time interval);
 };
 
 #endif // SPAWNER_H_INCLUDED
