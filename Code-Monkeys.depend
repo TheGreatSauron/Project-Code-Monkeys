@@ -23,14 +23,14 @@
 
 100 ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿşııÎËÉ±®«¯¬©­ª§r_RD&D&|mb¤ œ¢š£Ÿ›¶³°ÊÈÆÛÙØèçæğïïôôóR5!D&D&D&D&tcUŠƒ‰…~ˆƒ|‡‚{…z„xƒ~w}u€{tzs~yr}xp|xo{wnzvlzulytk„€wæåãÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿşşşÑÏÍ¯­©®ª§¨¤ vdW{k_¥¡¤ œ¢Ÿš œ˜›–œ™”›—’™•—”–’ŒK
 
-1516391862 source:c:\users\taylorc16\documents\github\project-code-monkeys\enemy.cpp
+1516394480 source:c:\users\taylorc16\documents\github\project-code-monkeys\enemy.cpp
 	"Enemy.h"
 	"Game.h"
 	"Spline.h"
 	"Projectile.h"
 	"ScoreDisplay.h"
 
-1513805191 c:\users\taylorc16\documents\github\project-code-monkeys\enemy.h
+1516394462 c:\users\taylorc16\documents\github\project-code-monkeys\enemy.h
 	"Object.h"
 	"Spline.h"
 
@@ -453,10 +453,11 @@
 1516224137 source:c:\users\taylorc16\documents\github\project-code-monkeys\game.cpp
 	"Game.h"
 
-1516312179 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
+1516394194 source:c:\users\taylorc16\documents\github\project-code-monkeys\main.cpp
 	<vector>
 	<memory>
 	<iostream>
+	<ctime>
 	<SFML/Graphics.hpp>
 	"Object.h"
 	"Player.h"
@@ -486,10 +487,12 @@
 1515532271 source:c:\users\taylorc16\documents\github\project-code-monkeys\object.cpp
 	"Object.h"
 
-1516311615 source:c:\users\taylorc16\documents\github\project-code-monkeys\player.cpp
+1516393289 source:c:\users\taylorc16\documents\github\project-code-monkeys\player.cpp
 	"Player.h"
 	"Object.h"
 	"Game.h"
+	"Projectile.h"
+	"Resources.h"
 	<iostream>
 
 1513719567 source:c:\users\taylorc16\documents\github\project-code-monkeys\scoredisplay.cpp
@@ -500,20 +503,21 @@
 	"Spline.h"
 	<cmath>
 
-1513286467 source:c:\users\taylorc16\documents\github\project-code-monkeys\starmap.cpp
+1516393557 source:c:\users\taylorc16\documents\github\project-code-monkeys\starmap.cpp
 	"StarMap.h"
 	<ctime>
 	"Game.h"
 
-1516308248 source:c:\users\taylorc16\documents\github\project-code-monkeys\projectile.cpp
+1516393852 source:c:\users\taylorc16\documents\github\project-code-monkeys\projectile.cpp
 	"Projectile.h"
 	<iostream>
 
-1516312220 source:c:\users\taylorc16\documents\github\project-code-monkeys\spawner.cpp
+1516393538 source:c:\users\taylorc16\documents\github\project-code-monkeys\spawner.cpp
 	"Spawner.h"
 	"Game.h"
 	"Enemy.h"
 	"Resources.h"
+	<ctime>
 
 1516311986 c:\users\taylorc16\documents\github\project-code-monkeys\spawner.h
 	<SFML\graphics.hpp>

@@ -31,6 +31,9 @@ public:
 	// What occurs every frame
 	virtual void update(sf::Time deltaTime) override;
 
+	// Gets the hitbox of the enemy
+	virtual sf::FloatRect getGlobalBounds() const override;
+
     // Declares sprites
     sf::Sprite sprite;
     sf::Texture& laserTexture;

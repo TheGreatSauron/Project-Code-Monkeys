@@ -17,14 +17,13 @@ Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : 
 
     //Add nodes go in constructor
     //THESE ARE TEST NODES AND ALL NEW ENEMEYS WILL FOLLOW THIS PATH
-    spline.addNode(sf::Vector2f(700, 0));
-    spline.addNode(sf::Vector2f(700, 200));
+    spline.addNode(sf::Vector2f(0, 700));
     spline.offset(getPosition());
 }
 
 void Enemy::shootLaser()
 {
-    Game::spawn(new Projectile(laserTexture, getPosition(), sf::Vector2f(0, 200), {"Player"}));
+    Game::spawn(new Projectile(laserTexture, getPosition(), sf::Vector2f(0, 250), {"Player"}));
 }
 
 // Deal damage function
@@ -74,4 +73,12 @@ void Enemy::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     states = getTransform();
     target.draw(sprite, states);
+}
+
+sf::FloatRect Enemy::getGlobalBounds() const
+{
+    sf::FloatRect hitbox(0, 0, 37, 40);
+    hitbox.left = getPosition().x;
+    hitbox.top = getPosition().y;
+    return hitbox;
 }

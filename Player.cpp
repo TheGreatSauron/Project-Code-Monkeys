@@ -63,7 +63,7 @@ void Player::update(sf::Time deltaTime)
     }
 
     sf::Vector2f movement = Game::playerInput;
-    movement *= deltaTime.asSeconds() * 200.f;
+    movement *= deltaTime.asSeconds() * 300.f;
     move(movement);
 
     if (shootDelay)
@@ -87,7 +87,7 @@ void Player::update(sf::Time deltaTime)
 
     if (invClock)
     {
-        if (invClock->getElapsedTime() >= sf::seconds(3))
+        if (invClock->getElapsedTime() >= sf::seconds(1.5))
         {
             invClock.reset();
         }
@@ -127,7 +127,7 @@ void Player::collide(std::unique_ptr<Object>& collisionObject)
     if (!invClock)
     {
         changeLives(-1);
-    }
 
-    invClock.reset(new sf::Clock());
+        invClock.reset(new sf::Clock());
+    }
 }

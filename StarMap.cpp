@@ -9,7 +9,6 @@ void StarMap::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 StarMap::StarMap() : Object(true), speed(10)
 {
-    std::srand(std::time(NULL));
     for (unsigned n = 0; n < 300; n++)
     {
         float x = rand()%Game::window->getSize().x;

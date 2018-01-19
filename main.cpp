@@ -2,6 +2,7 @@
 #include <vector>
 #include <memory>
 #include <iostream>
+#include <ctime>
 
 //SFML includes
 #include <SFML/Graphics.hpp>
@@ -133,6 +134,9 @@ void renderWindow () {
 
 int main()
 {
+    //Seed current time
+    std::srand(std::time(NULL));
+
     //Main game window
     Game::setWindow(new sf::RenderWindow(sf::VideoMode(1368, 700), "Aluminum Dafaa Raiders"));
 
