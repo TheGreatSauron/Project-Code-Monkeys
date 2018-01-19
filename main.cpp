@@ -88,7 +88,6 @@ void renderWindow () {
 			}
 		}
 
-
 		//Reset window
 		Game::window->clear();
 
@@ -112,11 +111,11 @@ void renderWindow () {
     Game::window->display();
 
     }
-
 }
 
 int main()
 {
+    Game::setWindow(new sf::RenderWindow(sf::VideoMode(1368, 700), ""));
     //Main game window
     Game::setWindow(new sf::RenderWindow(sf::VideoMode(1368, 700), "Aluminum Dafaa Raiders"));
 
