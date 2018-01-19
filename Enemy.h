@@ -31,8 +31,7 @@ public:
 	// What occurs every frame
 	virtual void update(sf::Time deltaTime) override;
 
-	// Gets the hitbox of the enemy
-	virtual sf::FloatRect getGlobalBounds() const override;
+	virtual void collide(std::unique_ptr<Object>& collisionObject) override;
 
     // Declares sprites
     sf::Sprite sprite;

@@ -3,27 +3,18 @@
 #include "Spline.h"
 #include "Projectile.h"
 #include "ScoreDisplay.h"
+#include "Object.h"
 
 // Constructor
-Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : Object(true, {"Enemy"}), laserTexture(laser)
+Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : Object(true), laserTexture(laser)
 {
-    speed = 100;
-    health = 50;
     setPosition(position);
-
-    // Loads in texture from argument
     sprite.setTexture(texture);
-    sprite.setTextureRect(sf::IntRect(7, 4, 37, 40));
-
-    //Add nodes go in constructor
-    //THESE ARE TEST NODES AND ALL NEW ENEMEYS WILL FOLLOW THIS PATH
-    spline.addNode(sf::Vector2f(0, 700));
-    spline.offset(getPosition());
 }
 
 void Enemy::shootLaser()
 {
-    Game::spawn(new Projectile(laserTexture, getPosition(), sf::Vector2f(0, 250), {"Player"}));
+    Game::spawn(new Projectile(laserTexture, getPosition(), sf::Vector2f(0, -100), {"Player"}));
 }
 
 // Deal damage function
@@ -54,7 +45,7 @@ void Enemy::update(sf::Time deltaTime)
         // If this is the last node, destroy the object
         if (!spline.iterate())
         {
-            //destroy();
+            destroy();
         }
         else
         {
@@ -75,10 +66,7 @@ void Enemy::draw(sf::RenderTarget& target, sf::RenderStates states) const
     target.draw(sprite, states);
 }
 
-sf::FloatRect Enemy::getGlobalBounds() const
+void Enemy::collide(std::unique_ptr<Object>& collisionObject)
 {
-    sf::FloatRect hitbox(0, 0, 37, 40);
-    hitbox.left = getPosition().x;
-    hitbox.top = getPosition().y;
-    return hitbox;
+    Enemy::dealDamage(1);
 }

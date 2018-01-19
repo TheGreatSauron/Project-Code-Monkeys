@@ -55,6 +55,16 @@
 		</Linker>
 		<Unit filename="Enemy.cpp" />
 		<Unit filename="Enemy.h" />
+		<Unit filename="Enemy1.cpp" />
+		<Unit filename="Enemy1.h" />
+		<Unit filename="Enemy2.cpp" />
+		<Unit filename="Enemy2.h" />
+		<Unit filename="Enemy3.cpp" />
+		<Unit filename="Enemy3.h" />
+		<Unit filename="Enemy4.cpp" />
+		<Unit filename="Enemy4.h" />
+		<Unit filename="Enemy5.cpp" />
+		<Unit filename="Enemy5.h" />
 		<Unit filename="Framerate.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
