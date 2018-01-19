@@ -8,19 +8,8 @@
 // Constructor
 Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : Object(true), laserTexture(laser)
 {
-    speed = 100;
-    health = 50;
     setPosition(position);
-
-    // Loads in texture from argument
     sprite.setTexture(texture);
-    sprite.setTextureRect(sf::IntRect(354, 6, 41, 28));
-
-    //Add nodes go in constructor
-    //THESE ARE TEST NODES AND ALL NEW ENEMEYS WILL FOLLOW THIS PATH
-    spline.addNode(sf::Vector2f(700, 0));
-    spline.addNode(sf::Vector2f(700, 200));
-    spline.offset(getPosition());
 }
 
 void Enemy::shootLaser()
@@ -76,3 +65,13 @@ void Enemy::draw(sf::RenderTarget& target, sf::RenderStates states) const
     states = getTransform();
     target.draw(sprite, states);
 }
+
+void Enemy::collide(std::unique_ptr<Object>& collisionObject)
+{
+    Enemy::dealDamage(1);
+}
+
+
+
+
+
