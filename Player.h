@@ -27,6 +27,9 @@ private:
     //Invincibility clock
     std::unique_ptr<sf::Clock> invClock;
 
+    //Clock to keep track of time between shots
+    std::unique_ptr<sf::Clock> shootDelay;
+
 public:
     //constructor
     Player(sf::Vector2f position, sf::Texture&, int tempLife = 3);

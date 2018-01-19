@@ -5,7 +5,7 @@
 #include "ScoreDisplay.h"
 
 // Constructor
-Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : Object(true), laserTexture(laser)
+Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : Object(true, {"Enemy"}), laserTexture(laser)
 {
     speed = 100;
     health = 50;

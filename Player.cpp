@@ -1,6 +1,8 @@
 #include "Player.h"
 #include "Object.h"
 #include "Game.h"
+#include "Projectile.h"
+#include "Resources.h"
 #include <iostream>
 
 //constructor
@@ -52,6 +54,7 @@ void Player::update(sf::Time deltaTime)
         Game::playerInput.x += 1.00f;
     }
 
+    //Normalizes the vector to get rid of diagonal fast movement
     float magnitude = std::sqrt(std::pow(Game::playerInput.x, 2) + std::pow(Game::playerInput.y, 2));
     if (magnitude)
     {
@@ -62,6 +65,25 @@ void Player::update(sf::Time deltaTime)
     sf::Vector2f movement = Game::playerInput;
     movement *= deltaTime.asSeconds() * 200.f;
     move(movement);
+
+    if (shootDelay)
+    {
+        if (shootDelay->getElapsedTime() >= sf::seconds(1))
+        {
+            shootDelay.reset();
+        }
+    }
+
+    //Allow the player to shoot
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    {
+        if (!shootDelay)
+        {
+            Game::spawn(new Projectile(Resources::laser, getPosition(), sf::Vector2f(0, -200), {"Enemy"}));
+
+            shootDelay.reset(new sf::Clock());
+        }
+    }
 
     if (invClock)
     {
