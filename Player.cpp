@@ -1,58 +1,111 @@
 #include "Player.h"
+#include "Object.h"
+#include "Game.h"
 #include <iostream>
 
 //constructor
-Player::Player(sf::Vector2f position, sf::Texture& texture, int life)
+Player::Player(sf::Vector2f position, sf::Texture& texture, int life) : Object(true, {"Player"}), invClock()
 {
     //setting the value of lives
     lives = life;
+    //set the player position
+    setPosition(position);
     //set the spite texture
     sprite.setTexture(texture);
-    //set the spite position
-    sprite.setPosition(position);
-    //set the sprite scale
-    sprite.setScale(1.5f,1.5f);
-    //set the default direction
-    sf::Vector2i direction(0, Down);
-}
-
-//destructor
-Player::~Player()
-{
+    //set the sprite scale down to reasonable size
+    sprite.setScale(0.1f,0.15f);
 }
 
 //draws the player
 void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     states = getTransform();
-    target.draw(sprite,states);
+    target.draw(sprite, states);
 }
 
 //update function
 void Player::update(sf::Time deltaTime)
 {
-}
+    //Declaring X and Y values for the speed of player
+    Game::playerInput.x = 0;
+    Game::playerInput.y = 0;
 
-//moves the player
-void Player::movement(sf::Time& deltaTime, float speedX, float speedY)
-{
-    //adding X and Y to deltaTime as a value of seconds
-    speedX += deltaTime.asSeconds();
-    speedY += deltaTime.asSeconds();
+    //Moves the player up with W or the up arrow
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    {
+        //sets the offset based on the speed
+        Game::playerInput.y += -1.00f;
+    }
+    //Moves the player down with S or the down arrow
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+    {
+        Game::playerInput.y += 1.00f;
+    }
+    //Moves the player left with A or the left arrow
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+    {
+        Game::playerInput.x += -1.00f;
+    }
+    //Moves the player right with D or the right arrow
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    {
+        Game::playerInput.x += 1.00f;
+    }
 
-    //moves the player bases on the offset of the passed in X and Y value
-    sprite.move(speedX,speedY);
+    float magnitude = std::sqrt(std::pow(Game::playerInput.x, 2) + std::pow(Game::playerInput.y, 2));
+    if (magnitude)
+    {
+        Game::playerInput.x /= magnitude;
+        Game::playerInput.y /= magnitude;
+    }
+
+    sf::Vector2f movement = Game::playerInput;
+    movement *= deltaTime.asSeconds() * 200.f;
+    move(movement);
+
+    if (invClock)
+    {
+        if (invClock->getElapsedTime() >= sf::seconds(3))
+        {
+            invClock.reset();
+        }
+    }
 }
 
 //changes the players amount of lives
 void Player::changeLives(int tempLife)
 {
     //sets the number of lives to be equal to itself + the passed in number
-    lives = lives + tempLife; //sets the number of lives to be the passed in value to the function
+    lives += tempLife; //sets the number of lives to be the passed in value to the function
 
     //determines if the player has less than or 0 lives to then end the game
     if(lives <= 0)
     {
-        //end game, close window or display a restart screen
+        die();
     }
+}
+
+sf::FloatRect Player::getGlobalBounds() const
+{
+    sf::FloatRect hitbox(sf::FloatRect(0, 0, 60.5, 90.3));
+    hitbox.left = getPosition().x;
+    hitbox.top = getPosition().y;
+    return hitbox;
+}
+
+void Player::die()
+{
+    destroy();
+
+    Game::isWindowClosing = true;
+}
+
+void Player::collide(std::unique_ptr<Object>& collisionObject)
+{
+    if (!invClock)
+    {
+        changeLives(-1);
+    }
+
+    invClock.reset(new sf::Clock());
 }

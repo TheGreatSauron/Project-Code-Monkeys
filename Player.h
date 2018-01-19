@@ -24,28 +24,27 @@ private:
     //declaring the sprite
     sf::Sprite sprite;
 
-    //declaring the direction of the speed
-    sf::Vector2i direction;
-
-    //declaring direction values
-    enum direction {Down, Left, Right, Up};
+    //Invincibility clock
+    std::unique_ptr<sf::Clock> invClock;
 
 public:
     //constructor
     Player(sf::Vector2f position, sf::Texture&, int tempLife = 3);
-    //destructor
-    virtual ~Player();
-
-    void update(sf::Time deltaTime) const;
 
     //overriding the virtual function in object.h
     virtual void update(sf::Time deltaTime) override;
 
-    //Player movement
-    void movement(sf::Time& deltaTime, float speedX, float speedY);
-
     //adds or removes lives
     void changeLives(int lives);
+
+    //Gets the hitbox of the player
+    virtual sf::FloatRect getGlobalBounds() const override;
+
+    //Player dies
+    void die();
+
+    //Collide function for taking damage
+    virtual void collide(std::unique_ptr<Object>& collisionObject) override;
 
     //Overloading the operator ++ and -- to add and subtract lives respectively
     void operator ++() { lives = lives + 1; }
@@ -54,7 +53,7 @@ public:
         lives = lives - 1;
         if(lives <= 0)
         {
-            //end game
+            die();
         }
     }
 
