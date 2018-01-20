@@ -8,6 +8,8 @@ class Enemy4 : public Enemy
 public:
 
     Enemy4(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser);
+
+    sf::FloatRect getGlobalBounds() const override;
 };
 
 #endif // ENEMY4_H_INCLUDED

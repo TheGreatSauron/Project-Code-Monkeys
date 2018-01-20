@@ -13,3 +13,11 @@ Enemy3::Enemy3(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) 
     spline.addNode(sf::Vector2f(700, 200));
     spline.offset(getPosition());
 }
+
+sf::FloatRect Enemy3::getGlobalBounds() const
+{
+    sf::FloatRect hitbox(0, 0, 152, 46);
+    hitbox.left = getPosition().x;
+    hitbox.top = getPosition().y;
+    return hitbox;
+}
