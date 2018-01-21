@@ -117,6 +117,8 @@ sf::FloatRect Player::getGlobalBounds() const
 
 void Player::die()
 {
+	std::cout << "You have died!\n";
+
     destroy();
 
     Game::isWindowClosing = true;

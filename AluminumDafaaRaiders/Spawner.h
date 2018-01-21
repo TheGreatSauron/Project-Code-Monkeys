@@ -12,8 +12,11 @@ class Spawner : public Object
     //Time between spawns
     sf::Time intervalTime;
 
+	//Type of enemy spawned
+	int enemy;
+
 public:
-    Spawner(sf::Time interval);
+    Spawner(sf::Time interval, int enemyType);
 
     //override update function from object
     virtual void update(sf::Time deltaTime) override;

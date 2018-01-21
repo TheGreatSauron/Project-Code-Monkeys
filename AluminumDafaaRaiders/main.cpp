@@ -41,7 +41,7 @@ void renderWindow () {
 
 	Game::spawn(new ScoreDisplay(Resources::Arial, sf::Vector2f(Game::window->getSize().x, 0)));
 
-	Game::spawn(new Spawner(sf::seconds(5)));
+	Game::spawn(new Spawner(sf::seconds(5), 1));
 
 	//Creating the player
 	Game::spawn(new Player(sf::Vector2f(600,300),Resources::player,3));
@@ -153,13 +153,13 @@ int main()
     thread.launch();
 
 	//Start the music
-	sf::Music music;
+	/*sf::Music music;
 	if (!music.openFromFile("resource/music/treasure.wav"))
 	{
 		return EXIT_FAILURE;
 	}
 	music.setLoop(true);
-	music.play();
+	music.play();*/
 
     while (Game::window->isOpen())
     {
@@ -185,7 +185,9 @@ int main()
         }
     }
 
-    //pause so devs can see any errors or couts in console window before it closes
-    system("pause");
-    return 0;
+#ifdef _DEBUG
+	//pause so devs can see any errors or couts in console window before it closes
+	system("pause");
+	return 0;
+#endif // _DEBUG
 }
