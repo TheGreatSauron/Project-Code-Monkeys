@@ -5,7 +5,8 @@
 #include <ctime>
 
 //SFML includes
-#include <SFML/Graphics.hpp>
+#include <SFML\Graphics.hpp>
+#include <SFML\Audio.hpp>
 
 //Our includes
 #include "Object.h"
@@ -150,6 +151,15 @@ int main()
     //launches rendering thread with sf::thread and the window is automatically set to active in the new window
 	sf::Thread thread(renderWindow);
     thread.launch();
+
+	//Start the music
+	sf::Music music;
+	if (!music.openFromFile("resource/music/treasure.wav"))
+	{
+		return EXIT_FAILURE;
+	}
+	music.setLoop(true);
+	music.play();
 
     while (Game::window->isOpen())
     {
