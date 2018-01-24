@@ -14,7 +14,13 @@ Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : 
 
 void Enemy::shootLaser()
 {
-    Game::spawn(new Projectile(laserTexture, getPosition(), sf::Vector2f(0, 200), {"Player"}));
+	//Spawn lasers at the bottom of the enemy
+	sf::Vector2f spawnLocation = getPosition();
+	spawnLocation.x += getGlobalBounds().width / 2;
+	spawnLocation.y += getGlobalBounds().height;
+
+	// Spawn a laser
+    Game::spawn(new Projectile(laserTexture, spawnLocation, sf::Vector2f(0, 200), {"Player"}));
 }
 
 // Deal damage function
@@ -36,21 +42,18 @@ void Enemy::update(sf::Time deltaTime)
     //Get movement this frame
     float movement = speed;
 
-    //If next node is within reach, teleport and move on to next node
+    //If next node is within reach, move there and then move on to next node
     if (spline.getRemainingDistance(getPosition()) < movement * deltaTime.asSeconds())
     {
+		//Go to the current node
         movement -= spline.getRemainingDistance(getPosition()) * deltaTime.asSeconds();
         setPosition(spline.getCurrentNode());
 
-        // If this is the last node, destroy the object
-        if (!spline.iterate())
-        {
-            //destroy();
-        }
-        else
-        {
-            shootLaser();
-        }
+		//Move on to next node
+		spline.iterate();
+
+		//Shoot a laser when a node is reached
+		shootLaser();
     }
 
     //Move remaining distance
@@ -66,6 +69,7 @@ void Enemy::draw(sf::RenderTarget& target, sf::RenderStates states) const
     target.draw(sprite, states);
 }
 
+//Happens when enemy collides with something
 void Enemy::collide(std::unique_ptr<Object>& collisionObject)
 {
     Enemy::dealDamage(1);

@@ -16,6 +16,7 @@ class Spawner : public Object
 	int enemy;
 
 public:
+	//Constructor
     Spawner(sf::Time interval, int enemyType);
 
     //override update function from object

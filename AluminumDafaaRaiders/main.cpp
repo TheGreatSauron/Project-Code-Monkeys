@@ -124,8 +124,6 @@ void renderWindow () {
 			}
 		}
 
-		//Frame-rate
-
         //Drawing the framerate clock
         //Game::window->draw(Frame(frameClock, Resources::Arial));
         //displaying the window
@@ -188,6 +186,7 @@ int main()
 #ifdef _DEBUG
 	//pause so devs can see any errors or couts in console window before it closes
 	system("pause");
-	return 0;
 #endif // _DEBUG
+
+	return 0;
 }

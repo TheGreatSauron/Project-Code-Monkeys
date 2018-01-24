@@ -6,7 +6,7 @@
 #include <iostream>
 
 //constructor
-Player::Player(sf::Vector2f position, sf::Texture& texture, int life) : Object(true, {"Player"}), invClock()
+Player::Player(sf::Vector2f position, sf::Texture& texture, int life) : Object(true, {"Player"})
 {
     //setting the value of lives
     lives = life;
@@ -62,9 +62,28 @@ void Player::update(sf::Time deltaTime)
         Game::playerInput.y /= magnitude;
     }
 
+	//Move the player
     sf::Vector2f movement = Game::playerInput;
     movement *= deltaTime.asSeconds() * 300.f;
     move(movement);
+
+	//Keep the player in the screen
+	if (getPosition().x < 0)
+	{
+		setPosition(0, getPosition().y);
+	}
+	else if (getPosition().x + getGlobalBounds().width > Game::window->getSize().x)
+	{
+		setPosition(Game::window->getSize().x - getGlobalBounds().width, getPosition().y);
+	}
+	if (getPosition().y < 0)
+	{
+		setPosition(getPosition().x, 0);
+	}
+	else if (getPosition().y + getGlobalBounds().height > Game::window->getSize().y)
+	{
+		setPosition(getPosition().x, Game::window->getSize().y - getGlobalBounds().height);
+	}
 
     if (shootDelay)
     {
@@ -79,7 +98,11 @@ void Player::update(sf::Time deltaTime)
     {
         if (!shootDelay)
         {
-            Game::spawn(new Projectile(Resources::laser, getPosition(), sf::Vector2f(0, -200), {"Enemy"}));
+			//Spawn lasers at the bottom of the enemy
+			sf::Vector2f spawnLocation = getPosition();
+			spawnLocation.x += getGlobalBounds().width / 2;
+
+            Game::spawn(new Projectile(Resources::laser, spawnLocation, sf::Vector2f(0, -200), {"Enemy"}));
 
             shootDelay.reset(new sf::Clock());
         }

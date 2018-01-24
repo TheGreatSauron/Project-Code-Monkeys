@@ -14,6 +14,7 @@ Spawner::Spawner(sf::Time interval, int enemyType) : enemy(enemyType)
 
 void Spawner::update(sf::Time deltaTime)
 {
+	//If it is time to spawn a enemy
     if (clock.getElapsedTime() >= intervalTime)
     {
 		switch (enemy)
@@ -36,7 +37,8 @@ void Spawner::update(sf::Time deltaTime)
 			break;
 		}
 
-        clock.restart();
+		//Increase rate of enemy spawning over time
+		setIntervalTime(intervalTime - sf::milliseconds(50));
     }
 }
 
