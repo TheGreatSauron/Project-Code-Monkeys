@@ -19,7 +19,7 @@ HealthBar::HealthBar(int life) : Object(true), maxLife(life)
 	text.setString("Health:");
 
 	outline.setFillColor(sf::Color::Transparent);
-	outline.setOutlineThickness(5);
+	outline.setOutlineThickness(2);
 	outline.setOutlineColor(sf::Color::White);
 
 	inside.setFillColor(sf::Color::Red);

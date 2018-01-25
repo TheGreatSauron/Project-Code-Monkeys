@@ -3,7 +3,7 @@
 
 void Enemy2::scorePoints()
 {
-	Game::score += 300;
+	Game::score += 500;
 }
 
 Enemy2::Enemy2(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : Enemy(position, texture, laser)

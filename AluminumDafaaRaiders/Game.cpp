@@ -15,9 +15,17 @@ void Game::setWindow(sf::RenderWindow* newWindow)
     window.reset(newWindow);
 }
 
+void Game::playSound(sf::SoundBuffer& buffer)
+{
+	sounds.push_back(std::unique_ptr<sf::Sound> (new sf::Sound()));
+	sounds[sounds.size() - 1]->setBuffer(buffer);
+	sounds[sounds.size() - 1]->play();
+}
+
 std::unique_ptr<sf::RenderWindow> Game::window;
 std::unique_ptr<std::vector<std::unique_ptr<Object>>> Game::objectVector;
 int Game::score = 0;
 sf::Vector2f Game::playerInput(0, 0);
 bool Game::isWindowClosing = false;
 HealthBar Game::healthBar;
+std::vector<std::unique_ptr<sf::Sound>> Game::sounds;

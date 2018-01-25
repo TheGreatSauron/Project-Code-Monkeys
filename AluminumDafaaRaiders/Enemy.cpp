@@ -4,6 +4,7 @@
 #include "Projectile.h"
 #include "ScoreDisplay.h"
 #include "Object.h"
+#include "Resources.h"
 
 // Constructor
 Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : Object(true, { "Enemy" }), laserTexture(laser)
@@ -39,6 +40,9 @@ void Enemy::dealDamage(int damage)
 {
     // Deals damage to current health
 	health -= damage;
+
+	//Play sound
+	Game::playSound(Resources::enemyHit);
 
 	// Destroys object if health falls to 0
 	if (health <= 0)

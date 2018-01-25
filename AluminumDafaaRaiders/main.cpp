@@ -25,6 +25,8 @@ sf::Texture Resources::errorTexture;
 sf::Texture Resources::laser;
 sf::Texture Resources::enemies;
 sf::Texture Resources::player;
+sf::SoundBuffer Resources::enemyHit;
+sf::SoundBuffer Resources::playerHit;
 
 void renderWindow () {
 	//Framerate clock
@@ -99,6 +101,19 @@ void renderWindow () {
                         }
                     }
                 }
+			}
+		}
+
+		//Manage dead sounds
+		for (auto i = Game::sounds.begin(); i != Game::sounds.end();)
+		{
+			if ((*i)->getStatus() == sf::Sound::Stopped)
+			{
+				i = Game::sounds.erase(i);
+			}
+			else
+			{
+				i++;
 			}
 		}
 
