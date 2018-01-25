@@ -16,6 +16,14 @@ void Spline::offset(sf::Vector2f offset)
 
 void Spline::addNode(sf::Vector2f position)
 {
+	if (!nodeVector.empty())
+	{
+		if (nodeVector[0] == sf::Vector2f(0, 0))
+		{
+			nodeVector.erase(nodeVector.begin());
+		}
+	}
+
     nodeVector.push_back(position);
 }
 

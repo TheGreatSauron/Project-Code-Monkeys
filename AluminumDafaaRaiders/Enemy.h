@@ -20,6 +20,9 @@ protected:
 	// Shoots a laser
 	virtual void shootLaser();
 
+	//Scores the points of the enemy
+	virtual void scorePoints();
+
 public:
 
     // Constructor declaration

@@ -10,6 +10,12 @@ Enemy::Enemy(sf::Vector2f position, sf::Texture& texture, sf::Texture& laser) : 
 {
     setPosition(position);
     sprite.setTexture(texture);
+
+	spline.addNode(sf::Vector2f(std::rand()%1300, std::rand()%100));
+	spline.addNode(sf::Vector2f(std::rand() % 1300, std::rand() % 200));
+	spline.addNode(sf::Vector2f(std::rand() % 1300, std::rand() % 300));
+	spline.addNode(sf::Vector2f(std::rand() % 1300, std::rand() % 500));
+	//spline.offset(getPosition());
 }
 
 void Enemy::shootLaser()
@@ -23,6 +29,11 @@ void Enemy::shootLaser()
     Game::spawn(new Projectile(laserTexture, spawnLocation, sf::Vector2f(0, 200), {"Player"}));
 }
 
+void Enemy::scorePoints()
+{
+	Game::score += 100;
+}
+
 // Deal damage function
 void Enemy::dealDamage(int damage)
 {
@@ -32,6 +43,8 @@ void Enemy::dealDamage(int damage)
 	// Destroys object if health falls to 0
 	if (health <= 0)
 	{
+		scorePoints();
+
 		destroy();
 	}
 }
@@ -72,5 +85,11 @@ void Enemy::draw(sf::RenderTarget& target, sf::RenderStates states) const
 //Happens when enemy collides with something
 void Enemy::collide(std::unique_ptr<Object>& collisionObject)
 {
-    Enemy::dealDamage(1);
+	for (unsigned n = 0; n < collisionObject->collisionChannel.size(); n++)
+	{
+		if (collisionObject->collisionChannel[n] == "Projectile")
+		{
+			Enemy::dealDamage(1);
+		}
+	}
 }
