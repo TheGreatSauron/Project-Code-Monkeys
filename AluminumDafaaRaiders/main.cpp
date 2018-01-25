@@ -205,10 +205,8 @@ int main()
         }
     }
 
-#ifdef _DEBUG
 	//pause so devs can see any errors or couts in console window before it closes
 	system("pause");
-#endif // _DEBUG
 
 	return 0;
 }

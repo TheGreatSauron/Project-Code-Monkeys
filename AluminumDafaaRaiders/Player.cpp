@@ -104,7 +104,7 @@ void Player::update(sf::Time deltaTime)
 			sf::Vector2f spawnLocation = getPosition();
 			spawnLocation.x += getGlobalBounds().width / 2;
 
-            Game::spawn(new Projectile(Resources::laser, spawnLocation, sf::Vector2f(0, -250), {"Enemy"}));
+            Game::spawn(new Projectile(Resources::laser, spawnLocation, sf::Vector2f(0, -350), {"Enemy"}));
 
             shootDelay.reset(new sf::Clock());
         }
@@ -140,9 +140,9 @@ void Player::changeLives(int tempLife)
 
 sf::FloatRect Player::getGlobalBounds() const
 {
-    sf::FloatRect hitbox(sf::FloatRect(0, 0, 60.5, 90.3));
+    sf::FloatRect hitbox(sf::FloatRect(0, 0, 60.5, 60.3));
     hitbox.left = getPosition().x;
-    hitbox.top = getPosition().y;
+    hitbox.top = getPosition().y + 10;
     return hitbox;
 }
 

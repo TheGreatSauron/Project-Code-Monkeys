@@ -1,6 +1,4 @@
-﻿  main.cpp
-c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\main.cpp(44): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\main.cpp(64): warning C4390: ';': empty controlled statement found; is this the intent?
-c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\main.cpp(160): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+﻿  Player.cpp
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\player.cpp(143): warning C4305: 'argument': truncation from 'double' to 'float'
   AluminumDafaaRaiders.vcxproj -> C:\Users\Taylor\Documents\GitHub\Project-Code-Monkeys\Debug\AluminumDafaaRaiders.exe
   AluminumDafaaRaiders.vcxproj -> C:\Users\Taylor\Documents\GitHub\Project-Code-Monkeys\Debug\AluminumDafaaRaiders.pdb (Partial PDB)
