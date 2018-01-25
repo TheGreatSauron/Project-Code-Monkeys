@@ -42,7 +42,7 @@ public:
 
     //A group of strings dictating the collision pipelines to which the object belongs
     //Set it in the constructor
-    const std::vector<std::string> collisionChannel;
+    std::vector<std::string> collisionChannel;
 };
 
 #endif // OBJECT_H_INCLUDED

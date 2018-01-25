@@ -1,13 +1,15 @@
 #ifndef GAME_H_INCLUDED
 #define GAME_H_INCLUDED
 
-#include <SFML/graphics.hpp>
+#include <SFML\graphics.hpp>
+#include <SFML\Audio.hpp>
 #include <memory>
 #include <vector>
 #include <string>
 #include <sstream>
 #include "Object.h"
 #include "Player.h"
+#include "HealthBar.h"
 
 struct Game
 {
@@ -16,6 +18,8 @@ struct Game
     static int score;
     static sf::Vector2f playerInput;
     static bool isWindowClosing;
+	static HealthBar healthBar;
+	static std::vector<std::unique_ptr<sf::Sound>> sounds;
 
     //enable the "to_string" function of std:: as code-blocks has bugs with it not working correctly
     template <typename T>
@@ -29,6 +33,8 @@ struct Game
 
     //Sets a new game window
     static void setWindow(sf::RenderWindow* newWindow);
+
+	static void playSound(sf::SoundBuffer& buffer);
 };
 
 template <typename T>

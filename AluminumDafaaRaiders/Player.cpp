@@ -3,7 +3,7 @@
 #include "Game.h"
 #include "Projectile.h"
 #include "Resources.h"
-#include <iostream>
+#include <SFML\Audio.hpp>
 
 //constructor
 Player::Player(sf::Vector2f position, sf::Texture& texture, int life) : Object(true, {"Player"})
@@ -16,6 +16,8 @@ Player::Player(sf::Vector2f position, sf::Texture& texture, int life) : Object(t
     sprite.setTexture(texture);
     //set the sprite scale down to reasonable size
     sprite.setScale(0.1f,0.15f);
+	//Set the health bar
+	Game::healthBar.reset(lives);
 }
 
 //draws the player
@@ -102,7 +104,7 @@ void Player::update(sf::Time deltaTime)
 			sf::Vector2f spawnLocation = getPosition();
 			spawnLocation.x += getGlobalBounds().width / 2;
 
-            Game::spawn(new Projectile(Resources::laser, spawnLocation, sf::Vector2f(0, -200), {"Enemy"}));
+            Game::spawn(new Projectile(Resources::laser, spawnLocation, sf::Vector2f(0, -350), {"Enemy"}));
 
             shootDelay.reset(new sf::Clock());
         }
@@ -123,6 +125,12 @@ void Player::changeLives(int tempLife)
     //sets the number of lives to be equal to itself + the passed in number
     lives += tempLife; //sets the number of lives to be the passed in value to the function
 
+	//Update the health bar
+	Game::healthBar.updateHealth(lives);
+
+	//Play sound
+	Game::playSound(Resources::playerHit);
+
     //determines if the player has less than or 0 lives to then end the game
     if(lives <= 0)
     {
@@ -132,15 +140,16 @@ void Player::changeLives(int tempLife)
 
 sf::FloatRect Player::getGlobalBounds() const
 {
-    sf::FloatRect hitbox(sf::FloatRect(0, 0, 60.5, 90.3));
+    sf::FloatRect hitbox(sf::FloatRect(0, 0, 60.5, 60.3));
     hitbox.left = getPosition().x;
-    hitbox.top = getPosition().y;
+    hitbox.top = getPosition().y + 10;
     return hitbox;
 }
 
 void Player::die()
 {
 	std::cout << "You have died!\n";
+	std::cout << "Your score was " << Game::score << "\n";
 
     destroy();
 

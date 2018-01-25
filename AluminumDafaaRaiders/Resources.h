@@ -1,6 +1,8 @@
 #ifndef RESOURCES_H_INCLUDED
 #define RESOURCES_H_INCLUDED
 #include <iostream>
+#include <SFML\Graphics.hpp>
+#include <SFML\Audio.hpp>
 
 class Resources{
 public:
@@ -14,6 +16,10 @@ public:
     static sf::Texture enemies;
     //Player
     static sf::Texture player;
+	//Enemy hit sound
+	static sf::SoundBuffer enemyHit;
+	//Player hit sound
+	static sf::SoundBuffer playerHit;
 	//loads all textures when called, if one fails it returns false, if not then true
 	static bool load() {
 		//load arial
@@ -54,6 +60,19 @@ public:
             std::cout << "playerTxt";
             return false;
         }
+
+		if (!enemyHit.loadFromFile("resource/music/Enemy hit.wav"))
+		{
+			std::cout << "enemyHit";
+			return false;
+		}
+
+		if (!playerHit.loadFromFile("resource/music/Player hit.wav"))
+		{
+			std::cout << "playerHit";
+			return false;
+		}
+
 		return true;
 	}
 

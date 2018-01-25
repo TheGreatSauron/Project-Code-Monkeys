@@ -25,6 +25,8 @@ sf::Texture Resources::errorTexture;
 sf::Texture Resources::laser;
 sf::Texture Resources::enemies;
 sf::Texture Resources::player;
+sf::SoundBuffer Resources::enemyHit;
+sf::SoundBuffer Resources::playerHit;
 
 void renderWindow () {
 	//Framerate clock
@@ -42,6 +44,10 @@ void renderWindow () {
 	Game::spawn(new ScoreDisplay(Resources::Arial, sf::Vector2f(Game::window->getSize().x, 0)));
 
 	Game::spawn(new Spawner(sf::seconds(5), 1));
+	Game::spawn(new Spawner(sf::seconds(15), 2));
+	Game::spawn(new Spawner(sf::seconds(30), 3));
+	Game::spawn(new Spawner(sf::seconds(10), 4));
+	Game::spawn(new Spawner(sf::seconds(7), 5));
 
 	//Creating the player
 	Game::spawn(new Player(sf::Vector2f(600,300),Resources::player,3));
@@ -98,6 +104,19 @@ void renderWindow () {
 			}
 		}
 
+		//Manage dead sounds
+		for (auto i = Game::sounds.begin(); i != Game::sounds.end();)
+		{
+			if ((*i)->getStatus() == sf::Sound::Stopped)
+			{
+				i = Game::sounds.erase(i);
+			}
+			else
+			{
+				i++;
+			}
+		}
+
 		//Do garbage collection, needs to iterate
 		for (auto i = Game::objectVector->begin(); i != Game::objectVector->end();)
         {
@@ -123,6 +142,9 @@ void renderWindow () {
 				Game::window->draw(*currentObject);
 			}
 		}
+
+		//Draw the health bar
+		Game::window->draw(Game::healthBar);
 
         //Drawing the framerate clock
         //Game::window->draw(Frame(frameClock, Resources::Arial));
@@ -151,13 +173,13 @@ int main()
     thread.launch();
 
 	//Start the music
-	/*sf::Music music;
+	sf::Music music;
 	if (!music.openFromFile("resource/music/treasure.wav"))
 	{
 		return EXIT_FAILURE;
 	}
 	music.setLoop(true);
-	music.play();*/
+	music.play();
 
     while (Game::window->isOpen())
     {
@@ -183,10 +205,8 @@ int main()
         }
     }
 
-#ifdef _DEBUG
 	//pause so devs can see any errors or couts in console window before it closes
 	system("pause");
-#endif // _DEBUG
 
 	return 0;
 }

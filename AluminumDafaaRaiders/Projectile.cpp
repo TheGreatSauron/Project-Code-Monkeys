@@ -1,4 +1,5 @@
 #include "Projectile.h"
+#include "Game.h"
 #include <iostream>
 
 void Projectile::draw(sf::RenderTarget& target, sf::RenderStates states) const
@@ -17,11 +18,22 @@ Projectile::Projectile(sf::Texture& texture, sf::Vector2f position, sf::Vector2f
 	setOrigin(getGlobalBounds().width / 2, getGlobalBounds().height / 2);
 
     setPosition(position);
+
+	collisionChannel.push_back("Projectile");
 }
 
 void Projectile::update(sf::Time deltaTime)
 {
     move(velocity * deltaTime.asSeconds());
+
+	if (getPosition().y - getGlobalBounds().height / 2 > Game::window->getSize().y)
+	{
+		destroy();
+	}
+	else if (getPosition().y + getGlobalBounds().height / 2 < 0)
+	{
+		destroy();
+	}
 }
 
 sf::FloatRect Projectile::getGlobalBounds() const
@@ -34,5 +46,17 @@ sf::FloatRect Projectile::getGlobalBounds() const
 
 void Projectile::collide(std::unique_ptr<Object>& collisionObject)
 {
-    destroy();
+	bool hitProjectile = false;
+	for (unsigned n = 0; n < collisionObject->collisionChannel.size(); n++)
+	{
+		if (collisionObject->collisionChannel[n] == "Projectile")
+		{
+			hitProjectile = true;
+		}
+	}
+
+	if (!hitProjectile)
+	{
+		destroy();
+	}
 }

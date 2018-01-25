@@ -1,4 +1,4 @@
 ﻿  Player.cpp
-c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\player.cpp(135): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\player.cpp(143): warning C4305: 'argument': truncation from 'double' to 'float'
   AluminumDafaaRaiders.vcxproj -> C:\Users\Taylor\Documents\GitHub\Project-Code-Monkeys\Debug\AluminumDafaaRaiders.exe
   AluminumDafaaRaiders.vcxproj -> C:\Users\Taylor\Documents\GitHub\Project-Code-Monkeys\Debug\AluminumDafaaRaiders.pdb (Partial PDB)

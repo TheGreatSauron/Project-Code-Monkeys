@@ -4,6 +4,9 @@
 
 class Enemy2 : public Enemy
 {
+protected:
+
+	virtual void scorePoints() override;
 
 public:
 
