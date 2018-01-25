@@ -128,6 +128,9 @@ void renderWindow () {
 			}
 		}
 
+		//Draw the health bar
+		Game::window->draw(Game::healthBar);
+
         //Drawing the framerate clock
         //Game::window->draw(Frame(frameClock, Resources::Arial));
         //displaying the window

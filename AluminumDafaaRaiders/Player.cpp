@@ -16,6 +16,8 @@ Player::Player(sf::Vector2f position, sf::Texture& texture, int life) : Object(t
     sprite.setTexture(texture);
     //set the sprite scale down to reasonable size
     sprite.setScale(0.1f,0.15f);
+	//Set the health bar
+	Game::healthBar.reset(lives);
 }
 
 //draws the player
@@ -122,6 +124,9 @@ void Player::changeLives(int tempLife)
 {
     //sets the number of lives to be equal to itself + the passed in number
     lives += tempLife; //sets the number of lives to be the passed in value to the function
+
+	//Update the health bar
+	Game::healthBar.updateHealth(lives);
 
     //determines if the player has less than or 0 lives to then end the game
     if(lives <= 0)

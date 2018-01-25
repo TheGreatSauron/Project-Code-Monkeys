@@ -8,6 +8,7 @@
 #include <sstream>
 #include "Object.h"
 #include "Player.h"
+#include "HealthBar.h"
 
 struct Game
 {
@@ -16,6 +17,7 @@ struct Game
     static int score;
     static sf::Vector2f playerInput;
     static bool isWindowClosing;
+	static HealthBar healthBar;
 
     //enable the "to_string" function of std:: as code-blocks has bugs with it not working correctly
     template <typename T>
