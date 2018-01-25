@@ -1,4 +1,39 @@
-﻿  Player.cpp
+﻿  main.cpp
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\main.cpp(44): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\main.cpp(64): warning C4390: ';': empty controlled statement found; is this the intent?
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\main.cpp(160): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  StarMap.cpp
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\starmap.cpp(14): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\starmap.cpp(15): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+  Spline.cpp
+  Spawner.cpp
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\spawner.cpp(24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\spawner.cpp(27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\spawner.cpp(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\spawner.cpp(33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\spawner.cpp(36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  ScoreDisplay.cpp
+  Projectile.cpp
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\projectile.cpp(15): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\projectile.cpp(41): warning C4305: 'argument': truncation from 'double' to 'float'
+  Player.cpp
 c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\player.cpp(143): warning C4305: 'argument': truncation from 'double' to 'float'
+  Object.cpp
+  HealthBar.cpp
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\healthbar.cpp(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\healthbar.cpp(37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Game.cpp
+  Enemy5.cpp
+  Enemy4.cpp
+  Enemy3.cpp
+  Enemy2.cpp
+  Enemy1.cpp
+  Enemy.cpp
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\enemy.cpp(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\enemy.cpp(16): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\enemy.cpp(17): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\taylor\documents\github\project-code-monkeys\aluminumdafaaraiders\enemy.cpp(18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+  LINK : C:\Users\Taylor\Documents\GitHub\Project-Code-Monkeys\Debug\AluminumDafaaRaiders.exe not found or not built by the last incremental link; performing full link
   AluminumDafaaRaiders.vcxproj -> C:\Users\Taylor\Documents\GitHub\Project-Code-Monkeys\Debug\AluminumDafaaRaiders.exe
   AluminumDafaaRaiders.vcxproj -> C:\Users\Taylor\Documents\GitHub\Project-Code-Monkeys\Debug\AluminumDafaaRaiders.pdb (Partial PDB)
