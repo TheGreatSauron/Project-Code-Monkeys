@@ -1,0 +1,40 @@
+﻿  Enemy.cpp
+Enemy.cpp(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+Enemy.cpp(16): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+Enemy.cpp(17): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+Enemy.cpp(18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Enemy1.cpp
+  Enemy2.cpp
+  Enemy3.cpp
+  Enemy4.cpp
+  Enemy5.cpp
+  Game.cpp
+  HealthBar.cpp
+HealthBar.cpp(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+HealthBar.cpp(37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  main.cpp
+main.cpp(44): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+main.cpp(64): warning C4390: ';': empty controlled statement found; is this the intent?
+main.cpp(160): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Object.cpp
+  Player.cpp
+Player.cpp(143): warning C4305: 'argument': truncation from 'double' to 'float'
+  Projectile.cpp
+Projectile.cpp(15): warning C4305: 'argument': truncation from 'double' to 'float'
+Projectile.cpp(41): warning C4305: 'argument': truncation from 'double' to 'float'
+  ScoreDisplay.cpp
+  Spawner.cpp
+Spawner.cpp(24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+Spawner.cpp(27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+Spawner.cpp(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+Spawner.cpp(33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+Spawner.cpp(36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Spline.cpp
+  StarMap.cpp
+StarMap.cpp(14): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+StarMap.cpp(15): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+  Generating code
+  All 674 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  AluminumDafaaRaiders.vcxproj -> C:\Users\Taylor\Documents\GitHub\Project-Code-Monkeys\Release\AluminumDafaaRaiders.exe
+  AluminumDafaaRaiders.vcxproj -> C:\Users\Taylor\Documents\GitHub\Project-Code-Monkeys\Release\AluminumDafaaRaiders.pdb (Full PDB)
